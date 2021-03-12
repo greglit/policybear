@@ -4,3 +4,9 @@ Policymakers need a fast way to get the information in a very compact and easy t
 
 -> Web interface to generate short sentences (and small graphics) from climate data sets to use them in the next conference or meeting.
 
+## Features
+
++ Pick timeframe
++ Pick parameter
++ Pick dump unit of measurement to compare to
++ Pick a theme
