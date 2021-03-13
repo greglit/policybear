@@ -1,10 +1,12 @@
 <template>
   <div>
-    <b-container>
-      <b-row>
-        <h1 class="display 3">Hi, I'm Policy Bear! Let's start creating simple arguments from complex data.</h1>
-      </b-row>
-      <b-card class="w-100 mt-5">
+    <b-row>
+      <h1 class="display-3 text-center" style="position:absolute; width:70%; top:30px; left:15%;">"Hi, I'm Policy Bear! Let's start creating simple arguments from complex data."</h1>
+      <img src="../assets/policy_bear.jpg" alt="policy bear" style="height:100%; width:100%;"/>
+      <b-icon-arrow-down-circle-fill animation="cylon-vertical" font-scale="4" style="position:absolute; right:25%; top:450px"/>
+    </b-row>
+    <b-container style="margin-top: -400px">
+      <b-card class="w-100 mt-5 shadow">
         <b-row>
           <b-col cols="6">
             <b-form>
@@ -13,7 +15,7 @@
               <label for="starting-date">at the time</label>
               <b-form-select id="starting-date" v-model="request.startDate" :options="yearOptions" class="mb-2" /> <br>
               <label for="end-date">to data at the time</label>
-              <b-form-select id="end-date" v-model="request.endDate" :options="yearOptions" class="mb-2" />
+              <b-form-select id="end-date" v-model="request.endDate" :options="yearOptionsReverse" class="mb-2" />
             </b-form>
           </b-col>
           <b-col cols="6" class="border-left">
@@ -28,16 +30,20 @@
           </b-col>
         </b-row>
       </b-card>
-      {{response}}
-      <b-row>
-          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.selectedDataset]"/>
-      </b-row>
+      <!--<b-button v-if="requestIsValid" class="mt-5" variant="outline-primary" @click="print()">
+        <b-icon-printer class="mr-2"/>Print
+      </b-button>-->
+      <div ref="argument" style="margin-bottom: 200px; margin-top: 100px">
+        <b-row>
+          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.selectedDataset]" class="my-5"/>
+        </b-row>
+      </div>
     </b-container>
   </div>
 </template>
 
 <script>
-
+import html2pdf from 'html2pdf.js'
 import ArgumentCard from '../components/ArgumentCard.vue';
 
 export default {
@@ -56,8 +62,8 @@ export default {
       ],
       themeOptions : [
         {value: 'classic', text: 'Classic theme'},
-        {value: 'modern', text: 'Modern theme'},
-        {value: 'newspaper', text: 'Newspaper theme'},
+        {value: 'drastic', text: 'Typerwriter theme'},
+        {value: 'news', text: 'Newspaper theme'},
       ],
       request : {
         selectedDataset : null,
@@ -67,7 +73,6 @@ export default {
         theme : 'classic',
         compareTo : '',
       },
-      response : '',
     }
   },
   methods: {
@@ -80,6 +85,11 @@ export default {
       .catch(function(error) {
         console.log(error);
       });
+    },
+    print() {
+      console.log('drucken!')
+      let element = this.$refs.argument;
+      html2pdf(element);
     }
   },
   computed: {
@@ -104,13 +114,23 @@ export default {
       }
       return options;
     },
+    yearOptionsReverse() {
+      var options = [ { value: '', text: 'Please select a year' }, ];
+      if (this.request.selectedDataset != undefined) {
+        var start = this.datasets[this.request.selectedDataset].minYear;
+        var end = this.datasets[this.request.selectedDataset].maxYear;
+        for (var year = end; year >= start; year--) {
+          options.push({ value: year, text: String(year)})
+        }
+      }
+      return options;
+    },
     compareToOptions()  {
       var options = [ { value: '', text: 'Please select a everyday size' }, ];
       if (this.request.selectedDataset != undefined) {
-        options.push(this.datasets[this.request.selectedDataset].compareTo);
-        var compareTo = [
-          { value: 'cows', text: 'Cows' },
-        ]
+        for (const compare of this.datasets[this.request.selectedDataset].compareTo) {
+          options.push({ value: compare, text: compare });
+        }
       }
       return options;
     }
