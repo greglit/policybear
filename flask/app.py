@@ -53,15 +53,7 @@ unit_conversion = {'ch4': 0.001,
 comps = {'cows': 100*0.001*23,
          'cars': 110*1e-6*12000}
 
-# select dataset
-# var = 'ch4'
-# df = data[var]
 
-# # read data
-# df = pd.read_csv('methane.csv', sep=';')
-# df = complement(df)
-# df['time'] = [dt.datetime(y,m,d) for y,m,d in zip(df['year'],df['month'],df['day'])]
-# df = df[['time','value']].set_index('time')
 
 def return_period(df, start_date,end_date):
     begin,end = pd.Timestamp(start_date),pd.Timestamp(str(int(end_date)+1))
