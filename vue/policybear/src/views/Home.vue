@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     fetchDataSets() {
-      fetch(`${this.apiURL}/datasets/`, {})
+      fetch(`${this.apiURL}datasets/`, {})
       .then((resp) => resp.json())
       .then((data) => {
         this.datasets = data;
