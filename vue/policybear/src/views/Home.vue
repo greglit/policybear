@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     async fetchData() {
-      fetch(`http://greglit.pythonanywhere.com/`,{ //`http://192.168.178.25:5000/?penis=${this.date}&`, {
+      fetch( "/api/", { //`http://greglit.pythonanywhere.com/`,{ //`http://192.168.178.25:5000/?penis=${this.date}&`, {
       })
       .then((resp) => resp.json())
       .then((data) => {
