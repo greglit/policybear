@@ -16,7 +16,7 @@
 					was <b>{{responseData.begin_data}} ppm</b> in {{responseData.begin_period}} and <b>{{responseData.end_data}} ppm</b> in {{responseData.end_period}}.
 				</div>
 
-				<div v-if="request.compareTo != '' && responseData.comp_amount != undefined">
+				<div v-if="request.compareTo != '' && responseData.comp_amount != undefined && request.wording != 'absolute'">
 					This is equivalent to the annually emission of <b>{{responseData.comp_amount}}</b> {{request.compareTo}}.
 				</div>
 			</div>
@@ -24,7 +24,7 @@
 				<h1>loading...</h1>
 			</div>
 		</div>
-		<p>Created with <img src="../../public/policybear_logo.png" alt="logo" style="width:20px;height:20px; margin-top:-3px" class="mx-1"/> Policy Bear to save the arctic. Raahhhrr! 🌏</p>
+		<p>Created with <img src="../../public/policybear_logo.png" alt="logo" style="width:20px;height:20px; margin-top:-3px" class="mx-1"/> Policy Bear to save the arctic. Raahhhrr! ❤</p>
 	</div>
 </template>
 
