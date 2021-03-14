@@ -17,7 +17,7 @@
 				</div>
 
 				<div v-if="request.compareTo != '' && responseData.comp_amount != undefined && request.wording != 'absolute'">
-					This is equivalent to the annually emission of <b>{{responseData.comp_amount}}</b> {{request.compareTo}}.
+					This is equivalent to the annual emission of <b>{{responseData.comp_amount}}</b> {{request.compareTo}}.
 				</div>
 			</div>
 			<div v-else>
