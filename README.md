@@ -6,7 +6,7 @@ Our contribution to the Hack The Arctic Hackathon
 
 + The web interface enables policy-makers to create nice looking text graphics with a short sentence about the data and a comparison to a day to day measurement.
 
-## The policy-makers can pick...
+## Policy-makers can pick...
 
 + a dataset (we included a methane and a carbon dioxide data set from Barrow Atmospheric Baseline Observatory https://www.esrl.noaa.gov/gmd/dv/iadv/graph.php?code=BRW&program=ccgg&type=ts())
 + a timeframe to compare the values (in what range years are available depends on the dataset)
