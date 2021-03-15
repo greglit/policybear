@@ -20,7 +20,7 @@ Vue.mixin({
   computed: {
     apiURL() {
       if (Vue.config.devtools) {
-        return 'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/';
+        return 'https://dev-policybear.herokuapp.com/'; //'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/';
       } else {
         return 'https://policybear.herokuapp.com/';
       }
