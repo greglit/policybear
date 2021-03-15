@@ -57,8 +57,8 @@ export default {
       datasets : {},
       wordingOptions : [
         {value: 'absolute', text: 'Compare absolute values'},
-        {value: 'difference', text: 'Show absolute differnce'},
-        {value: 'relative', text: 'Show differnece in percent'},
+        {value: 'difference', text: 'Show absolute difference'},
+        {value: 'relative', text: 'Show difference in percent'},
       ],
       themeOptions : [
         {value: 'classic', text: 'Classic theme'},
@@ -129,7 +129,7 @@ export default {
       var options = [ { value: '', text: 'Please select a everyday size' }, ];
       if (this.request.selectedDataset != undefined) {
         for (const compare of this.datasets[this.request.selectedDataset].compareTo) {
-          options.push({ value: compare, text: compare });
+          options.push({ value: compare, text: this.capitFirstChar(compare) });
         }
       }
       return options;
