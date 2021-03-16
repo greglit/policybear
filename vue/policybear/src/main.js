@@ -19,7 +19,8 @@ Vue.use(IconsPlugin)
 Vue.mixin({
   computed: {
     apiURL() {
-      if (Vue.config.devtools) {
+      var url = String(window.location)
+      if (Vue.config.devtools || url.includes('dev')) {
         return 'https://dev-policybear.herokuapp.com/'; //'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/';
       } else {
         return 'https://policybear.herokuapp.com/';
