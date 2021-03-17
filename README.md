@@ -37,10 +37,10 @@ The **Policy Bear** is up and running at [www.policybear.gregl.it](https://polic
 image source: https://perditus.blog/2020/11/05/the-ice-kingdom/
 
 
-### Further Development
+## Further Development
 
 + Integrate data directly from [data portal](https://data.icos-cp.eu/portal/#%7B%22filterCategories%22%3A%7B%22project%22%3A%5B%22icos%22%5D%7D%7D) of the Integrated Carbon Observation System (ICOS).
 + Select available ICOS stations via map viewer.
-+ Mobile version, so that the **Policy Bear** can be used from anywhere at every time.
++ Mobile version, so that **Policy Bear** can be used from anywhere at every time.
 + Adding more and improving the currently available elements to compare to.
 + Improving interface and user experience of our website.
