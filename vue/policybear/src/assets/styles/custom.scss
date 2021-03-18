@@ -1,0 +1,19 @@
+@import "../../../node_modules/nord/src/sass/nord.scss";
+
+$enable-responsive-font-sizes: true;
+
+$link-hover-color: theme-color("primary") !default;
+
+//$emphasized-link-hover-darken-percentage: 0% !default;
+
+$theme-colors: (
+  "primary": $nord3,
+  "light": $nord4,
+  "success": #00b451,
+  "info":#5C6BC0,
+
+);
+
+$container-max-widths: (
+  xl: 1300px
+);
