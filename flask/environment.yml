@@ -1,0 +1,19 @@
+name: policybear
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - pip
+  - branca
+  - dask
+  - flask
+  - flask-cors
+  - folium
+  - gdal=3.0.4
+  - icoscp             # ICOS data portal py api  
+  - numpy
+  - pandas
+  - rasterio
+  - rioxarray
+  - xarray
