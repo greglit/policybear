@@ -1,22 +1,33 @@
 <template>
-  <div>
-    <b-row>
-      <h1 class="display-3 text-center" style="position:absolute; width:70%; top:30px; left:15%;">"Hi, I'm Policy Bear! Let's start creating simple arguments from complex data."</h1>
-      <img src="../assets/policy_bear.jpg" alt="policy bear" style="height:100%; width:100%;"/>
-      <b-icon-arrow-down-circle-fill animation="cylon-vertical" font-scale="4" style="position:absolute; right:25%; top:450px"/>
-    </b-row>
-    <b-container style="margin-top: -400px">
+  <div class="h-100">
+    <b-container class="h-100">
+      <b-row class="h-100">
+        <b-col cols="12" md="6">
+            <img src="../assets/polarbear-transparent.png" alt="policy bear" class="w-75 y-center"/>
+        </b-col>
+        <b-col cols="12" md="6">
+          <h1 class="display-5 text-left rubik-bold my-md-5">"Hi, I'm Policy Bear!</h1>
+          <h1 class="text-left ">Let's start creating simple arguments from complex data."</h1>
+          <!--<b-icon-arrow-down-circle-fill animation="cylon-vertical" font-scale="4" style=""/>-->
+          <b-card class="shadow m-3 mt-5 border-0">
+            <b-form inline>
+              <label for="pick-dataset" class="text-left">Compare data</label>
+              <b-form-select id="pick-dataset" v-model="request.selectedDataset" :options="datasetsOptions" class="mb-2" />
+              <label for="pick-dataset" class="text-left">Select a ICOS station</label>
+              <b-form-select id="pick-dataset" v-model="request.selectedDataset" :options="datasetsOptions" class="mb-2" />
+              <label for="starting-date">Timeframe start</label>
+              <b-form-select id="starting-date" v-model="request.startDate" :options="yearOptions" class="mb-2" />
+              <label for="end-date">Timeframe end</label>
+              <b-form-select id="end-date" v-model="request.endDate" :options="yearOptionsReverse" class="mb-2" />
+            </b-form>
+          </b-card>
+        </b-col>
+      </b-row>
+
       <b-card class="w-100 mt-5 shadow">
         <b-row>
           <b-col cols="6" class="text-left">
-            <b-form>
-              <label for="pick-dataset" class="text-left">Compare data of</label>
-              <b-form-select id="pick-dataset" v-model="request.selectedDataset" :options="datasetsOptions" class="mb-2" /> <br>
-              <label for="starting-date">between year</label>
-              <b-form-select id="starting-date" v-model="request.startDate" :options="yearOptions" class="mb-2" /> <br>
-              <label for="end-date">and year</label>
-              <b-form-select id="end-date" v-model="request.endDate" :options="yearOptionsReverse" class="mb-2" />
-            </b-form>
+            
           </b-col>
           <b-col cols="6" class="border-left text-left">
             <b-form>
@@ -30,9 +41,6 @@
           </b-col>
         </b-row>
       </b-card>
-      <!--<b-button v-if="requestIsValid" class="mt-5" variant="outline-primary" @click="print()">
-        <b-icon-printer class="mr-2"/>Print
-      </b-button>-->
       <div ref="argument" style="margin-bottom: 200px; margin-top: 100px">
         <b-row>
           <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.selectedDataset]" class="my-5"/>
@@ -43,7 +51,7 @@
 </template>
 
 <script>
-import html2pdf from 'html2pdf.js'
+//import html2pdf from 'html2pdf.js'
 import ArgumentCard from '../components/ArgumentCard.vue';
 
 export default {
@@ -142,6 +150,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.y-center-help {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.y-center {
+  //vertical-align: middle;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+
 .form {
   background-color: rgb(213, 245, 255);
 }
