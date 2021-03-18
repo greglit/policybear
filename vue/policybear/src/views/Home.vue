@@ -1,51 +1,59 @@
 <template>
   <div class="h-100">
     <b-container class="h-100">
-      <b-row class="h-100">
-        <b-col cols="12" md="6">
+      <b-row class="h-100 mb-5">
+        <b-col cols="12" md="6" class="mb-4 mb-md-0">
             <img src="../assets/polarbear-transparent.png" alt="policy bear" class="w-75 y-center"/>
         </b-col>
         <b-col cols="12" md="6">
-          <h1 class="display-5 text-left rubik-bold my-md-5">"Hi, I'm Policy Bear!</h1>
-          <h1 class="text-left ">Let's start creating simple arguments from complex data."</h1>
+          <h1 class="display-5 text-left rubik-bold my-md-5 m-2">"Hi, I'm Policy Bear!</h1>
+          <h1 class="text-left m-2">Let's start creating simple arguments from complex data."</h1>
           <!--<b-icon-arrow-down-circle-fill animation="cylon-vertical" font-scale="4" style=""/>-->
-          <b-card class="shadow m-3 mt-5 border-0">
-            <b-form inline>
-              <label for="pick-dataset" class="text-left">Compare data</label>
-              <b-form-select id="pick-dataset" v-model="request.selectedDataset" :options="datasetsOptions" class="mb-2" />
-              <label for="pick-dataset" class="text-left">Select a ICOS station</label>
-              <b-form-select id="pick-dataset" v-model="request.selectedDataset" :options="datasetsOptions" class="mb-2" />
-              <label for="starting-date">Timeframe start</label>
-              <b-form-select id="starting-date" v-model="request.startDate" :options="yearOptions" class="mb-2" />
-              <label for="end-date">Timeframe end</label>
-              <b-form-select id="end-date" v-model="request.endDate" :options="yearOptionsReverse" class="mb-2" />
+          <b-card class="shadow m-2 mt-md-5 border-0 text-left rounded-lg">
+            <b-form class="mb-2">
+              <label for="pick-parameter" class="text-left mb-n1">Choose Parameter</label>
+              <b-form-select id="pick-parameter" v-model="request.selectedDataset" :options="parameterOptions" class="w-100 mb-2"/>
+              <label for="pick-station" class="text-left mb-n1">Choose Station</label>
+              <b-form-select id="pick-station" v-model="request.selectedStation" :options="stationOptions" class="w-100 mb-2"/>
+              <label for="date" class="mb-n1">Select Timeframe</label>
+              <b-input-group class="w-100" id="date">
+                <b-form-select v-model="request.startDate" :options="yearOptions" class="" />
+                <b-form-select v-model="request.endDate" :options="yearOptionsReverse" class="" />
+              </b-input-group>
             </b-form>
           </b-card>
         </b-col>
       </b-row>
-
-      <b-card class="w-100 mt-5 shadow">
-        <b-row>
-          <b-col cols="6" class="text-left">
-            
-          </b-col>
-          <b-col cols="6" class="border-left text-left">
-            <b-form>
-              <label for="pick-wording">Choose wording</label>
-              <b-form-select id="pick-wording" v-model="request.wording" :options="wordingOptions" class="mb-2" /> <br>
-              <label for="starting-date">Choose everyday size to compare to</label>
-              <b-form-select id="starting-date" v-model="request.compareTo" :options="compareToOptions" class="mb-2" :disabled="request.wording == 'absolute'"/> <br>
-              <label for="end-date">Choose theme</label>
-              <b-form-select id="end-date" v-model="request.theme" :options="themeOptions" class="mb-2" />
-            </b-form>
-          </b-col>
-        </b-row>
-      </b-card>
-      <div ref="argument" style="margin-bottom: 200px; margin-top: 100px">
-        <b-row>
-          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.selectedDataset]" class="my-5"/>
-        </b-row>
-      </div>
+    </b-container>
+    <b-container fluid class="h-100">
+      <b-row class="mt-5">
+        <b-col cols="3" class="mt-5 text-left border-right">
+          <b-form class="mb-2">
+            <label for="pick-parameter" class="text-left mb-n1">Change Parameter</label>
+            <b-form-select id="pick-parameter" v-model="request.selectedDataset" :options="parameterOptions" class="w-100 mb-2"/>
+            <label for="pick-station" class="text-left mb-n1">Chnage Station</label>
+            <b-form-select id="pick-station" v-model="request.selectedStation" :options="stationOptions" class="w-100 mb-2"/>
+            <label for="date" class="mb-n1">Change Timeframe</label>
+            <b-input-group class="w-100" id="date">
+              <b-form-select v-model="request.startDate" :options="yearOptions" class="" />
+              <b-form-select v-model="request.endDate" :options="yearOptionsReverse" class="" />
+            </b-input-group>
+          </b-form>
+          <hr>
+          <b-form>
+            <label for="pick-wording">Change wording</label>
+            <b-form-select id="pick-wording" v-model="request.wording" :options="wordingOptions" class="mb-2" /> <br>
+            <label for="starting-date">Add everyday size to compare to</label>
+            <b-form-select id="starting-date" v-model="request.compareTo" :options="compareToOptions" class="mb-2" :disabled="request.wording == 'absolute'"/> <br>
+            <label for="end-date">Change theme</label>
+            <b-form-select id="end-date" v-model="request.theme" :options="themeOptions" class="mb-2" />
+          </b-form>
+        </b-col>
+        <b-col cols="9" class="w-100">
+          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.selectedDataset]" class="my-5 mx-auto"/>
+          <h3 v-else class="text-center rubik-medium y-center">Please fill out fields on the left to see a card.</h3>
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>
@@ -74,7 +82,8 @@ export default {
         {value: 'news', text: 'Newspaper theme'},
       ],
       request : {
-        selectedDataset : null,
+        selectedParameter : null,
+        selectedStation : null,
         startDate : '',
         endDate : '',
         wording : 'difference',
@@ -104,10 +113,17 @@ export default {
     requestIsValid() {
       return this.request.selectedDataset != null && this.request.startDate !='' && this.request.endDate !='';
     },
-    datasetsOptions() {
-      var options = [ { value: null, text: 'Please select a dataset' }, ];
+    parameterOptions() {
+      var options = [ { value: null, text: 'Select a parameter' }, ];
       for (const [key, entry] of Object.entries(this.datasets)) {
-        options.push({value: key, text: entry.description})
+        options.push({value: key, text: entry.name})
+      }
+      return options;
+    },
+    stationOptions() {
+      var options = [ { value: null, text: 'Select an ICOS station' }, ];
+      for (const [key, entry] of Object.entries(this.datasets)) {
+        options.push({value: key, text: entry.name})
       }
       return options;
     },
@@ -134,7 +150,7 @@ export default {
       return options;
     },
     compareToOptions()  {
-      var options = [ { value: '', text: 'Please select a everyday size' }, ];
+      var options = [ { value: '', text: 'Please select an everyday size' }, ];
       if (this.request.selectedDataset != undefined) {
         for (const compare of this.datasets[this.request.selectedDataset].compareTo) {
           options.push({ value: compare, text: this.capitFirstChar(compare) });

@@ -4,7 +4,6 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Make BootstrapVue available throughout your project

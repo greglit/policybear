@@ -1,7 +1,7 @@
 <template>
     <b-navbar type="primary" class="rubik-medium">
       <b-container>
-        <b-navbar-brand class="brand">
+        <b-navbar-brand class="brand ">
           <img v-if="false" src="" class="d-inline-block align-top logo" alt="rudiboard">
           <h1 v-if="$route.params.boardName == undefined" class="">Policy Bear</h1>
         </b-navbar-brand>
