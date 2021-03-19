@@ -18,8 +18,12 @@
       </b-row>
     </b-container>
     <b-container fluid class="full-height">
+      <b-button v-b-toggle.sidebar-1 class="toggle-form float-left"><b-icon-pencil/></b-button>
+      <b-sidebar id="sidebar-1" title="" shadow>
+        <side-bar-card :request.sync="request" :meta="datasets"/>
+      </b-sidebar>
       <b-row class="">
-        <b-col cols="3" class="mt-5 text-left">
+        <b-col cols="3" class="mt-5 text-left card-form">
           <side-bar-card :request.sync="request" :meta="datasets"/>
         </b-col>
         <b-col cols="9" class="w-100">
@@ -101,6 +105,23 @@ export default {
   top: 50%;
   transform: translateY(-50%);  
 }
+
+.card-form {
+  display: inline;
+}
+
+.toggle-form {
+  display: none;
+}
+
+@media (max-width: 768px) {
+    .card-form {
+      display: none !important;
+    }
+    .toggle-form {
+      display: inline !important;
+    }
+  }
 
 </style>
 
