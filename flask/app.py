@@ -9,7 +9,7 @@ import numpy as np
 import datetime as dt
 import json
 
-data_path = Path() / 'data' /
+data_path = Path() / 'data/'
 
 def compare(co2eq,compareTo):
     areafrac_arctic = 3700000/510000000
@@ -77,6 +77,8 @@ CORS(app)
 
 @app.route('/datasets/')
 def datasets():
+    data_key = request.args.get('dataset')
+
     return jsonify(metadata)
 
 @app.route('/datapoints/')
@@ -87,7 +89,6 @@ def datapoints():
     end_date = request.args.get('enddate')
     period = return_period(df,start_date,end_date)
     change,ymin,ymax = return_change(period)
-    stations = paramsInfo[data_key]['stations']
     # return render_template('index.html')
     x = round(change * unit_conversion[data_key],4)
     co2eq = x*23 if data_key=='ch4' else x
@@ -96,8 +97,7 @@ def datapoints():
                 'end_period': period.index.max().strftime("%Y"),
                 'change': x,
                 'begin_data': round(ymin * unit_conversion[data_key],2),
-                'end_data': round(ymax * unit_conversion[data_key],2),
-                'stations': stations}
+                'end_data': round(ymax * unit_conversion[data_key],2)}
     compareTo = request.args.get('compareTo')
     if compareTo:
         response['comp_amount'] = compare(co2eq, compareTo)
