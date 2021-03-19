@@ -8,7 +8,7 @@
         
         <b-navbar-nav class="ml-auto">
           <b-nav-text right>
-            <b-button variant="border-0" class="nav-item ">
+            <b-button variant="border-0" class="nord-btn">
               <b-icon-moon/>
             </b-button>
           </b-nav-text>
@@ -52,17 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../node_modules/nord/src/sass/nord.scss";
-
-.nav-item {
-  color: $nord3;
-  background-color: transparent;
-}
-
-.nav-item:hover {
-  color: $nord3;
-  background-color: $nord6;
-}
 
 .logo {
   height: 35px;

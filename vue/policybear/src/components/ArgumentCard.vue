@@ -1,23 +1,23 @@
 <template>
 	<div style="width: 100%">
-		<div :class="'card shadow border-0 mx-auto text-left ' + request.theme" >
+		<div :class="'card shadow border-0 mx-auto text-left ' + request.styling.theme" >
 			<div v-if="responseData != undefined">
 				The {{meta.name}} concentration in the arctic
-				<div v-if="request.wording == 'difference'">
+				<div v-if="request.styling.wording == 'difference'">
 					{{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} ppm</b> 
 					between {{responseData.begin_period}} and {{responseData.end_period}}.
 				</div>
-				<div v-else-if="request.wording == 'relative'">
+				<div v-else-if="request.styling.wording == 'relative'">
 					{{responseData.change > 0 ? 'increased' : 'decreased'}} by 
 					<b>{{((1-(responseData.begin_data/responseData.end_data))*100).toFixed(2)}} %</b> 
 					between {{responseData.begin_period}} and {{responseData.end_period}}.
 				</div>
-				<div v-else-if="request.wording == 'absolute'">
+				<div v-else-if="request.styling.wording == 'absolute'">
 					was <b>{{responseData.begin_data}} ppm</b> in {{responseData.begin_period}} and <b>{{responseData.end_data}} ppm</b> in {{responseData.end_period}}.
 				</div>
 
-				<div v-if="request.compareTo != '' && responseData.comp_amount != undefined && request.wording != 'absolute'">
-					This is equivalent to the annual emission of <b>{{responseData.comp_amount}}</b> {{request.compareTo}}.
+				<div v-if="request.styling.compareTo != '' && responseData.comp_amount != undefined && request.wording != 'absolute'">
+					This is equivalent to the annual emission of <b>{{responseData.comp_amount}}</b> {{request.styling.compareTo}}.
 				</div>
 			</div>
 			<div v-else>
@@ -44,9 +44,9 @@ export default {
   },
   methods: {
 		fetchData() {
-			var query = `${this.apiURL}datapoints/?dataset=${this.request.selectedDataset}&startdate=${this.request.startDate}&enddate=${this.request.endDate}`;
-			if (this.request.compareTo  != '') {
-				query += `&compareTo=${this.request.compareTo}`;
+			var query = `${this.apiURL}datapoints/?dataset=${this.request.data.selectedParameter}&startdate=${this.request.data.timeStart}&enddate=${this.request.data.timeEnd}`;
+			if (this.request.styling.compareTo  != null) {
+				query += `&compareTo=${this.request.styling.compareTo}`;
 			}
 			console.log(query)
       fetch(query, {})
@@ -57,7 +57,6 @@ export default {
       })
       .catch(function(error) {
         console.log('Error: ' + error);
-				return null;
       });
     },
   },

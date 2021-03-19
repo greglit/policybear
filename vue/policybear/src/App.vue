@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="h-100">
-    <navbar/>
-    <router-view class="h-100"/>
+  <div id="app">
+    <router-view/>
+    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   </div>
 </template>
 
@@ -47,19 +47,26 @@ export default {
   font-family: Rubik-Bold;
 }
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-
-    height: 100%; margin: 0px; padding: 0px;
-}
-
 #app {
   font-family: Rubik, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: theme-color("primary") !important;
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+.nord-btn {
+  color: $nord3;
+  background-color: transparent;
+
+  &:hover {
+    color: $nord3;
+    background-color: $nord6;
+  }
 }
 
 
