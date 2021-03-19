@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
 
 import os
+import pathlib
 from pathlib import Path
 
 import pandas as pd
@@ -9,7 +10,9 @@ import numpy as np
 import datetime as dt
 import json
 
-data_path = Path() / 'data/'
+
+#%%
+
 
 def compare(co2eq,compareTo):
     areafrac_arctic = 3700000/510000000
@@ -36,6 +39,10 @@ def load_df(file):
     df = df[['time','value']].set_index('time')
     return df
 
+#%%
+
+data_path = Path() / 'data/'
+
 with open(data_path / 'paramsInfo.json') as f:
     paramsInfo = json.load(f)
 
@@ -45,15 +52,17 @@ data_vars = list(metadata.index)            # ['co2','ch4']
 # load files into dict
 data = {i: load_df(i) for i in data_vars}
 
+#%%
+
 # get time.minmax vals for metadata dict
-data_range = pd.DataFrame(
-    {i: {'minDate':data[i].index.min().strftime('%Y-%m-%d'),
-         'maxDate':data[i].index.max().strftime('%Y-%m-%d'),
-         'minYear':data[i].index.min().strftime('%Y'),
-         'maxYear':data[i].index.max().strftime('%Y')} for i in data_vars}).T
-metadata[['minDate','maxDate','minYear','maxYear']] = data_range
-metadata['compareTo'] = [['cows','cars'],['cows','cars']]
-metadata = metadata.to_dict('index')
+# data_range = pd.DataFrame(
+#     {i: {'minDate':data[i].index.min().strftime('%Y-%m-%d'),
+#          'maxDate':data[i].index.max().strftime('%Y-%m-%d'),
+#          'minYear':data[i].index.min().strftime('%Y'),
+#          'maxYear':data[i].index.max().strftime('%Y')} for i in data_vars}).T
+# metadata[['minDate','maxDate','minYear','maxYear']] = data_range
+# metadata['compareTo'] = [['cows','cars'],['cows','cars']]
+# metadata = metadata.to_dict('index')
 
 unit_conversion = {'ch4': 0.001,
                    'co2': 1}
@@ -72,14 +81,45 @@ def return_change(df):
     delta = ymeans[-1]-ymeans[0]
     return round(delta,2), round(ymeans[0],2), round(ymeans[-1],2)
 
+
+class Container:
+    def __init__(self, info_dict, param):
+        self.info = info_dict
+        self.param = param
+        self.selected = self.info[self.param]
+
+    def stations(self):
+        return self.selected['stations']
+
+    def time(self, station):
+        def convertTime(date):
+            obj = dt.datetime.strptime(date, '%Y-%m-%dT%H:%M:%SZ')
+            return [obj.year, obj.month]     # here you could put in a request
+
+        if station == None:
+            raise KeyError('Input attribute "station" not given. Please select a station!')
+        else:
+            start, end = self.selected['period'][station][0]
+            start, end = convertTime(start), convertTime(end)
+            return (start, end)
+
+
 app = Flask(__name__)
 CORS(app)
 
 @app.route('/datasets/')
 def datasets():
-    data_key = request.args.get('dataset')
+    meta = {}
+    for param in data_vars:
+        C = Container(paramsInfo, param)
+        meta[param] = {'name': metadata.loc[param, 'name'],
+                      'description': metadata.loc[param, 'description'],
+                      'convertTo': ['cows', 'cars'],
+                      'stations': C.stations()}
+        meta[param]['timeStart'] = {st: C.time(st)[0] for st in C.stations()}
+        meta[param]['timeEnd'] = {st: C.time(st)[1] for st in C.stations()}
 
-    return jsonify(metadata)
+    return jsonify(meta)
 
 @app.route('/datapoints/')
 def datapoints():
