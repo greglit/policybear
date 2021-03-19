@@ -1,10 +1,15 @@
 from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
 
+import os
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 import datetime as dt
 import json
+
+data_path = Path() / 'data' /
 
 def compare(co2eq,compareTo):
     areafrac_arctic = 3700000/510000000
@@ -31,6 +36,9 @@ def load_df(file):
     df = df[['time','value']].set_index('time')
     return df
 
+with open(data_path / 'paramsInfo.json') as f:
+    paramsInfo = json.load(f)
+
 metadata = pd.read_csv('metadata.csv',sep=';').set_index('index')
 data_vars = list(metadata.index)            # ['co2','ch4']
 
@@ -52,8 +60,6 @@ unit_conversion = {'ch4': 0.001,
 
 comps = {'cows': 100*0.001*23,
          'cars': 110*1e-6*12000}
-
-
 
 def return_period(df, start_date,end_date):
     begin,end = pd.Timestamp(start_date),pd.Timestamp(str(int(end_date)+1))
@@ -81,6 +87,7 @@ def datapoints():
     end_date = request.args.get('enddate')
     period = return_period(df,start_date,end_date)
     change,ymin,ymax = return_change(period)
+    stations = paramsInfo[data_key]['stations']
     # return render_template('index.html')
     x = round(change * unit_conversion[data_key],4)
     co2eq = x*23 if data_key=='ch4' else x
@@ -89,7 +96,8 @@ def datapoints():
                 'end_period': period.index.max().strftime("%Y"),
                 'change': x,
                 'begin_data': round(ymin * unit_conversion[data_key],2),
-                'end_data': round(ymax * unit_conversion[data_key],2)}
+                'end_data': round(ymax * unit_conversion[data_key],2),
+                'stations': stations}
     compareTo = request.args.get('compareTo')
     if compareTo:
         response['comp_amount'] = compare(co2eq, compareTo)
