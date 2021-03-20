@@ -44,9 +44,9 @@ export default {
   },
   methods: {
 		fetchData() {
-			var query = `${this.apiURL}datapoints/?dataset=${this.request.selectedDataset}&startdate=${this.request.startDate}&enddate=${this.request.endDate}`;
-			if (this.request.compareTo  != '') {
-				query += `&compareTo=${this.request.compareTo}`;
+			var query = `${this.apiURL}datapoints/?parameter=${this.request.data.selectedParameter}&station=${this.request.data.selectedStation}&timestart=${this.request.data.timeStart}&timeend=${this.request.data.timeEnd}`;
+			if (this.request.styling.compareTo  != null) {
+				query += `&compareTo=${this.request.styling.compareTo}`;
 			}
 			console.log(query)
       fetch(query, {})
