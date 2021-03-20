@@ -44,9 +44,9 @@ export default {
     },
     stationOptions() {
       var options = [ { value: null, text: 'Select an ICOS station', disabled: true }, ];
-      if (this.d_requestData.selectedParameter != null && this.meta != null) {
-        for (const [key, value] of Object.entries(this.meta[this.d_requestData.selectedParameter].stations)) {
-          options.push({value: value, text: value})
+      if (this.meta != null) {
+        for (const [key, entry] of Object.entries(this.meta)) {
+        options.push({value: key, text: entry.name})
         }
       }
       
@@ -54,9 +54,9 @@ export default {
     },
     timeStartOptions() {
       var options = [ { value: null, text: 'Start year', disabled: true }, ];
-      if (this.d_requestData.selectedParameter != null && this.d_requestData.selectedStation != null && this.meta != null) {
-        var start = this.meta[this.d_requestData.selectedParameter].timeStart[this.d_requestData.selectedStation][0];
-        var end = this.meta[this.d_requestData.selectedParameter].timeEnd[this.d_requestData.selectedStation][0];
+      if (this.d_requestData.selectedParameter != null && this.meta != null) {
+        var start = this.meta[this.d_requestData.selectedParameter].minYear;
+        var end = this.meta[this.d_requestData.selectedParameter].maxYear;
         for (var year = start; year <= end; year++) {
           options.push({ value: year, text: String(year)})
         }
@@ -65,9 +65,9 @@ export default {
     },
     timeEndOptions() {
       var options = [ { value: null, text: 'End year', disabled: true}, ];
-      if (this.d_requestData.selectedParameter != null && this.d_requestData.selectedStation != null && this.meta != null && this.d_requestData.timeStart != null) {
+      if (this.d_requestData.selectedParameter != null && this.meta != null && this.d_requestData.timeStart != null) {
         var start = this.d_requestData.timeStart + 1;
-        var end = this.meta[this.d_requestData.selectedParameter].timeEnd[this.d_requestData.selectedStation][0];
+        var end = this.meta[this.d_requestData.selectedParameter].maxYear;
         for (var year = end; year >= start; year--) {
           options.push({ value: year, text: String(year)})
         }
