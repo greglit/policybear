@@ -71,7 +71,8 @@ export default {
       return options;
     },
     startDateMonthOptions() {
-      var options = [ { value: null, text: 'Month (optional)', disabled: true }, ];
+      const monthText = this.d_requestData.startDateMonth ? 'Only years' : 'Month (optional)';
+      var options = [ { value: null, text: monthText, disabled: true }, ];
       if (this.d_requestData.param != null && this.d_requestData.station != null && this.meta != null && this.d_requestData.startDateYear != null) {
         var start = 1;
         var end = 12;
@@ -101,8 +102,8 @@ export default {
       return options;
     },
     endDateMonthOptions() {
-      //const monthText = this.d_requestData.startDateMonth ? 'Month' : 'Month (optional)';
-      var options = [ { value: null, text: 'Month', disabled: true }, ];
+      const monthText = this.d_requestData.startDateMonth ? 'Only years' : 'Month (optional)';
+      var options = [ { value: null, text: monthText, disabled: true }, ];
       if (this.d_requestData.param && this.d_requestData.station && this.meta && this.d_requestData.endDateYear && this.d_requestData.startDateMonth) {
         var start = 1;
         var end = 12;
