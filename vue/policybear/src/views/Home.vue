@@ -23,7 +23,7 @@
           <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;"/>
         </b-col>
         <b-col cols="12" lg="9" class="w-100">
-          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.selectedParameter]" class="my-5 mx-auto"/>
+          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.selectedParameter]" class="my-5 mx-auto y-center"/>
           <h4 v-else class="text-center rubik-medium y-center">Please fill out missing fields on the left to generate a card.</h4>
         </b-col>
       </b-row>

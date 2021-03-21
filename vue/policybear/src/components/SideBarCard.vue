@@ -1,8 +1,8 @@
 <template>
   <b-card class="shadow m-2 border-0 rounded-lg">
-    <b-button v-b-modal.modal-1 class="toggle-form nord-btn d-inline w-50" variant="border-0"><b-icon-pencil-fill/></b-button>
+    <b-button v-b-modal.modal-1 class="toggle-form nord-btn d-inline w-50" variant="border-0"><b-icon-brush-fill/></b-button>
     <b-button variant="border-0" class="nord-btn d-inline w-50"><b-icon-share-fill/></b-button>
-    <b-modal id="modal-1" hide-footer>
+    <b-modal id="modal-1" class="modal-form" hide-footer>
       <data-form :requestData.sync="d_request.data" :meta="meta" change/>
       <hr>
       <styling-form :requestStyling.sync="d_request.styling" :requestData="d_request.data" :meta="meta"/>
@@ -78,12 +78,17 @@ export default {
 }
 
 @media (max-width: 992px) {
-    .card-form {
-      display: none !important;
-    }
-    .toggle-form {
-      display: inline !important;
-    }
+  .card-form {
+    display: none !important;
   }
+  .toggle-form {
+    display: inline !important;
+  }
+}
+
+.modal-form{
+  border: none !important;
+  background-color: transparent !important;
+}
 
 </style>
