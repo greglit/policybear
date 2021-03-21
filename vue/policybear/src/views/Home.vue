@@ -4,7 +4,7 @@
       <navbar/>
       <b-row class="mb-5">
         <b-col cols="12" md="6" class="mb-4 mb-md-0">
-            <img src="../assets/polarbear-transparent.png" alt="policy bear" class="w-75 y-center"/>
+            <img src="../assets/bearwithisle.svg" alt="policy bear" class="w-75 y-center"/>
         </b-col>
         <b-col cols="12" md="6">
           <h1 class="display-5 text-left rubik-bold my-md-5 m-2">"Hi, I'm Policy Bear!</h1>
@@ -19,11 +19,11 @@
     </b-container>
     <b-container fluid class="full-height">
       <b-row class="">
-        <b-col cols="3" class="mt-5 text-left">
-          <side-bar-card :request.sync="request" :meta="datasets"/>
+        <b-col cols="12" lg="3" class="mt-5 text-left card-form">
+          <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;"/>
         </b-col>
-        <b-col cols="9" class="w-100">
-          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.selectedParameter]" class="my-5 mx-auto"/>
+        <b-col cols="12" lg="9" class="w-100">
+          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.selectedParameter]" class="my-5 mx-auto y-center"/>
           <h4 v-else class="text-center rubik-medium y-center">Please fill out missing fields on the left to generate a card.</h4>
         </b-col>
       </b-row>
@@ -66,9 +66,11 @@ export default {
   },
   methods: {
     fetchDataSets() {
+      console.log(`${this.apiURL}datasets/`);
       fetch(`${this.apiURL}datasets/`, {})
       .then((resp) => resp.json())
       .then((data) => {
+        console.log(data);
         this.datasets = data;
       })
       .catch((error) => {
@@ -101,6 +103,8 @@ export default {
   top: 50%;
   transform: translateY(-50%);  
 }
+
+
 
 </style>
 

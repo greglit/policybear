@@ -82,8 +82,14 @@ export default {
 	margin: 20px;
 	border-radius: 0px;
 	max-width: 900px;
-	font-size: 40pt;
+	font-size: 4vw;
 }
+
+@media (max-width: 992px) {
+    .card {
+		font-size: 6vw !important;
+	}
+  }
 
 .classic {
 	background-color: rgb(255, 73, 73);
