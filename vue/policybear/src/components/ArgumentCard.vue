@@ -44,7 +44,7 @@ export default {
   },
   methods: {
 		fetchData() {
-			var query = `${this.apiURL}datapoints/?dataset=${this.request.data.selectedParameter}&startdate=${this.request.data.timeStart}&enddate=${this.request.data.timeEnd}`;
+			var query = `${this.apiURL}datapoints/?param=${this.request.data.selectedParameter}&station=${this.request.data.selectedStation}&startdate=${this.request.data.timeStart}&enddate=${this.request.data.timeEnd}`;
 			if (this.request.styling.compareTo  != null) {
 				query += `&compareTo=${this.request.styling.compareTo}`;
 			}
