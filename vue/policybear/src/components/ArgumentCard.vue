@@ -44,10 +44,10 @@ export default {
   },
   methods: {
 		fetchData() {
-			var query = `${this.apiURL}datapoints/?param=${this.request.data.selectedParameter}&station=${this.request.data.selectedStation}&startdate=${this.request.data.timeStart}&enddate=${this.request.data.timeEnd}`;
-			if (this.request.styling.compareTo  != null) {
-				query += `&compareTo=${this.request.styling.compareTo}`;
-			}
+			var startDate = this.request.data.startDateYear + (this.request.data.startDateMonth ? '-'+this.request.data.startDateMonth : '');
+			var endDate = this.request.data.endDateYear + (this.request.data.endDateMonth ? '-'+this.request.data.endDateMonth : '');
+			var convertTo = this.request.styling.compareTo ? `&compareTo=${this.request.styling.compareTo}` : '';
+			var query = `${this.apiURL}datapoints/?param=${this.request.data.param}&station=${this.request.data.station}&startdate=${startDate}&enddate=${endDate}${convertTo}`;
 			console.log(query)
       fetch(query, {})
       .then((resp) => resp.json())
