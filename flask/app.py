@@ -12,14 +12,16 @@ import numpy as np
 import datetime as dt
 import json
 
-
+#%%
 
 from beartools.data import icos
 from beartools.cli import computations as cmp
 from beartools.metadata import collect
 
-#%%
 
+
+
+#%%
 
 def compare(co2eq,compareTo):
     areafrac_arctic = 3700000/510000000
@@ -166,10 +168,18 @@ def datapoints():
     ICOS = icos.fetch(obsStation, param, params[param]) # rename params
     ICOS.collectData(data)    # empty dictionary called data
 
-    da = cmp.Period(data[obsStation][[param]])
+    x = data[obsStation][[param]]
+    da = cmp.Period(x)
     C = cmp.Comp(da.period(start,end))
-    C.change()
+    change = C.change()
 
+
+    response = {
+        'param': param,
+        'begin_period': x.index.min().strftime('%Y-%m'),
+        'end_period': x.index.max().strftime('%Y-%m'),
+        'change': change
+    }
     #####################################################
     # data_key = request.args.get('dataset')
     # df = data[data_key]
