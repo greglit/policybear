@@ -159,8 +159,8 @@ def datasets():
 
 @app.route('/datapoints/')
 def datapoints():
-    obsStation  =  request.args.get('??????')
-    param       = request.args.get('dataset')
+    obsStation  =  request.args.get('station')
+    param       = request.args.get('param')
     start       = request.args.get('startdate') # which format ???
     end         =  request.args.get('enddate') # which format ???
 
@@ -168,10 +168,18 @@ def datapoints():
     ICOS = icos.fetch(obsStation, param, params[param]) # rename params
     ICOS.collectData(data)    # empty dictionary called data
 
-    da = cmp.Period(data[obsStation][[param]])
+    x = data[obsStation][[param]]
+    da = cmp.Period(x)
     C = cmp.Comp(da.period(start,end))
-    C.change()
+    change = C.change()
 
+
+    response = {
+        'param': param,
+        'begin_period': x.index.min().strftime('%Y-%m'),
+        'end_period': x.index.max().strftime('%Y-%m'),
+        'change': change
+    }
     #####################################################
     # data_key = request.args.get('dataset')
     # df = data[data_key]
