@@ -43,8 +43,8 @@ export default {
   computed: {
     compareToOptions()  {
       var options = [ { value: null, text: 'Select an everyday size', disabled: true }, ];
-      if (this.requestData.selectedParameter != null && this.meta != null) {
-        for (const compare of this.meta[this.requestData.selectedParameter].convertTo) {
+      if (this.requestData.param != null && this.meta != null) {
+        for (const compare of this.meta[this.requestData.param].convertTo) {
           options.push({ value: compare, text: this.capitFirstChar(compare) });
         }
       }

@@ -23,7 +23,7 @@
           <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;"/>
         </b-col>
         <b-col cols="12" lg="9" class="w-100">
-          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.selectedParameter]" class="my-5 mx-auto y-center"/>
+          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.param]" class="my-5 mx-auto y-center"/>
           <h4 v-else class="text-center rubik-medium y-center">Please fill out missing fields on the left to generate a card.</h4>
         </b-col>
       </b-row>
@@ -51,10 +51,12 @@ export default {
       datasets : null,
       request : {
         data : {
-          selectedParameter : null,
-          selectedStation : null,
-          timeStart : null,
-          timeEnd : null,
+          param : null,
+          station : null,
+          startDateYear : null,
+          startDateMonth: null,
+          endDateYear : null,
+          endDateMonth : null,
         },
         styling : {
           wording : 'difference',
@@ -86,7 +88,11 @@ export default {
   },
   computed: {
     requestIsValid() {
-      return this.request.data.selectedParameter != null && this.request.data.timeStart != null && this.request.data.timeEnd != null;
+      const data = this.request.data;
+      return data.param 
+          && data.startDateYear 
+          && data.endDateYear 
+          && (data.startDateMonth && data.endDateMonth || data.startDateMonth == null && data.endDateMonth == null);
     },
     
   },
