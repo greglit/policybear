@@ -13,7 +13,6 @@ import datetime as dt
 import json
 
 #%%
-
 from beartools.data import icos
 from beartools.cli import computations as cmp
 from beartools.metadata import collect
@@ -171,11 +170,11 @@ def datapoints():
     x = data[obsStation][[param]]
     da = cmp.Period(x)
     C = cmp.Comp(da.period(start,end))
-    change = C.change()
-
+    change = round(C.change(),2)
 
     response = {
         'param': param,
+        'station': obsStation,
         'begin_period': x.index.min().strftime('%Y-%m'),
         'end_period': x.index.max().strftime('%Y-%m'),
         'change': change
