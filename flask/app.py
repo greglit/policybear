@@ -159,8 +159,8 @@ def datasets():
 
 @app.route('/datapoints/')
 def datapoints():
-    obsStation  =  request.args.get('??????')
-    param       = request.args.get('dataset')
+    obsStation  =  request.args.get('station')
+    param       = request.args.get('param')
     start       = request.args.get('startdate') # which format ???
     end         =  request.args.get('enddate') # which format ???
 
