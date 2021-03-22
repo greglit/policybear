@@ -7,7 +7,7 @@
             <img src="../assets/bearwithisle.svg" alt="policy bear" class="w-75 y-center"/>
         </b-col>
         <b-col cols="12" md="6">
-          <h1 class="display-5 text-left rubik-bold my-md-5 m-2">"Hi, I'm Policy Bear!</h1>
+          <h1 class="display-5 text-left rubik-bold my-md-4 m-2">"Hi, I'm Policy Bear!</h1>
           <h1 class="text-left m-2">Let's start creating simple arguments from complex data."</h1>
           <b-overlay :show="!datasets" rounded="sm">
             <b-card class="shadow m-2 mt-md-5 border-0 text-left rounded-lg">
