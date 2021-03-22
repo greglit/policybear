@@ -5,6 +5,7 @@ Created Mar 19, 2021
 Select period and compute means
 """
 
+
 import pandas as pd
 
 class Period:

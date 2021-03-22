@@ -10,6 +10,8 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import datetime as dt
+import dateutil
+from dateutil import relativedelta
 import json
 
 #%%
@@ -159,10 +161,11 @@ def datasets():
 
 @app.route('/datapoints/')
 def datapoints():
-    obsStation  =  request.args.get('station')
+    obsStation  = request.args.get('station')
     param       = request.args.get('param')
     start       = request.args.get('startdate') # which format ???
-    end         =  request.args.get('enddate') # which format ???
+    end         = request.args.get('enddate') # which format ???
+    compareTo   = request.args.get('compareTo')
 
     # ICOS = icos.fetch('ZEP', 'ch4', 'ICOS ATC NRT CH4 growing...')
     ICOS = icos.fetch(obsStation, param, params[param]) # rename params
@@ -171,15 +174,25 @@ def datapoints():
     x = data[obsStation][[param]]
     da = cmp.Period(x)
     C = cmp.Comp(da.period(start,end))
-    change = C.change()
+    change = round(C.change(),2)
 
+    delta_period = relativedelta.relativedelta(
+        C.mean().index.max(), C.mean().index.min())
+    t = '%{}Y-%{}m'.format(delta_period.years,delta_period.months)
+    t2 = '{} months'.format(12* delta_period.years + delta_period.months)
 
     response = {
         'param': param,
         'begin_period': x.index.min().strftime('%Y-%m'),
         'end_period': x.index.max().strftime('%Y-%m'),
-        'change': change
+        'period': ([delta_period.years,delta_period.months],t,t2),
+        'change': change,
     }
+
+    # if compareTo:
+    #     response['comp_amount'] = compare(co2eq, compareTo)
+
+
     #####################################################
     # data_key = request.args.get('dataset')
     # df = data[data_key]
