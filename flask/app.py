@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
 
 import os
+import sys
+import math
 import pathlib
 from pathlib import Path
 
@@ -10,6 +12,11 @@ import numpy as np
 import datetime as dt
 import json
 
+
+
+from beartools.data import icos
+from beartools.cli import computations as cmp
+from beartools.metadata import collect
 
 #%%
 
@@ -52,6 +59,23 @@ data_vars = list(metadata.index)            # ['co2','ch4']
 # load files into dict
 data = {i: load_df(i) for i in data_vars}
 
+
+#%%
+
+params = {
+    'ch4': 'ICOS ATC NRT CH4 growing time series',
+    'co2': 'ICOS ATC NRT CO2 growing time series'
+}
+
+data = {}
+
+
+def dct_size(dct):
+    size = np.sum([sys.getsizeof(v)/1024**2 for v in dct.values()])
+    print('Size of Dictionary below {} MB'.format(math.ceil(size)))
+
+dct_size(data)
+
 #%%
 
 # get time.minmax vals for metadata dict
@@ -70,10 +94,10 @@ unit_conversion = {'ch4': 0.001,
 comps = {'cows': 100*0.001*23,
          'cars': 110*1e-6*12000}
 
-def return_period(df, start_date,end_date):
-    begin,end = pd.Timestamp(start_date),pd.Timestamp(str(int(end_date)+1))
-    mask = (df.index >= begin) & (df.index <= end)
-    return df.loc[mask]
+# def return_period(df, start_date,end_date):
+#     begin,end = pd.Timestamp(start_date),pd.Timestamp(str(int(end_date)+1))
+#     mask = (df.index >= begin) & (df.index <= end)
+#     return df.loc[mask]
 
 def return_change(df):
     # dmin,dmax = df['value'].loc[df.index.min()],df['value'].loc[df.index.max()]
@@ -81,27 +105,6 @@ def return_change(df):
     delta = ymeans[-1]-ymeans[0]
     return round(delta,2), round(ymeans[0],2), round(ymeans[-1],2)
 
-
-class Container:
-    def __init__(self, info_dict, param):
-        self.info = info_dict
-        self.param = param
-        self.selected = self.info[self.param]
-
-    def stations(self):
-        return self.selected['stations']
-
-    def time(self, station):
-        def convertTime(date):
-            obj = dt.datetime.strptime(date, '%Y-%m-%dT%H:%M:%SZ')
-            return [obj.year, obj.month]     # here you could put in a request
-
-        if station == None:
-            raise KeyError('Input attribute "station" not given. Please select a station!')
-        else:
-            start, end = self.selected['period'][station][0]
-            start, end = convertTime(start), convertTime(end)
-            return (start, end)
 
 
 app = Flask(__name__)
@@ -111,7 +114,7 @@ CORS(app)
 def datasets():
     meta = {}
     for param in data_vars:
-        C = Container(paramsInfo, param)
+        C = collect.Collect(paramsInfo[param])
         meta[param] = {'name': metadata.loc[param, 'name'],
                       'description': metadata.loc[param, 'description'],
                       'convertTo': ['cows', 'cars'],
@@ -121,26 +124,71 @@ def datasets():
 
     return jsonify(meta)
 
+# one route should ask for the data of one station
+# another route calculates from df.data for different years
+# if another station is selected the first route asks again for a new data
+# if so it get added to the existing df.data
+# delete df after inactivity
+
+#%%
+
+
+
+#%%
+# param = 'ch4'
+# for i in ['HEL','ZEP','CMN','RUN','LMP','OPE','PAL','PUY','SAC']:
+#     t = icos.fetch(i,param, params[param])
+#     t.collectData(data)
+#
+#
+#     size = math.ceil(np.sum([sys.getsizeof(v)/1024**2 for v in data.values()]))
+#
+#     print(param,i)
+#     if size > 1 :
+#         raise MemoryError('size reached limit of {} MB'.format(size-1))
+
+#da = TEST['HEL']
+
+# da = cmp.Period(data['HEL'][['ch4']])
+# da_change = cmp.Comp(da.period(2020,2021)).change('M')
+
+
+#%%
+
 @app.route('/datapoints/')
 def datapoints():
-    data_key = request.args.get('dataset')
-    df = data[data_key]
-    start_date = request.args.get('startdate')
-    end_date = request.args.get('enddate')
-    period = return_period(df,start_date,end_date)
-    change,ymin,ymax = return_change(period)
-    # return render_template('index.html')
-    x = round(change * unit_conversion[data_key],4)
-    co2eq = x*23 if data_key=='ch4' else x
-    response = {'dataset': data_key,
-                'begin_period': period.index.min().strftime("%Y"),
-                'end_period': period.index.max().strftime("%Y"),
-                'change': x,
-                'begin_data': round(ymin * unit_conversion[data_key],2),
-                'end_data': round(ymax * unit_conversion[data_key],2)}
-    compareTo = request.args.get('compareTo')
-    if compareTo:
-        response['comp_amount'] = compare(co2eq, compareTo)
+    obsStation  =  request.args.get('station')
+    param       = request.args.get('param')
+    start       = request.args.get('startdate') # which format ???
+    end         =  request.args.get('enddate') # which format ???
+
+    # ICOS = icos.fetch('ZEP', 'ch4', 'ICOS ATC NRT CH4 growing...')
+    ICOS = icos.fetch(obsStation, param, params[param]) # rename params
+    ICOS.collectData(data)    # empty dictionary called data
+
+    da = cmp.Period(data[obsStation][[param]])
+    C = cmp.Comp(da.period(start,end))
+    C.change()
+
+    #####################################################
+    # data_key = request.args.get('dataset')
+    # df = data[data_key]
+    # start_date = request.args.get('startdate')
+    # end_date = request.args.get('enddate')
+    # period = return_period(df,start_date,end_date)
+    # change,ymin,ymax = return_change(period)
+    # # return render_template('index.html')
+    # x = round(change * unit_conversion[data_key],4)
+    # co2eq = x*23 if data_key=='ch4' else x
+    # response = {'dataset': data_key,
+    #             'begin_period': period.index.min().strftime("%Y"),
+    #             'end_period': period.index.max().strftime("%Y"),
+    #             'change': x,
+    #             'begin_data': round(ymin * unit_conversion[data_key],2),
+    #             'end_data': round(ymax * unit_conversion[data_key],2)}
+    # compareTo = request.args.get('compareTo')
+    # if compareTo:
+    #     response['comp_amount'] = compare(co2eq, compareTo)
     return jsonify(response)
 
 if __name__ == "__main__":
