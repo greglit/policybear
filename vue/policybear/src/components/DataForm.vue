@@ -72,7 +72,7 @@ export default {
     },
     startDateMonthOptions() {
       const monthText = this.d_requestData.startDateMonth ? 'Only years' : 'Month (optional)';
-      var options = [ { value: null, text: monthText, disabled: true }, ];
+      var options = [ { value: null, text: monthText}, ];
       if (this.d_requestData.param != null && this.d_requestData.station != null && this.meta != null && this.d_requestData.startDateYear != null) {
         var start = 1;
         var end = 12;
@@ -103,7 +103,7 @@ export default {
     },
     endDateMonthOptions() {
       const monthText = this.d_requestData.startDateMonth ? 'Only years' : 'Month (optional)';
-      var options = [ { value: null, text: monthText, disabled: true }, ];
+      var options = [ { value: null, text: monthText}, ];
       if (this.d_requestData.param && this.d_requestData.station && this.meta && this.d_requestData.endDateYear && this.d_requestData.startDateMonth) {
         var start = 1;
         var end = 12;
