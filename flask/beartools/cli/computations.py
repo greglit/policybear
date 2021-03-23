@@ -25,13 +25,34 @@ class Period:
         mask = (self.time >= start) & (self.time <= end)
         return self.df.loc[mask]
 
-class Comp():
+class Compute:
     def __init__(self, df, rule='M'):
         self.df = df
         self.rule = rule
 
+    # rename in rs_mean or resamp_mean()
     def mean(self):
         return self.df.resample(self.rule).mean()
 
+    def value_ref(self):
+        """begin of period"""
+        return float(self.mean().iloc[0])
+
+    def value_comp(self):
+        """end of period"""
+        return float(self.mean().iloc[-1])
+
     def change(self):
-        return list((self.mean().iloc[-1]) - (self.mean().iloc[0]))
+        """change compared to reference date (begin of period)"""
+        return float(self.value_ref() - self.value_comp())
+
+
+
+
+
+
+
+
+
+
+# END OF FILE
