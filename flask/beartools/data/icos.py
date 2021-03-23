@@ -16,17 +16,18 @@ from icoscp.station import station
 from icoscp.cpb.dobj import Dobj
 
 
-class fetch():
-    def __init__(self, ID, param, paramLabel):
+class Fetch():
+    def __init__(self, ID, ParamSpecs):
         self.ID = ID
-        self.param = param
-        self.paramLabel = paramLabel
+        self.PS = ParamSpecs
+        self.param = self.PS.param
+        self.dataset = self.PS.dataset
 
     def getParamData(self):
         obs = station.get(self.ID).data()
         obs['samplingheight'][obs['samplingheight'] == ''] = np.nan
         condition = (
-                            obs['specLabel'] == self.paramLabel) & (
+                            obs['specLabel'] == self.dataset) & (
                             obs['samplingheight'].astype(float) <= 500)
         obs = obs[condition]
 
@@ -39,7 +40,12 @@ class fetch():
         info = self.getParamData()
         data = Dobj(info['dobj'][0]).data
         data = data[['TIMESTAMP', self.param]]
+        data.loc[:,self.param] = self.unit_conv(data.loc[:,self.param])
         return data.set_index('TIMESTAMP')[[self.param]]
+
+    def unit_conv(self, ds):
+        """input as pd.Series"""
+        return ds * self.PS.unit_conv
 
     def collectData(self, dct):
         if (self.ID not in dct):
@@ -55,7 +61,4 @@ class fetch():
         else:
             print('already downloaded')
 
-
-
-#%%
 
