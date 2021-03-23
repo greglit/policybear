@@ -89,19 +89,6 @@ def datapoints():
     ICOS = icos.Fetch(obsStation, PS) # rename params
     ICOS.collectData(data)    # empty dictionary called data
 
-    x = data[obsStation][[param]]
-    da = cmp.Period(x)
-    C = cmp.Compute(da.period(start,end))
-    change = round(C.change(),2)
-
-    response = {
-        'param': param,
-        'station': obsStation,
-        'begin_period': x.index.min().strftime('%Y-%m'),
-        'end_period': x.index.max().strftime('%Y-%m'),
-        'change': change
-    }
-
     dct_size(data)
 
     x = data[obsStation][[param]]
