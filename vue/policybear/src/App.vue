@@ -53,6 +53,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: theme-color("primary") !important;
+  //background-color: $nord0; try nightmode
 }
 
 .full-height {
