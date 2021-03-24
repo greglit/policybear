@@ -3,7 +3,7 @@
       <label for="pick-wording">Change wording</label>
       <b-form-select id="pick-wording" v-model="d_requestStyling.wording" :options="wordingOptions" class="mb-2" /> <br>
       <label for="starting-date">Add everyday size to compare to</label>
-      <b-form-select id="starting-date" v-model="d_requestStyling.compareTo" :options="compareToOptions" class="mb-2" :disabled="d_requestStyling.wording == 'absolute'"/> <br>
+      <b-form-select id="starting-date" v-model="d_requestStyling.convertTo" :options="compareToOptions" class="mb-2" :disabled="d_requestStyling.wording == 'absolute'"/> <br>
       <label for="end-date">Change theme</label>
       <b-form-select id="end-date" v-model="d_requestStyling.theme" :options="themeOptions" class="mb-2" />
     </b-form>

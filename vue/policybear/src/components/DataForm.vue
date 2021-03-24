@@ -5,17 +5,17 @@
       <label for="pick-station" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Station</label>
       <b-form-select id="pick-station" v-model="d_requestData.station" :options="stationOptions" :disabled="!d_requestData.param" class="w-100 mb-4"/>
       <b-form-radio-group
-          v-model="dateFormat" :options="dateFormatOptions" :disabled="!d_requestData.station"
-          button-variant="outline-primary" buttons class="w-100"
+          v-model="d_requestData.dateFormat" :options="dateFormatOptions" :disabled="!d_requestData.station"
+          button-variant="outline-primary" buttons class="w-100" @click="resetDate()"
       ></b-form-radio-group>
       <transition name="fade" mode="out-in">
-        <div v-if="dateFormat=='anual'" :key="dateFormat">
+        <div v-if="d_requestData.dateFormat=='annual'" :key="d_requestData.dateFormat">
           <label for="startdate" class="mb-n1">Select first date</label>
           <b-form-select id="startdate" class="w-100" v-model="d_requestData.startDateYear" :options="startDateYearOptions" :disabled="!d_requestData.param || !d_requestData.station" />
           <label for="enddate" class="mb-n1">Select second date</label>
           <b-form-select id="enddate" class="w-100" v-model="d_requestData.endDateYear" :options="endDateYearOptions" :disabled="!d_requestData.startDateYear" />
         </div>
-        <div v-else-if="dateFormat=='monthly'" :key="dateFormat">
+        <div v-else-if="d_requestData.dateFormat=='monthly'" :key="d_requestData.dateFormat">
           <label for="startdate" class="mb-n1">Select first date</label>
           <b-input-group class="w-100" id="startdate">
             <b-form-select v-model="d_requestData.startDateYear" :options="startDateYearOptions" :disabled="!d_requestData.param || !d_requestData.station" />
@@ -42,9 +42,8 @@ export default {
     return {
       d_requestData : this.requestData,
 
-      dateFormat : 'anual',
       dateFormatOptions: [
-        { value: 'anual', text: 'Compare anual values' },
+        { value: 'annual', text: 'Compare annual values' },
         { value: 'monthly', text: 'Compare monthly values'},
       ],
 
@@ -53,11 +52,16 @@ export default {
   },
   watch: {
     d_requestData: {
-     handler(val){
-       this.$emit('update:requestData', this.d_requestData);
+     handler(newVal){
+      if (this.d_requestData.dateFormat == 'annual') {
+        this.d_requestData.startDateMonth = null;
+        this.d_requestData.endDateMonth = null;
+      }
+
+      this.$emit('update:requestData', this.d_requestData);
      },
      deep: true
-  	}
+  	},
   },
   computed: {
     parameterOptions() {
@@ -146,7 +150,6 @@ export default {
     },
   },
   methods: {
-    
   },
 }
 </script>

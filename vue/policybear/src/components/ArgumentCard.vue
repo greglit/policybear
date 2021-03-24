@@ -2,22 +2,22 @@
 	<div style="width: 100%">
 		<div :class="'card shadow border-0 mx-auto text-left ' + request.styling.theme" >
 			<div v-if="responseData != undefined">
-				The {{meta.name}} concentration in the arctic
+				The {{meta.name}} concentration at the ICOS station {{responseData.station}}
 				<div v-if="request.styling.wording == 'difference'">
-					{{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} ppm</b> 
+					{{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} {{responseData.unit}}</b> 
 					between {{responseData.begin_period}} and {{responseData.end_period}}.
 				</div>
 				<div v-else-if="request.styling.wording == 'relative'">
 					{{responseData.change > 0 ? 'increased' : 'decreased'}} by 
-					<b>{{((1-(responseData.begin_data/responseData.end_data))*100).toFixed(2)}} %</b> 
+					<b>{{((1-(responseData.start_abs_value/responseData.end_abs_value))*100).toFixed(2)}} %</b> 
 					between {{responseData.begin_period}} and {{responseData.end_period}}.
 				</div>
 				<div v-else-if="request.styling.wording == 'absolute'">
-					was <b>{{responseData.begin_data}} ppm</b> in {{responseData.begin_period}} and <b>{{responseData.end_data}} ppm</b> in {{responseData.end_period}}.
+					was <b>{{responseData.start_abs_value}} {{responseData.unit}}</b> in {{responseData.begin_period}} and <b>{{responseData.end_abs_value}} {{responseData.unit}}</b> in {{responseData.end_period}}.
 				</div>
 
-				<div v-if="request.styling.compareTo != '' && responseData.comp_amount != undefined && request.wording != 'absolute'">
-					This is equivalent to the annual emission of <b>{{responseData.comp_amount}}</b> {{request.styling.compareTo}}.
+				<div v-if="request.styling.convertTo != '' && responseData.compare_amount != undefined && request.styling.wording != 'absolute'">
+					This is equivalent to the annual emission of <b>{{responseData.compare_amount}}</b> {{request.styling.convertTo}}.
 				</div>
 			</div>
 			<div v-else>
@@ -46,7 +46,7 @@ export default {
 		fetchData() {
 			var startDate = this.request.data.startDateYear + (this.request.data.startDateMonth ? '-'+this.request.data.startDateMonth : '');
 			var endDate = this.request.data.endDateYear + (this.request.data.endDateMonth ? '-'+this.request.data.endDateMonth : '');
-			var convertTo = this.request.styling.compareTo ? `&compareTo=${this.request.styling.compareTo}` : '';
+			var convertTo = this.request.styling.convertTo ? `&compareTo=${this.request.styling.convertTo}` : '';
 			var query = `${this.apiURL}datapoints/?param=${this.request.data.param}&station=${this.request.data.station}&startdate=${startDate}&enddate=${endDate}${convertTo}`;
 			console.log(query)
       fetch(query, {})
@@ -82,12 +82,12 @@ export default {
 	margin: 20px;
 	border-radius: 0px;
 	max-width: 900px;
-	font-size: 4vw;
+	font-size: 3vw;
 }
 
 @media (max-width: 992px) {
     .card {
-		font-size: 6vw !important;
+		font-size: 5vw !important;
 	}
   }
 

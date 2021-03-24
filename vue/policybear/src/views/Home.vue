@@ -57,6 +57,7 @@ export default {
           startDateMonth: null,
           endDateYear : null,
           endDateMonth : null,
+          dateFormat : 'annual',
         },
         styling : {
           wording : 'difference',
