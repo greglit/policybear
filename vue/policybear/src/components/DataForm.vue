@@ -1,19 +1,33 @@
 <template>
     <b-form class="mb-2">
       <label for="pick-parameter" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Parameter</label>
-      <b-form-select id="pick-parameter" v-model="d_requestData.param" :options="parameterOptions" class="w-100 mb-2"/>
+      <b-form-select id="pick-parameter" v-model="d_requestData.param" :options="parameterOptions" class="w-100"/>
       <label for="pick-station" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Station</label>
-      <b-form-select id="pick-station" v-model="d_requestData.station" :options="stationOptions" :disabled="!d_requestData.param" class="w-100 mb-2"/>
-      <label for="startdate" class="mb-n1">Select first date</label>
-      <b-input-group class="w-100" id="date">
-        <b-form-select v-model="d_requestData.startDateYear" :options="startDateYearOptions" :disabled="!d_requestData.param || !d_requestData.station" />
-        <b-form-select v-model="d_requestData.startDateMonth" :options="startDateMonthOptions" :disabled="!d_requestData.startDateYear" />
-      </b-input-group>
-      <label for="enddate" class="mb-n1">Select second date</label>
-      <b-input-group class="w-100" id="date">
-        <b-form-select v-model="d_requestData.endDateYear" :options="endDateYearOptions" :disabled="!d_requestData.startDateYear" />
-        <b-form-select v-model="d_requestData.endDateMonth" :options="endDateMonthOptions" :disabled="!d_requestData.endDateYear || !d_requestData.startDateMonth" />
-      </b-input-group>
+      <b-form-select id="pick-station" v-model="d_requestData.station" :options="stationOptions" :disabled="!d_requestData.param" class="w-100 mb-4"/>
+      <b-form-radio-group
+          v-model="d_requestData.dateFormat" :options="dateFormatOptions" :disabled="!d_requestData.station"
+          button-variant="outline-primary" buttons class="w-100" @click="resetDate()"
+      ></b-form-radio-group>
+      <transition name="fade" mode="out-in">
+        <div v-if="d_requestData.dateFormat=='annual'" :key="d_requestData.dateFormat">
+          <label for="startdate" class="mb-n1">Select first date</label>
+          <b-form-select id="startdate" class="w-100" v-model="d_requestData.startDateYear" :options="startDateYearOptions" :disabled="!d_requestData.param || !d_requestData.station" />
+          <label for="enddate" class="mb-n1">Select second date</label>
+          <b-form-select id="enddate" class="w-100" v-model="d_requestData.endDateYear" :options="endDateYearOptions" :disabled="!d_requestData.startDateYear" />
+        </div>
+        <div v-else-if="d_requestData.dateFormat=='monthly'" :key="d_requestData.dateFormat">
+          <label for="startdate" class="mb-n1">Select first date</label>
+          <b-input-group class="w-100" id="startdate">
+            <b-form-select v-model="d_requestData.startDateYear" :options="startDateYearOptions" :disabled="!d_requestData.param || !d_requestData.station" />
+            <b-form-select v-model="d_requestData.startDateMonth" :options="startDateMonthOptions" :disabled="!d_requestData.startDateYear" />
+          </b-input-group>
+          <label for="enddate" class="mb-n1">Select second date</label>
+          <b-input-group class="w-100" id="enddate">
+            <b-form-select v-model="d_requestData.endDateYear" :options="endDateYearOptions" :disabled="!d_requestData.startDateYear" />
+            <b-form-select v-model="d_requestData.endDateMonth" :options="endDateMonthOptions" :disabled="!d_requestData.endDateYear || !d_requestData.startDateMonth" />
+          </b-input-group>
+        </div>
+      </transition>
     </b-form>
 </template>
 
@@ -28,16 +42,26 @@ export default {
     return {
       d_requestData : this.requestData,
 
+      dateFormatOptions: [
+        { value: 'annual', text: 'Compare annual values' },
+        { value: 'monthly', text: 'Compare monthly values'},
+      ],
+
       months : [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
     }
   },
   watch: {
     d_requestData: {
-     handler(val){
-       this.$emit('update:requestData', this.d_requestData);
+     handler(newVal){
+      if (this.d_requestData.dateFormat == 'annual') {
+        this.d_requestData.startDateMonth = null;
+        this.d_requestData.endDateMonth = null;
+      }
+
+      this.$emit('update:requestData', this.d_requestData);
      },
      deep: true
-  	}
+  	},
   },
   computed: {
     parameterOptions() {
@@ -71,8 +95,7 @@ export default {
       return options;
     },
     startDateMonthOptions() {
-      const monthText = this.d_requestData.startDateMonth ? 'Only years' : 'Month (optional)';
-      var options = [ { value: null, text: monthText}, ];
+      var options = [ { value: null, text: 'Month', disabled: true}, ];
       if (this.d_requestData.param != null && this.d_requestData.station != null && this.meta != null && this.d_requestData.startDateYear != null) {
         var start = 1;
         var end = 12;
@@ -102,8 +125,7 @@ export default {
       return options;
     },
     endDateMonthOptions() {
-      const monthText = this.d_requestData.startDateMonth ? 'Only years' : 'Month (optional)';
-      var options = [ { value: null, text: monthText}, ];
+      var options = [ { value: null, text: 'Month', disabled:true}, ];
       if (this.d_requestData.param && this.d_requestData.station && this.meta && this.d_requestData.endDateYear && this.d_requestData.startDateMonth) {
         var start = 1;
         var end = 12;
@@ -128,11 +150,18 @@ export default {
     },
   },
   methods: {
-    
   },
 }
 </script>
 
 <style lang="scss" scoped>
-
+  .fade-enter-active {
+    transition: opacity .5s;
+  }
+  .fade-leave-active {
+    transition: opacity .1s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
 </style>

@@ -8,7 +8,9 @@ $link-hover-color: theme-color("primary") !default;
 
 $theme-colors: (
   "primary": $nord3,
-  "light": $nord4,
+  //"primary": $nord6, try nightmode
+  "light": $nord3,
+  //"light": $nord4, try nightmode
   "success": #00b451,
   "info":#5C6BC0,
 
@@ -24,12 +26,13 @@ $container-max-widths: (
  * browser solution that works well on all focusable page elements
  * including buttons, links, inputs, textareas, and selects.
  */
+/*
  *:focus { 
   outline: 0 !important;
   box-shadow:
-    0 0 0 .2rem #fff, /* use site bg color to create whitespace for faux focus ring */
-    0 0 0 .35rem #069 !important; /* faux focus ring color */
-}
+    0 0 0 .2rem #fff,
+    0 0 0 .35rem #069 !important; 
+}*/
 
 /**
  * Undo the above focused button styles when the element received focus
