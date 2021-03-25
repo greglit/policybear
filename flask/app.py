@@ -112,8 +112,8 @@ def datapoints():
     response = {
         'station': obsStation,
         'param': param,
-        'begin_period': period_begin.strftime('%Y-%m'),
-        'end_period': period_end.strftime('%Y-%m'),
+        'begin_period': period_begin.strftime('%b, %Y'),
+        'end_period': period_end.strftime('%b, %Y'),
         'period': ([delta_period.years,delta_period.months,delta_period.days],t,t2),
         'change': change,
         'start_abs_value': start_abs_value,
