@@ -20,7 +20,7 @@ class Period:
         if end == None:
             end = start + pd.tseries.offsets.YearEnd()
         else:
-            end = pd.Timestamp(str(end)) + pd.tseries.offsets.YearEnd()
+            end = pd.Timestamp(str(end)) + pd.tseries.offsets.MonthEnd()
 
         mask = (self.time >= start) & (self.time <= end)
         return self.df.loc[mask]

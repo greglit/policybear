@@ -48,7 +48,7 @@ def dct_size(dct):
     print('Size of Dictionary below {} MB ({})'.format(math.ceil(size), round(size,2)))
 
 dct_size(data)
-
+#%%
 
 app = Flask(__name__)
 CORS(app)
@@ -83,6 +83,8 @@ def datapoints():
     end         = request.args.get('enddate') # which format ???
     compare_to   = request.args.get('compareTo')
 
+    print(start,end)
+
     PS = ParamSpecs(param,param_specs)
 
     # ICOS = icos.fetch('ZEP', 'ch4', 'ICOS ATC NRT CH4 growing...')
@@ -101,17 +103,18 @@ def datapoints():
     start_abs_value = round(C.value_ref(), PS.decimals)
     end_abs_value = round(C.value_comp(), PS.decimals)
 
-    delta_period = relativedelta.relativedelta(
-        C.mean().index.max(), C.mean().index.min())
+    period_begin = C.df.index.min()
+    period_end = C.df.index.max()
+    delta_period = relativedelta.relativedelta(period_end, period_begin)
     t = '%{}Y-%{}m'.format(delta_period.years,delta_period.months)
     t2 = '{} months'.format(12* delta_period.years + delta_period.months)
 
     response = {
         'station': obsStation,
         'param': param,
-        'begin_period': x.index.min().strftime('%Y-%m'),
-        'end_period': x.index.max().strftime('%Y-%m'),
-        'period': ([delta_period.years,delta_period.months],t,t2),
+        'begin_period': period_begin.strftime('%Y-%m'),
+        'end_period': period_end.strftime('%Y-%m'),
+        'period': ([delta_period.years,delta_period.months,delta_period.days],t,t2),
         'change': change,
         'start_abs_value': start_abs_value,
         'end_abs_value': end_abs_value,
