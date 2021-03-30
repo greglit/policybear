@@ -70,5 +70,9 @@ export default {
   }
 }
 
+.background-dark {
+  background-color: $nord3;
+}
+
 
 </style>

@@ -6,12 +6,12 @@
           <h1 v-if="$route.params.boardName == undefined" class="">Policy Bear</h1>
         </b-navbar-brand>
         
-        <b-navbar-nav class="ml-auto">
+        <!--<b-navbar-nav class="ml-auto">
           <b-nav-text right>
             <b-button variant="border-0" class="nord-btn">
               <b-icon-moon/>
             </b-button>
-          </b-nav-text>
+          </b-nav-text>-->
           <!--<b-nav-item right class="nav-item">
             <b-button variant="border-0" size="sm" v-b-modal.shareModal>
               <b-icon-share-fill/>
