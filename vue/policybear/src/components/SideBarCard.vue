@@ -1,13 +1,13 @@
 <template>
   <div class="shadow m-2 border-0 rounded-lg bg-white p-lg-3 p-2" ref="container">
     <div class="w-50 d-inline-block px-1"><b-button v-b-modal.modal-cutomize class="toggle-form nord-btn w-100" variant="border-0"><b-icon-brush-fill/></b-button></div>
-    <div class="w-50 d-inline-block px-1"><b-button v-b-modal.modal-share variant="border-0" class="nord-btn w-100" v-if="requestIsValid"><b-icon-share-fill/></b-button></div>
+    <div class="w-50 d-inline-block px-1"><b-button :to="`card/${JSON.stringify(request)}`" variant="border-0" class="nord-btn w-100" v-if="requestIsValid"><b-icon-share-fill/></b-button></div>
     <b-modal id="modal-cutomize" class="modal-form" hide-footer>
       <data-form :requestData.sync="d_request.data" :meta="meta" change2/>
       <hr>
       <styling-form :requestStyling.sync="d_request.styling" :requestData="d_request.data" :meta="meta"/>
     </b-modal>
-    <b-modal id="modal-share" class="modal-form" hide-footer>
+    <!--<b-modal id="modal-share" class="modal-form" hide-footer>
       <b-container ref="container" class="m-0 p-0">
         <b-form-group label-size="sm" label="Share as Link">
           <b-input-group>
@@ -26,10 +26,10 @@
           </b-input-group>
         </b-form-group>
         <hr>
-        <div class="w-50 d-inline-block px-1"><b-button  class="nord-btn w-100" variant="border-0"><b-icon-file-earmark-image class="mr-1"/>Download as Image</b-button></div>
-        <div class="w-50 d-inline-block px-1"><b-button  variant="border-0" class="nord-btn w-100"><b-icon-file-earmark-richtext class="mr-1"/>Download as PDF</b-button></div>
+        <div class="w-50 d-inline-block px-1"><b-button @click="downloadImage()" class="nord-btn w-100" variant="border-0"><b-icon-file-earmark-image class="mr-1"/>Download as Image</b-button></div>
+        <div class="w-50 d-inline-block px-1"><b-button @click="downloadPDF()" variant="border-0" class="nord-btn w-100"><b-icon-file-earmark-richtext class="mr-1"/>Download as PDF</b-button></div>
       </b-container>    
-    </b-modal>
+    </b-modal>-->
     <div class="card-form">
       <hr>
       <b-button v-b-toggle.data-form variant="border-0" class="nord-btn rubik-medium w-100 text-left pl-0">
@@ -55,6 +55,8 @@
 import StylingForm from './StylingForm.vue';
 import DataForm from './DataForm.vue';
 
+
+
 export default {
   name: 'SideBarCard',
   components: {
@@ -76,21 +78,13 @@ export default {
   	}
   },
   computed: {
-    cardurl() {
+    /*cardurl() {
       const url = String(window.location)
       const strRequest = JSON.stringify(this.request);
       return `${url}card/${strRequest}`;
-    }
+    }*/
   },
   methods: {
-    copyToClipboard(value) {
-      let container = this.$refs.container
-      this.$copyText(value, container).then((e) => {
-        this.makeToast(`Copied link to the clipboard!`);
-      }, (error) => {
-        console.log('failed to copy:'+e)
-      })
-    },
   },
   
 }

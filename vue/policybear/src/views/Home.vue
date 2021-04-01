@@ -28,8 +28,10 @@
             <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
           </b-col>
           <b-col cols="12" lg="8" xl="9" class="w-100">
-            <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.param]" class="my-5 mx-auto y-center"/>
-            <h4 v-else class="text-center rubik-medium y-center txt-nord6">Please fill out missing fields on the left to generate a card.</h4>
+            <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-auto y-center">
+              <argument-card ref="argument" :request="request" :meta="datasets[request.data.param]" />
+            </div>
+            <h4 v-else class="text-center rubik-medium y-center txt-nord6">Please fill out missing fields to generate a card.</h4>
           </b-col>
         </b-row>
       </b-container>
@@ -38,12 +40,12 @@
 </template>
 
 <script>
-//import html2pdf from 'html2pdf.js'
 import ArgumentCard from '../components/ArgumentCard.vue';
 import DataForm from '../components/DataForm.vue';
 import Navbar from '../components/Navbar.vue';
 import SideBarCard from '../components/SideBarCard.vue';
 import WaveSeperator from '../components/WaveSeperator.vue';
+
 
 export default {
   name: 'Home',
@@ -89,11 +91,28 @@ export default {
         this.fetchDataSets();
       });
     },
-    /*print() {
-      console.log('drucken!')
+    
+    downloadImage() {
+      this.$bvModal.hide('modal-share')
+      console.log(document.querySelector('#policy-argument-card'))
+      let config = {
+        target: '#policy-argument-card',
+        captureHiddenClass: 'vti__hidden',
+        captureShowClass: 'vti__show',
+        captureActiveClass: 'vti__active',
+        fileName: 'ImageCapture',
+        fileType: 'png',
+        returnAction: 'download', // blob, base64, canvas, clipboard, newWindow
+        callback: (img) => { return img } // modifies what image is returned
+      }
+      vue2img().image(config);
+    },
+    downloadPDF() {
+      console.log('print')
       let element = this.$refs.argument;
+      console.log(element)
       html2pdf(element);
-    }*/
+    },
   },
   computed: {
     requestIsValid() {

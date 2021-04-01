@@ -1,5 +1,5 @@
 <template>
-	<div style="width: 100%">
+	<div style="width: 100%" ref="argument">
 		<div :class="'card shadow border-0 mx-auto text-left ' + request.styling.theme" >
 			<div v-if="responseData != undefined">
 				The {{meta.name}} concentration at the ICOS station {{responseData.station}}
@@ -24,7 +24,7 @@
 				<h1>loading...</h1>
 			</div>
 		</div>
-		<p :class="!light ? 'txt-nord6' : ''">Created with <img src="../../public/policybear_icon.png" alt="logo" style="width:20px;height:20px; margin-top:-3px" class="mx-1"/> Policy Bear to save the arctic. Raahhhrr! ❤</p>
+		<p :class="!light ? 'txt-nord6 text-center' : 'text-center'">Created with <img src="../../public/policybear_icon.png" alt="logo" style="width:20px;height:20px; margin-top:-3px" class="mx-1"/> Policy Bear to save the arctic. Raahhhrr!</p>
 	</div>
 </template>
 

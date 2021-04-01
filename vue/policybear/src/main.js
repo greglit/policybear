@@ -36,9 +36,17 @@ Vue.mixin({
         autoHideDelay: 2000,
         appendToast: false,
         variant: 'success',
-        toaster: 'b-toaster-top-center',
+        toaster: 'b-toaster-top-full',
         solid: true,
         headerClass: 'd-none'
+      })
+    },
+    copyToClipboard(value) {
+      let container = this.$refs.container
+      this.$copyText(value, container).then((e) => {
+        this.makeToast(`Copied ${value} to the clipboard!`);
+      }, (error) => {
+        console.log('failed to copy:'+e)
       })
     },
   }
