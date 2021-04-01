@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="full-height w-100 m-0 p-0">
+    <section class="w-100 m-0 p-0">
       <b-container>
         <navbar/>
         <b-row class="mb-5">
@@ -18,9 +18,8 @@
           </b-col>
         </b-row>
       </b-container>
-      <wave-seperator />
-
     </section>
+    <wave-seperator />
     <section class="bg-nord3 pb-5">
       <b-container fluid class="full-height">
         <b-row class="">
