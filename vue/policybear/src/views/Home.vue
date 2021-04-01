@@ -21,15 +21,15 @@
       <wave-seperator />
 
     </section>
-    <section class="bg-nord3">
+    <section class="bg-nord3 pb-5">
       <b-container fluid class="full-height">
         <b-row class="">
-          <b-col cols="12" lg="3" class="mt-5 text-left card-form">
+          <b-col cols="12" lg="4" xl="3" class="mt-5 text-left card-form">
             <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
           </b-col>
-          <b-col cols="12" lg="9" class="w-100">
+          <b-col cols="12" lg="8" xl="9" class="w-100">
             <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.param]" class="my-5 mx-auto y-center"/>
-            <h4 v-else class="text-center rubik-medium y-center">Please fill out missing fields on the left to generate a card.</h4>
+            <h4 v-else class="text-center rubik-medium y-center txt-nord6">Please fill out missing fields on the left to generate a card.</h4>
           </b-col>
         </b-row>
       </b-container>
