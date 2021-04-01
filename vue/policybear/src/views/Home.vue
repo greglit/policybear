@@ -18,14 +18,14 @@
           </b-col>
         </b-row>
       </b-container>
-      <wave-seperator class="separator-1"/>
+      <wave-seperator />
 
     </section>
-    <section class="background-dark">
+    <section class="bg-nord3">
       <b-container fluid class="full-height">
         <b-row class="">
           <b-col cols="12" lg="3" class="mt-5 text-left card-form">
-            <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;"/>
+            <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
           </b-col>
           <b-col cols="12" lg="9" class="w-100">
             <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.param]" class="my-5 mx-auto y-center"/>
@@ -112,14 +112,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.y-center {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);  
-}
-
-
 
 </style>
 

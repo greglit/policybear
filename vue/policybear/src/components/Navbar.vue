@@ -16,8 +16,8 @@
             <b-button variant="border-0" size="sm" v-b-modal.shareModal>
               <b-icon-share-fill/>
             </b-button>
-          </b-nav-item>-->
-        </b-navbar-nav>
+          </b-nav-item>
+        </b-navbar-nav>-->
       </b-container>
       <b-modal hide-footer size="lg" id="shareModal" title="Share Policy Bear with others">
         
