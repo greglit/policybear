@@ -1,139 +1,127 @@
 <template>
   <div>
-    <b-row>
-      <h1 class="display-3 text-center" style="position:absolute; width:70%; top:30px; left:15%;">"Hi, I'm Policy Bear! Let's start creating simple arguments from complex data."</h1>
-      <img src="../assets/policy_bear.jpg" alt="policy bear" style="height:100%; width:100%;"/>
-      <b-icon-arrow-down-circle-fill animation="cylon-vertical" font-scale="4" style="position:absolute; right:25%; top:450px"/>
-    </b-row>
-    <b-container style="margin-top: -400px">
-      <b-card class="w-100 mt-5 shadow">
-        <b-row>
-          <b-col cols="6" class="text-left">
-            <b-form>
-              <label for="pick-dataset" class="text-left">Compare data of</label>
-              <b-form-select id="pick-dataset" v-model="request.selectedDataset" :options="datasetsOptions" class="mb-2" /> <br>
-              <label for="starting-date">between year</label>
-              <b-form-select id="starting-date" v-model="request.startDate" :options="yearOptions" class="mb-2" /> <br>
-              <label for="end-date">and year</label>
-              <b-form-select id="end-date" v-model="request.endDate" :options="yearOptionsReverse" class="mb-2" />
-            </b-form>
+    <section class="w-100 m-0 p-0">
+      <b-container>
+        <navbar/>
+        <b-row class="mb-5">
+          <b-col cols="12" md="6" class="mb-4 mb-md-0">
+              <img src="../assets/img/bearwithisle.svg" alt="policy bear" class="w-75 y-center"/>
           </b-col>
-          <b-col cols="6" class="border-left text-left">
-            <b-form>
-              <label for="pick-wording">Choose wording</label>
-              <b-form-select id="pick-wording" v-model="request.wording" :options="wordingOptions" class="mb-2" /> <br>
-              <label for="starting-date">Choose everyday size to compare to</label>
-              <b-form-select id="starting-date" v-model="request.compareTo" :options="compareToOptions" class="mb-2" :disabled="request.wording == 'absolute'"/> <br>
-              <label for="end-date">Choose theme</label>
-              <b-form-select id="end-date" v-model="request.theme" :options="themeOptions" class="mb-2" />
-            </b-form>
+          <b-col cols="12" md="6">
+            <h1 class="display-5 text-left rubik-bold my-md-4 m-2">"Hi, I'm Policy Bear!</h1>
+            <h1 class="text-left m-2">Let's start creating simple arguments from complex data."</h1>
+            <b-overlay :show="!datasets" rounded="sm">
+              <b-card class="shadow m-2 mt-md-5 border-0 text-left rounded-lg">
+                <data-form :requestData.sync="request.data" :meta="datasets"/>
+              </b-card>
+            </b-overlay>
           </b-col>
         </b-row>
-      </b-card>
-      <!--<b-button v-if="requestIsValid" class="mt-5" variant="outline-primary" @click="print()">
-        <b-icon-printer class="mr-2"/>Print
-      </b-button>-->
-      <div ref="argument" style="margin-bottom: 200px; margin-top: 100px">
-        <b-row>
-          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.selectedDataset]" class="my-5"/>
+      </b-container>
+    </section>
+    <wave-seperator />
+    <section class="bg-nord3 pb-5">
+      <b-container fluid class="full-height">
+        <b-row class="">
+          <b-col cols="12" lg="4" xl="3" class="mt-5 text-left card-form">
+            <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
+          </b-col>
+          <b-col cols="12" lg="8" xl="9" class="w-100">
+            <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-auto y-center">
+              <argument-card ref="argument" :request="request" :meta="datasets[request.data.param]" />
+            </div>
+            <h4 v-else class="text-center rubik-medium y-center txt-nord6">Please fill out missing fields to generate a card.</h4>
+          </b-col>
         </b-row>
-      </div>
-    </b-container>
+      </b-container>
+    </section>
   </div>
 </template>
 
 <script>
-import html2pdf from 'html2pdf.js'
 import ArgumentCard from '../components/ArgumentCard.vue';
+import DataForm from '../components/DataForm.vue';
+import Navbar from '../components/Navbar.vue';
+import SideBarCard from '../components/SideBarCard.vue';
+import WaveSeperator from '../components/WaveSeperator.vue';
+
 
 export default {
   name: 'Home',
   components: {
     ArgumentCard,
-
+    Navbar,
+    DataForm,
+    SideBarCard,
+    WaveSeperator,
   },
   data() {
     return {
-      datasets : {},
-      wordingOptions : [
-        {value: 'absolute', text: 'Compare absolute values'},
-        {value: 'difference', text: 'Show absolute difference'},
-        {value: 'relative', text: 'Show difference in percent'},
-      ],
-      themeOptions : [
-        {value: 'classic', text: 'Classic theme'},
-        {value: 'drastic', text: 'Typerwriter theme'},
-        {value: 'news', text: 'Newspaper theme'},
-      ],
+      datasets : null,
       request : {
-        selectedDataset : null,
-        startDate : '',
-        endDate : '',
-        wording : 'difference',
-        theme : 'classic',
-        compareTo : '',
+        data : {
+          param : null,
+          station : null,
+          startDateYear : null,
+          startDateMonth: null,
+          endDateYear : null,
+          endDateMonth : null,
+          dateFormat : 'annual',
+        },
+        styling : {
+          wording : 'difference',
+          theme : 'classic',
+          compareTo : null,
+        }
       },
     }
   },
   methods: {
     fetchDataSets() {
+      console.log(`${this.apiURL}datasets/`);
       fetch(`${this.apiURL}datasets/`, {})
       .then((resp) => resp.json())
       .then((data) => {
+        console.log(data);
         this.datasets = data;
       })
-      .catch(function(error) {
+      .catch((error) => {
         console.log(error);
+        this.fetchDataSets();
       });
     },
-    print() {
-      console.log('drucken!')
+    
+    downloadImage() {
+      this.$bvModal.hide('modal-share')
+      console.log(document.querySelector('#policy-argument-card'))
+      let config = {
+        target: '#policy-argument-card',
+        captureHiddenClass: 'vti__hidden',
+        captureShowClass: 'vti__show',
+        captureActiveClass: 'vti__active',
+        fileName: 'ImageCapture',
+        fileType: 'png',
+        returnAction: 'download', // blob, base64, canvas, clipboard, newWindow
+        callback: (img) => { return img } // modifies what image is returned
+      }
+      vue2img().image(config);
+    },
+    downloadPDF() {
+      console.log('print')
       let element = this.$refs.argument;
+      console.log(element)
       html2pdf(element);
-    }
+    },
   },
   computed: {
     requestIsValid() {
-      return this.request.selectedDataset != null && this.request.startDate !='' && this.request.endDate !='';
+      const data = this.request.data;
+      return data.param 
+          && data.startDateYear 
+          && data.endDateYear 
+          && (data.startDateMonth && data.endDateMonth || data.startDateMonth == null && data.endDateMonth == null);
     },
-    datasetsOptions() {
-      var options = [ { value: null, text: 'Please select a dataset' }, ];
-      for (const [key, entry] of Object.entries(this.datasets)) {
-        options.push({value: key, text: entry.description})
-      }
-      return options;
-    },
-    yearOptions() {
-      var options = [ { value: '', text: 'Please select a year' }, ];
-      if (this.request.selectedDataset != undefined) {
-        var start = this.datasets[this.request.selectedDataset].minYear;
-        var end = this.datasets[this.request.selectedDataset].maxYear;
-        for (var year = start; year <= end; year++) {
-          options.push({ value: year, text: String(year)})
-        }
-      }
-      return options;
-    },
-    yearOptionsReverse() {
-      var options = [ { value: '', text: 'Please select a year' }, ];
-      if (this.request.selectedDataset != undefined) {
-        var start = this.datasets[this.request.selectedDataset].minYear;
-        var end = this.datasets[this.request.selectedDataset].maxYear;
-        for (var year = end; year >= start; year--) {
-          options.push({ value: year, text: String(year)})
-        }
-      }
-      return options;
-    },
-    compareToOptions()  {
-      var options = [ { value: '', text: 'Please select a everyday size' }, ];
-      if (this.request.selectedDataset != undefined) {
-        for (const compare of this.datasets[this.request.selectedDataset].compareTo) {
-          options.push({ value: compare, text: this.capitFirstChar(compare) });
-        }
-      }
-      return options;
-    }
+    
   },
   created() {
     this.fetchDataSets();
@@ -142,16 +130,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form {
-  background-color: rgb(213, 245, 255);
-}
 
-.image-wrapper {
-  width: 100%
-}
-
-.image {
-  object-fit: scale-down;
-}
 </style>
 
