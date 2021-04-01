@@ -24,7 +24,7 @@
 				<h1>loading...</h1>
 			</div>
 		</div>
-		<p>Created with <img src="../../public/policybear_logo.png" alt="logo" style="width:20px;height:20px; margin-top:-3px" class="mx-1"/> Policy Bear to save the arctic. Raahhhrr! ❤</p>
+		<p :class="!light ? 'txt-nord6' : ''">Created with <img src="../../public/policybear_icon.png" alt="logo" style="width:20px;height:20px; margin-top:-3px" class="mx-1"/> Policy Bear to save the arctic. Raahhhrr! ❤</p>
 	</div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
   components: {
     
   },
-  props: ['request','meta'],
+  props: ['request','meta', 'light'],
   data() {
     return {
 			responseData : undefined,

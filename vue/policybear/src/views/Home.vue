@@ -1,33 +1,39 @@
 <template>
   <div>
-    <b-container class="full-height">
-      <navbar/>
-      <b-row class="mb-5">
-        <b-col cols="12" md="6" class="mb-4 mb-md-0">
-            <img src="../assets/bearwithisle.svg" alt="policy bear" class="w-75 y-center"/>
-        </b-col>
-        <b-col cols="12" md="6">
-          <h1 class="display-5 text-left rubik-bold my-md-4 m-2">"Hi, I'm Policy Bear!</h1>
-          <h1 class="text-left m-2">Let's start creating simple arguments from complex data."</h1>
-          <b-overlay :show="!datasets" rounded="sm">
-            <b-card class="shadow m-2 mt-md-5 border-0 text-left rounded-lg">
-              <data-form :requestData.sync="request.data" :meta="datasets"/>
-            </b-card>
-          </b-overlay>
-        </b-col>
-      </b-row>
-    </b-container>
-    <b-container fluid class="full-height">
-      <b-row class="">
-        <b-col cols="12" lg="3" class="mt-5 text-left card-form">
-          <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;"/>
-        </b-col>
-        <b-col cols="12" lg="9" class="w-100">
-          <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.param]" class="my-5 mx-auto y-center"/>
-          <h4 v-else class="text-center rubik-medium y-center">Please fill out missing fields on the left to generate a card.</h4>
-        </b-col>
-      </b-row>
-    </b-container>
+    <section class="full-height w-100 m-0 p-0">
+      <b-container>
+        <navbar/>
+        <b-row class="mb-5">
+          <b-col cols="12" md="6" class="mb-4 mb-md-0">
+              <img src="../assets/img/bearwithisle.svg" alt="policy bear" class="w-75 y-center"/>
+          </b-col>
+          <b-col cols="12" md="6">
+            <h1 class="display-5 text-left rubik-bold my-md-4 m-2">"Hi, I'm Policy Bear!</h1>
+            <h1 class="text-left m-2">Let's start creating simple arguments from complex data."</h1>
+            <b-overlay :show="!datasets" rounded="sm">
+              <b-card class="shadow m-2 mt-md-5 border-0 text-left rounded-lg">
+                <data-form :requestData.sync="request.data" :meta="datasets"/>
+              </b-card>
+            </b-overlay>
+          </b-col>
+        </b-row>
+      </b-container>
+      <wave-seperator />
+
+    </section>
+    <section class="bg-nord3">
+      <b-container fluid class="full-height">
+        <b-row class="">
+          <b-col cols="12" lg="3" class="mt-5 text-left card-form">
+            <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
+          </b-col>
+          <b-col cols="12" lg="9" class="w-100">
+            <argument-card v-if="requestIsValid" :request="request" :meta="datasets[request.data.param]" class="my-5 mx-auto y-center"/>
+            <h4 v-else class="text-center rubik-medium y-center">Please fill out missing fields on the left to generate a card.</h4>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
   </div>
 </template>
 
@@ -37,6 +43,7 @@ import ArgumentCard from '../components/ArgumentCard.vue';
 import DataForm from '../components/DataForm.vue';
 import Navbar from '../components/Navbar.vue';
 import SideBarCard from '../components/SideBarCard.vue';
+import WaveSeperator from '../components/WaveSeperator.vue';
 
 export default {
   name: 'Home',
@@ -45,6 +52,7 @@ export default {
     Navbar,
     DataForm,
     SideBarCard,
+    WaveSeperator,
   },
   data() {
     return {
@@ -104,14 +112,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.y-center {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);  
-}
-
-
 
 </style>
 
