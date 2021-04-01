@@ -29,7 +29,6 @@ from beartools.metadata.specs import param_specs
 from beartools.cli.compare import benchmarks
 
 
-
 #%%
 
 data_path = Path() / 'data/'
@@ -37,11 +36,13 @@ data_path = Path() / 'data/'
 with open(data_path / 'paramsInfo.json') as f:
     paramsInfo = json.load(f)
 
-metadata = pd.read_csv('metadata.csv',sep=';').set_index('index')
+with open(data_path / 'stationsInfo.json') as f:
+    stationsInfo = json.load(f)
+
+metadata = pd.read_csv('data/metadata.csv',sep=';').set_index('index')
 data_vars = list(metadata.index)            # ['co2','ch4']
 
 data = {}
-
 
 def dct_size(dct):
     size = np.sum([sys.getsizeof(v)/1024**2 for v in dct.values()])
@@ -58,20 +59,20 @@ def datasets():
     meta = {}
     for param in data_vars:
         C = collect.Collect(paramsInfo[param])
-        meta[param] = {'name': metadata.loc[param, 'name'],
-                      'description': metadata.loc[param, 'description'],
-                      'convertTo': ['cows', 'cars'],
-                      'stations': C.stations()}
+        meta[param] = {
+            'name': metadata.loc[param, 'name'],
+            'description': metadata.loc[param, 'description'],
+            'convertTo': ['cows', 'cars'],
+            'stations': C.stations(),
+            'stations_name': {station: stationsInfo[station]['name']
+                              for station in C.stations()},
+            'stations_country': {station: stationsInfo[station]['country']
+                                 for station in C.stations()}
+        }
         meta[param]['timeStart'] = {st: C.time(st)[0] for st in C.stations()}
         meta[param]['timeEnd'] = {st: C.time(st)[1] for st in C.stations()}
 
     return jsonify(meta)
-
-
-# empty
-# param = 'ch4'
-# obsStation = 'HEL'
-
 
 #%%
 
@@ -79,11 +80,9 @@ def datasets():
 def datapoints():
     obsStation  = request.args.get('station')
     param       = request.args.get('param')
-    start       = request.args.get('startdate') # which format ???
-    end         = request.args.get('enddate') # which format ???
+    start       = request.args.get('startdate') # '2020-01'
+    end         = request.args.get('enddate') # '2020-01'
     compare_to   = request.args.get('compareTo')
-
-    print(start,end)
 
     PS = ParamSpecs(param,param_specs)
 
@@ -99,9 +98,10 @@ def datapoints():
     C = cmp.Compute(da.period(start,end))
 
     # change
-    change = round(C.change(), PS.decimals)
     start_abs_value = round(C.value_ref(), PS.decimals)
     end_abs_value = round(C.value_comp(), PS.decimals)
+    change = round(C.change(), PS.decimals)
+    change_pct = round((C.change()/start_abs_value)*100, 1)
 
     period_begin = C.df.index.min()
     period_end = C.df.index.max()
@@ -116,6 +116,7 @@ def datapoints():
         'end_period': period_end.strftime('%Y-%m'),
         'period': ([delta_period.years,delta_period.months,delta_period.days],t,t2),
         'change': change,
+        'change_pct': change_pct,
         'start_abs_value': start_abs_value,
         'end_abs_value': end_abs_value,
         'unit': 'ppm'
