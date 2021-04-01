@@ -77,7 +77,7 @@ export default {
       var options = [ { value: null, text: 'Select an ICOS station', disabled: true }, ];
       if (this.d_requestData.param != null && this.meta != null) {
         for (const [key, value] of Object.entries(this.meta[this.d_requestData.param].stations)) {
-          options.push({value: value, text: value})
+          options.push({value: value, text: `${this.meta[this.d_requestData.param].stations_name[value]} (${this.meta[this.d_requestData.param].stations_country[value]})`})
         }
       }
       

@@ -2,14 +2,14 @@
 	<div style="width: 100%" ref="argument">
 		<div :class="'card shadow border-0 mx-auto text-left ' + request.styling.theme" >
 			<div v-if="responseData != undefined">
-				The {{meta.name}} concentration at the ICOS station {{responseData.station}}
+				The {{meta.name}} concentration at the ICOS station "{{meta.stations_name[responseData.station]}}"
 				<div v-if="request.styling.wording == 'difference'">
 					{{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} {{responseData.unit}}</b> 
 					between {{responseData.begin_period}} and {{responseData.end_period}}.
 				</div>
 				<div v-else-if="request.styling.wording == 'relative'">
 					{{responseData.change > 0 ? 'increased' : 'decreased'}} by 
-					<b>{{((1-(responseData.start_abs_value/responseData.end_abs_value))*100).toFixed(2)}} %</b> 
+					<b>{{Math.abs(responseData.change_pct)}} %</b> 
 					between {{responseData.begin_period}} and {{responseData.end_period}}.
 				</div>
 				<div v-else-if="request.styling.wording == 'absolute'">
