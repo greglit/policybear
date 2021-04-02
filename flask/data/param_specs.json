@@ -1,0 +1,41 @@
+{
+  "ch4": {
+    "dataset": ["ICOS ATC CH4 Release", "ICOS ATC NRT CH4 growing time series"],
+    "label": "ch4",
+    "variable": null,
+    "access_folders": null,
+    "type": "CH4 mixing ratio (dry mole fraction, ppb)",
+    "unit": "nmol mol-1",
+    "unit_conv": 0.001,
+    "dst_unit": "ppm",
+    "category": "gas",
+    "co2eq_factor": 23,
+    "round_decimals": 2
+  },
+  "co2": {
+    "dataset": ["ICOS ATC CO2 Release", "ICOS ATC NRT CO2 growing time series"],
+    "label": "co2",
+    "variable": null,
+    "access_folders": null,
+    "type": "CO2 mixing ratio (dry mole fraction, ppm)",
+    "unit": "\u00b5mol mol-1",
+    "unit_conv": 1,
+    "dst_unit": "ppm",
+    "category": "gas",
+    "co2eq_factor": 1,
+    "round_decimals": 2
+  },
+  "sic": {
+    "dataset": "ssmi-ssmis-hydrological-products",
+    "label": "mw-hydro_v01_2.5-deg_ice_early",
+    "variable": "sea_ice_cover",
+    "access_folders": "access/netcdf/",
+    "type": null,
+    "unit": null,
+    "unit_conv": null,
+    "dst_unit": null,
+    "category": "area",
+    "co2eq_factor": null,
+    "round_decimals": null
+  }
+}

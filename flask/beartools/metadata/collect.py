@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
 Created Mar 19, 2021
-
 Select period and compute means
 """
 import datetime as dt
@@ -26,3 +25,5 @@ class Collect:
             start, end = self.info['period'][station][0]
             start, end = convertTime(start), convertTime(end)
             return (start, end)
+
+# END OF FILE
