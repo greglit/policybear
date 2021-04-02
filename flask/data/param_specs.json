@@ -1,6 +1,9 @@
 {
   "ch4": {
-    "dataset": ["ICOS ATC CH4 Release", "ICOS ATC NRT CH4 growing time series"],
+    "dataset": [
+      "ICOS ATC CH4 Release",
+      "ICOS ATC NRT CH4 growing time series"
+    ],
     "label": "ch4",
     "variable": null,
     "access_folders": null,
@@ -13,7 +16,10 @@
     "round_decimals": 2
   },
   "co2": {
-    "dataset": ["ICOS ATC CO2 Release", "ICOS ATC NRT CO2 growing time series"],
+    "dataset": [
+      "ICOS ATC CO2 Release",
+      "ICOS ATC NRT CO2 growing time series"
+    ],
     "label": "co2",
     "variable": null,
     "access_folders": null,
