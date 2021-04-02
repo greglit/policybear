@@ -22,7 +22,7 @@ class Collect:
         if station == None:
             raise KeyError('Input attribute "station" not given. Please select a station!')
         else:
-            start, end = self.info['period'][station][0]
+            start, end = self.info['period'][station]
             start, end = convertTime(start), convertTime(end)
             return (start, end)
 
