@@ -9,6 +9,10 @@ import json
 import icoscp   # load data from icos data portal
 from icoscp.station import station
 from icoscp.cpb.dobj import Dobj
+import pathlib
+from pathlib import Path
+
+data_path = Path() / 'data/'
 
 path = os.getcwd()
 
