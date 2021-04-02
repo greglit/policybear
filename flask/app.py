@@ -1,3 +1,10 @@
+#!/usr/bin/python3
+"""
+Created Mar 12, 2021
+
+App main file
+"""
+
 from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
 
@@ -7,22 +14,21 @@ import math
 import pathlib
 from pathlib import Path
 
+import json
 import pandas as pd
 import numpy as np
 import datetime as dt
 import dateutil
-from dateutil import relativedelta
+from dateutil.relativedelta import relativedelta
 import json
 
 #####################################################
 # METHODS
-
 from beartools.data import icos
 from beartools.cli import computations as cmp
 from beartools.cli.compare import CompareTo
-from beartools.metadata import collect
 from beartools.metadata.specs import ParamSpecs
-
+from beartools.metadata import collect
 
 # VARS
 from beartools.metadata.specs import param_specs
@@ -80,32 +86,38 @@ def datasets():
 def datapoints():
     obsStation  = request.args.get('station')
     param       = request.args.get('param')
-    start       = request.args.get('startdate') # '2020-01'
-    end         = request.args.get('enddate') # '2020-01'
+    start       = request.args.get('startdate') # '2020-01' or '2020'
+    end         = request.args.get('enddate') # '2020-01' or '2020'
     compare_to   = request.args.get('compareTo')
 
+    print(param,obsStation,start,end,compare_to)
     PS = ParamSpecs(param,param_specs)
 
     # ICOS = icos.fetch('ZEP', 'ch4', 'ICOS ATC NRT CH4 growing...')
     ICOS = icos.Fetch(obsStation, PS) # rename params
-    ICOS.collectData(data)    # empty dictionary called data
-
+    ICOS.collect_data(data)    # empty dictionary called data
     dct_size(data)
 
     x = data[obsStation][[param]]
 
-    da = cmp.Period(x)
-    C = cmp.Compute(da.period(start,end))
+    P = cmp.Period(x, start, end)
+    da_period = P.select_period()
+    CMP = cmp.Compute(da_period, P.rule)
+    da_resamp = CMP.mean()
+    resamp_rule = 'monthly' if P.rule == 'M' else 'annual'
 
     # change
-    start_abs_value = round(C.value_ref(), PS.decimals)
-    end_abs_value = round(C.value_comp(), PS.decimals)
-    change = round(C.change(), PS.decimals)
-    change_pct = round((C.change()/start_abs_value)*100, 1)
+    start_abs_value = round(CMP.value_ref(), PS.decimals)
+    end_abs_value = round(CMP.value_comp(), PS.decimals)
+    change = round(CMP.change(), PS.decimals)
+    change_pct = round((CMP.change()/start_abs_value)*100, 1)
 
-    period_begin = C.df.index.min()
-    period_end = C.df.index.max()
-    delta_period = relativedelta.relativedelta(period_end, period_begin)
+    # NOT YET IMPLEMENTED
+    # period_begin, period_end, period_delta = P.period_info()
+
+    period_begin = CMP.df.index.min()
+    period_end = CMP.df.index.max()
+    delta_period = relativedelta(period_end, period_begin)
     t = '%{}Y-%{}m'.format(delta_period.years,delta_period.months)
     t2 = '{} months'.format(12* delta_period.years + delta_period.months)
 
@@ -119,7 +131,8 @@ def datapoints():
         'change_pct': change_pct,
         'start_abs_value': start_abs_value,
         'end_abs_value': end_abs_value,
-        'unit': 'ppm'
+        'unit': 'ppm',
+        'resamp_rule': resamp_rule
     }
 
     if compare_to:
