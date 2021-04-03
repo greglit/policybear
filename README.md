@@ -1,5 +1,7 @@
 # Policy Bear
 
+![](/img/policybear_v1.2.png)
+
 Our contribution to [*Hack the Arctic*](https://hackthearctic.com), a hackathon to design solutions for environmental challenges.
 
 The **Policy Bear** is up and running at [www.policybear.gregl.it](https://policybear.gregl.it).
