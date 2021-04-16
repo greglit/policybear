@@ -33,6 +33,7 @@ export default {
 @import '../node_modules/bootstrap-vue/src/index.scss';
 @import "../node_modules/nord/src/sass/nord.scss";
 
+
 @font-face {
   font-family: "Rubik";
   src: local("Rubik"),   url(./assets/fonts/Rubik-Regular.ttf) format("truetype");

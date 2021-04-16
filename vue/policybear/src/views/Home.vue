@@ -3,6 +3,7 @@
     <section class="w-100 m-0 p-0">
       <b-container>
         <navbar/>
+        <leaflet-map/>
         <b-row class="mb-5">
           <b-col cols="12" md="6" class="mb-4 mb-md-0">
               <img src="../assets/img/bearwithisle.svg" alt="policy bear" class="w-75 y-center"/>
@@ -45,6 +46,8 @@ import Navbar from '../components/Navbar.vue';
 import SideBarCard from '../components/SideBarCard.vue';
 import WaveSeperator from '../components/WaveSeperator.vue';
 
+import LeafletMap from '../components/LeafletMap.vue';
+
 
 export default {
   name: 'Home',
@@ -54,6 +57,7 @@ export default {
     DataForm,
     SideBarCard,
     WaveSeperator,
+    LeafletMap,
   },
   data() {
     return {
@@ -125,7 +129,7 @@ export default {
   },
   created() {
     this.fetchDataSets();
-  }
+  },
 }
 </script>
 
