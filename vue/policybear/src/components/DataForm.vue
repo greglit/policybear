@@ -2,8 +2,26 @@
     <b-form class="mb-2">
       <label for="pick-parameter" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Parameter</label>
       <b-form-select id="pick-parameter" v-model="d_requestData.param" :options="parameterOptions" class="w-100"/>
-      <label for="pick-station" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Station</label>
-      <b-form-select id="pick-station" v-model="d_requestData.station" :options="stationOptions" :disabled="!d_requestData.param" class="w-100 mb-4"/>
+      <div class="mb-3">
+        <label for="pick-station" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Station</label>
+        <b-input-group class="w-100 mb-1" id="pick-station">
+          <b-input-group-prepend>
+            <b-button variant="info" v-b-toggle.collapse-map :disabled="!d_requestData.param">
+              <b-icon-map-fill/>
+            </b-button>
+          </b-input-group-prepend>
+          <b-form-select v-model="d_requestData.station" :options="stationOptions" :disabled="!d_requestData.param"/>
+        </b-input-group>
+        <b-collapse id="collapse-map" class="mt-1">
+          <leaflet-map 
+            v-if="meta != null" 
+            :stationCoords="{NOR:[48.137154, 11.576124], OPE:[48.147154, 11.566124],}" 
+            :stationNames="meta.ch4.stations_name" 
+            :selectStation="(key) => {d_requestData.param = 'ch4'; d_requestData.station = key}"
+          />
+        </b-collapse>
+      </div>
+
       <b-form-radio-group
           v-model="d_requestData.dateFormat" :options="dateFormatOptions" :disabled="!d_requestData.station"
           button-variant="outline-primary" buttons class="w-100" @click="resetDate()"
@@ -32,10 +50,12 @@
 </template>
 
 <script>
+import LeafletMap from './LeafletMap.vue';
 
 export default {
   name: 'DataForm',
   components: {
+    LeafletMap,
   },
   props: ['requestData', 'meta', 'change'],
   data() {
@@ -43,8 +63,8 @@ export default {
       d_requestData : this.requestData,
 
       dateFormatOptions: [
-        { value: 'annual', text: 'Compare annual values' },
-        { value: 'monthly', text: 'Compare monthly values'},
+        { value: 'annual', text: 'Annual values' },
+        { value: 'monthly', text: 'Monthly values'},
       ],
 
       months : [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],

@@ -81,6 +81,16 @@ export default {
   }
 }
 
+.nord-btn-primary {
+  color: $nord6;
+  background-color: $nord10;
+
+  &:hover {
+    color: $nord6;
+    background-color: $nord9;
+  }
+}
+
 .bg-nord3 {
   background-color: $nord3;
 }
@@ -89,8 +99,16 @@ export default {
   background-color: $nord0;
 }
 
+.bg-nord6 {
+  background-color: $nord6 !important;
+}
+
 .txt-nord6 {
-  color: $nord6;
+  color: $nord6 !important;
+}
+
+.txt-nord3 {
+  color: $nord3 !important;
 }
 
 .y-center {

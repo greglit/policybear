@@ -1,15 +1,5 @@
  <template>
- <div style="height: 500px; width: 100%">
-    <div style="height: 200px; overflow: auto;">
-      <p>First marker is placed at {{ withPopup.lat }}, {{ withPopup.lng }}</p>
-      <p>Center is at {{ center }} and the zoom is: {{ zoom }}</p>
-      <button @click="showLongText">
-        Toggle long popup
-      </button>
-      <button @click="showMap = !showMap">
-        Toggle map
-      </button>
-    </div>
+  <div style="height: 500px; width: 100%">
     <l-map
       v-if="showMap"
       :zoom="zoom"
@@ -23,28 +13,9 @@
         :url="url"
         :attribution="attribution"
       />
-      <l-marker :lat-lng="withPopup">
-        <l-popup>
-          <div @click="innerClick">
-            I am a popup
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
-          </div>
-        </l-popup>
-      </l-marker>
-      <l-marker :lat-lng="withTooltip">
-        <l-tooltip :options="{ permanent: true, interactive: true }">
-          <div @click="innerClick">
-            I am a tooltip
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
-          </div>
+      <l-marker v-for="(coords, key) in stationCoords" :lat-lng="latLong(coords[0], coords[1])" :key="key" @click="selectStation(key)">
+        <l-tooltip :options="{ permanent: false, interactive: false }">
+          {{stationNames[key]}}
         </l-tooltip>
       </l-marker>
     </l-map>
@@ -74,6 +45,7 @@ export default {
     LPopup,
     LTooltip
   },
+  props: ['stationCoords', 'stationNames', 'selectStation'],
   data() {
     return {
       zoom: 13,
@@ -85,7 +57,7 @@ export default {
       mapOptions: {
         zoomSnap: 0.5
       },
-      showMap: true
+      showMap: true,
     };
   },
   methods: {
@@ -95,11 +67,14 @@ export default {
     centerUpdate(center) {
       this.center = center;
     },
-    showLongText() {
-      this.showParagraph = !this.showParagraph;
-    },
     innerClick() {
       alert("Click!");
+    },
+    latLong(lat, long) {
+      return latLng(lat,long);
+    },
+    clickedMarker(key) {
+      console.log(`clicked station: ${this.stationNames[key]}`)
     }
   }
 };

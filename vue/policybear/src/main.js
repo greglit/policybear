@@ -4,6 +4,8 @@ import router from './router'
 
 import 'leaflet/dist/leaflet.css';
 
+import VueSmoothScroll from 'vue2-smooth-scroll'
+Vue.use(VueSmoothScroll)
 
 Vue.config.productionTip = false
 
@@ -23,7 +25,7 @@ Vue.mixin({
     apiURL() {
       const url = String(window.location)
       if (Vue.config.devtools || url.includes('dev')) {
-        return 'https://dev-policybear.herokuapp.com/'; //'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/';
+        return 'https://dev-policybear.herokuapp.com/';//'http://192.168.178.20:5000/'; //'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/'//;
       } else {
         return 'https://policybear.herokuapp.com/';
       }

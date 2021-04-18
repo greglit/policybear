@@ -1,9 +1,13 @@
 <template>
     <b-navbar type="primary" class="rubik-medium">
       <b-container>
-        <b-navbar-brand class="brand ">
-          <img v-if="false" src="" class="d-inline-block align-top logo" alt="rudiboard">
-          <h1 v-if="$route.params.boardName == undefined" class="">Policy Bear</h1>
+        <b-navbar-brand class="brand d-flex align-items-center" to="/">
+          <img v-if="showIcon != undefined" src="../../public/policybear_icon.png" class="d-inline-flex logo mr-3" alt="rudiboard">
+          <component :is="sm != undefined ? 'h3':'h1'" 
+            :class="[bgDark != undefined ? 'txt-nord6':'txt-nord3', 'd-inline-flex m-0']"
+          >
+            Policy Bear
+          </component>
         </b-navbar-brand>
         
         <!--<b-navbar-nav class="ml-auto">
@@ -29,6 +33,7 @@
 
 export default {
   name: 'Navbar',
+  props: ['showIcon', 'bgDark', 'sm'],
   components: {
   },
   data() {
