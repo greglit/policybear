@@ -19,6 +19,8 @@ class ParamSpecs:
         self.param = param
         self.specs = param_specs
 
+        self.name = self.specs[self.param]['long_name']
+        self.descrp = self.specs[self.param]['description']
         self.dataset = self.specs[self.param]['dataset']
         self.label = self.specs[self.param]['label']
         self.variable = self.specs[self.param]['variable']
