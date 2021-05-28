@@ -4,10 +4,10 @@
       <navbar showIcon bgDark sm/>
       <b-container fluid class="full-height">
         <b-row class="">
-          <b-col cols="12" lg="5" xl="3" class="mt-2 text-left card-form">
+          <b-col cols="12" lg="5" class="mt-2 text-left card-form">
             <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
           </b-col>
-          <b-col cols="12" lg="7" xl="9" class="w-100">
+          <b-col cols="12" lg="7" class="w-100">
             <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-auto y-center">
               <argument-card ref="argument" :request="request" :meta="datasets[request.data.param]" />
             </div>

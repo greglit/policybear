@@ -6,20 +6,19 @@
         <label for="pick-station" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Station</label>
         <b-input-group class="w-100 mb-1" id="pick-station">
           <b-input-group-prepend>
-            <b-button variant="info" v-b-toggle.collapse-map :disabled="!d_requestData.param">
+            <b-button variant="info" :disabled="!d_requestData.param" @click="showMap = !showMap">
               <b-icon-map-fill/>
             </b-button>
           </b-input-group-prepend>
           <b-form-select v-model="d_requestData.station" :options="stationOptions" :disabled="!d_requestData.param"/>
         </b-input-group>
-        <b-collapse id="collapse-map" class="mt-1">
-          <leaflet-map 
-            v-if="meta != null" 
-            :stationCoords="{NOR:[48.137154, 11.576124], OPE:[48.147154, 11.566124],}" 
-            :stationNames="meta.ch4.stations_name" 
-            :selectStation="(key) => {d_requestData.param = 'ch4'; d_requestData.station = key}"
-          />
-        </b-collapse>
+        <leaflet-map 
+          class="my-2 p-0 rounded " style="overflow:hidden"
+          v-if="meta != null && showMap" 
+          :stationCoords="{NOR:[48.137154, 11.576124], OPE:[48.147154, 11.566124],}" 
+          :stationNames="meta.ch4.stations_name" 
+          :selectStation="(key) => {d_requestData.param = 'ch4'; d_requestData.station = key}"
+        />
       </div>
 
       <b-form-radio-group
@@ -68,6 +67,8 @@ export default {
       ],
 
       months : [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+
+      showMap: false,
     }
   },
   watch: {
