@@ -25,7 +25,7 @@ Vue.mixin({
     apiURL() {
       const url = String(window.location)
       if (Vue.config.devtools || url.includes('dev')) {
-        return 'https://dev-policybear.herokuapp.com/';//'http://192.168.178.20:5000/'; //'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/'//;
+        return 'http://192.168.178.22:5000/';//'https://dev-policybear.herokuapp.com/'; //'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/'//;
       } else {
         return 'https://policybear.herokuapp.com/';
       }
@@ -54,6 +54,9 @@ Vue.mixin({
         console.log('failed to copy:'+e)
       })
     },
+    withPoints(num) {
+      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    }
   }
 })
 

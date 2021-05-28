@@ -17,7 +17,7 @@
 				</div>
 
 				<div v-if="request.styling.convertTo != '' && responseData.compare_amount != undefined && request.styling.wording != 'absolute'">
-					This is equivalent to the annual emission of <b>{{responseData.compare_amount}}</b> {{request.styling.convertTo}}.
+					This is equivalent to the annual emission of <b>{{withPoints(responseData.compare_amount)}}</b> {{request.styling.convertTo}}.
 				</div>
 			</div>
 			<div v-else>
