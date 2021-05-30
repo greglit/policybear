@@ -59,6 +59,11 @@ data_swapped_info = {}
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/mongo/')
+def mongo():
+    print(os.environ.get('MONGODB_URI'))
+
+
 @app.route('/datasets/')
 def datasets():
     # meta = {}
