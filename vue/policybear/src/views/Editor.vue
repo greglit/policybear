@@ -9,7 +9,7 @@
           </b-col>
           <b-col cols="12" lg="7" class="w-100">
             <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-4 mx-lg-2 y-center">
-              <argument-card ref="argument" :request="request" :meta="datasets[request.data.param]" />
+              <argument-card ref="argument" :request="request" :meta="datasets[request.data.param]" style="margin-top:-50px;"/>
             </div>
             <h4 v-else class="text-center rubik-medium y-center txt-nord6">Please fill out missing fields to generate a card.</h4>
           </b-col>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ArgumentCard from '../components/ArgumentCard.vue';
+import ArgumentCard from '../components/ArgumentCard.vue'
 import DataForm from '../components/DataForm.vue';
 import Navbar from '../components/Navbar.vue';
 import SideBarCard from '../components/SideBarCard.vue';

@@ -43,7 +43,7 @@ export default {
   data() {
     return {
 			responseData : undefined,
-      cardFontSize: 0,
+      cardFontSize: 12,
     }
   },
   methods: {
@@ -94,7 +94,10 @@ export default {
 		this.fetchData();
 	},
   mounted() {
-    this.handleResize()
+    this.handleResize();
+    setTimeout(()=> {
+      this.handleResize();
+    }, 1000);
   },
 }
 </script>
@@ -136,7 +139,6 @@ export default {
 }
 
 .aspect-ratio-box {
-  margin-top: -50px;
   height: 0;
   overflow: hidden;
   padding-top: 60%;
