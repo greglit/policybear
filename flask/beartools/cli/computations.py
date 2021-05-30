@@ -25,13 +25,13 @@ class Period:
         if (self.start.isdigit() & self.end.isdigit()):
             if self.start != self.end:
                 rule = 'Y'
-                print('annual values will be calculated ...')
+                print('Compute | set resampling rule | : annual')
             else: # just in case
                 rule = 'M'
-                print('monthly values will be calculated ...')
+                print('Compute | set resampling rule | : monthly')
         else:
             rule = 'M'
-            print('monthly values will be calculated ...')
+            print('Compute | set resampling rule | : monthly')
         return rule
 
     def select_period(self):
