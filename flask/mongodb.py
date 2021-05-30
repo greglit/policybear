@@ -11,6 +11,14 @@ import pymongo
 from pymongo import MongoClient
 
 #%%
+# just for local testing:
+try:
+    import cfgMongoDB
+    cfgMongoDB.mongodb_env()
+except:
+    pass
+
+
 # MongoDB access URI
 mongodb_uri = os.environ['MONGODB_URI']
 client = MongoClient(mongodb_uri)
