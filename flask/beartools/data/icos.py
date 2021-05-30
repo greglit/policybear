@@ -20,14 +20,14 @@ from . import swap
 
 # from ..metadata.specs import ParamSpecs
 
-import logging
-from logging.config import fileConfig
-
-fileConfig('logging.cfg', disable_existing_loggers=False)
-
-logger = logging.getLogger('dataLogger')
-
-logger.debug('random logging message')
+# import logging
+# from logging.config import fileConfig
+#
+# fileConfig('logging.cfg', disable_existing_loggers=False)
+#
+# logger = logging.getLogger('dataLogger')
+#
+# logger.debug('random logging message')
 
 class Fetch:
     def __init__(self, ID, ParamSpecs, data_swap):
@@ -55,8 +55,8 @@ class Fetch:
         """
         Check if data already loaded into swap storage.
         """
-        logger.debug(f'{self.__class__.__name__} : data swap status : '
-                     f'... checking data availability in data swap storage ...')
+        # logger.debug(f'{self.__class__.__name__} : data swap status : '
+        #              f'... checking data availability in data swap storage ...')
         data_swapped = self.header_data_swap()
 
         if (self.ID not in data_swapped):
@@ -69,8 +69,8 @@ class Fetch:
         return {'station': station_status, 'param': param_status}
 
     def fetch_station_metadata(self):
-        logger.debug(f'{self.__class__.__name__} : station metadata : '
-                     f'... fetching data infos, including dobj (download link) ...')
+        # logger.debug(f'{self.__class__.__name__} : station metadata : '
+        #              f'... fetching data infos, including dobj (download link) ...')
 
         def preprocessing(meta):
             # make sure samplingheight type is float (otherwise object)
@@ -80,8 +80,8 @@ class Fetch:
         meta = station.get(self.ID).data()
         meta = meta.loc[meta.specLabel.isin(self.dataset)]
         meta = preprocessing(meta)
-        logger.debug(f'{self.__class__.__name__} : station metadata : '
-                     f'fetching metadata for {self.ID} successful.')
+        # logger.debug(f'{self.__class__.__name__} : station metadata : '
+        #              f'fetching metadata for {self.ID} successful.')
         return meta
 
     def list_heights(self):
@@ -101,7 +101,7 @@ class Fetch:
         return ds * self.PS.unit_conv
 
     def fetch_data(self):
-        logger.debug(f'{self.__class__.__name__} : data : ... fetching data ...')
+        # logger.debug(f'{self.__class__.__name__} : data : ... fetching data ...')
         meta = self.select_height()
         dobjs = list(meta['dobj'])
         data = pd.concat(
@@ -114,20 +114,20 @@ class Fetch:
 
     def fetch_and_swap_data(self, data_swap):
         if all(self.data_swap_status.values()):
-            logger.debug(f'{self.__class__.__name__} : data : '
-                         f'skip fetching, data already swapped.')
+            # logger.debug(f'{self.__class__.__name__} : data : '
+            #              f'skip fetching, data already swapped.')
 
         elif not self.data_swap_status['station']:
             data = self.fetch_data()
-            logger.debug(f'{self.__class__.__name__} : data : '
-                         f'swaping data, creating entry:  {self.ID} with {self.param}')
+            # logger.debug(f'{self.__class__.__name__} : data : '
+            #              f'swaping data, creating entry:  {self.ID} with {self.param}')
             # self.data_swap[self.ID] = data
             data_swap[self.ID] = data
 
         elif not self.data_swap_status['param']:
             data = self.fetch_data()
-            logger.debug(f'{self.__class__.__name__} : data : '
-                         f'swaping data, creating entry:  ({self.ID}) with {self.param}')
+            # logger.debug(f'{self.__class__.__name__} : data : '
+            #              f'swaping data, creating entry:  ({self.ID}) with {self.param}')
             # self.data_swap[self.ID] = pd.concat([self.data_swap[self.ID], data], axis=1)
             data_swap[self.ID] = pd.concat([data_swap[self.ID], data], axis=1)
 
