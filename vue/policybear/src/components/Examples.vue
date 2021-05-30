@@ -1,9 +1,7 @@
 <template>
   <div>
     <b-carousel
-      :key="key_value"
-      style="display:block;"
-      v-if="meta && show"
+      v-if="meta"
       controls
       indicators
       :interval="0"
@@ -94,9 +92,6 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.key_value = Date.now();
-    }, 3000)
   }
 }
 </script>

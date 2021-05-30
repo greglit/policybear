@@ -1,8 +1,8 @@
 <template>
   <div>
     <section class="bg-nord3 pb-5">
-      <navbar showIcon bgDark sm/>
       <b-container fluid class="full-height">
+        <navbar showIcon bgDark sm class="ml-2"/>
         <b-row class="">
           <b-col cols="12" lg="5" class="mt-2 text-left card-form">
             <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>

@@ -94,10 +94,9 @@ export default {
 		this.fetchData();
 	},
   mounted() {
-    this.handleResize();
     setTimeout(()=> {
       this.handleResize();
-    }, 1000);
+    }, 10);
   },
 }
 </script>
