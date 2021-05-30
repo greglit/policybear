@@ -22,6 +22,8 @@ import dateutil
 from dateutil.relativedelta import relativedelta
 import json
 
+import pymongo
+
 #####################################################
 # METHODS
 from beartools.data import icos
@@ -94,6 +96,7 @@ def datasets():
             'param_specs': {
                 'param_name': PS.name,
                 'param_category': PS.category,
+                'param_conversion': ['cars', 'cows'],
                 'param_description': PS.descrp
             }
         })
