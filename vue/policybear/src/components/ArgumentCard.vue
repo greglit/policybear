@@ -4,7 +4,7 @@
       <div :class="'aspect-ratio-box-inside card border-0 shadow text-left ' + request.styling.theme" ref="innerCard" :style="cardStyling">
         <resize-observer @notify="handleResize" />
         <div v-if="responseData != undefined">
-          The {{meta.name}} concentration at the ICOS station "{{meta.stations_name[responseData.station]}}"
+          The {{meta.param_specs.param_name}} concentration at the ICOS station "{{meta.param_stations[responseData.station].station_name}}"
           <div v-if="request.styling.wording == 'difference'">
             {{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} {{responseData.unit}}</b> 
             between {{responseData.begin_period}} and {{responseData.end_period}}.
@@ -32,26 +32,37 @@
 </template>
 
 <script>
-
+import store from '../store.js'
 
 export default {
   name: 'ArgumentCard',
   components: {
     
   },
-  props: ['request','meta', 'light'],
+  props: {
+    request: {
+      type: Object,
+      default: () => {return store.cardRequest}
+    },
+    light: {
+      type: Boolean,
+    }},
   data() {
     return {
-			responseData : undefined,
+      meta: null,
+			responseData: undefined,
       cardFontSize: 12,
     }
   },
   methods: {
 		fetchData() {
-			var startDate = this.request.data.startDateYear + (this.request.data.startDateMonth ? '-'+this.request.data.startDateMonth : '');
-			var endDate = this.request.data.endDateYear + (this.request.data.endDateMonth ? '-'+this.request.data.endDateMonth : '');
-			var convertTo = this.request.styling.convertTo ? `&compareTo=${this.request.styling.convertTo}` : '';
-			var query = `${this.apiURL}datapoints/?param=${this.request.data.param}&station=${this.request.data.station}&startdate=${startDate}&enddate=${endDate}${convertTo}`;
+      const data = this.request.data
+      const styling = this.request.styling
+			const startDate = data.startDateYear + (data.startDateMonth ? '-'+data.startDateMonth : '');
+			const endDate = data.endDateYear + (data.endDateMonth ? '-'+data.endDateMonth : '');
+			const convertTo = styling.compareTo ? `&compareTo=${styling.compareTo}` : '';
+      console.log('styling',JSON.stringify(styling));
+			const query = `${store.apiURL()}datapoints/?param=${data.param}&station=${data.station}&startdate=${startDate}&enddate=${endDate}${convertTo}`;
 			console.log(query)
       fetch(query, {})
       .then((resp) => resp.json())
@@ -78,7 +89,7 @@ export default {
       let style = '';
       style = this.request.styling.theme != 'drastic' ? `font-size:${this.cardFontSize}pt;` : `font-size:${this.cardFontSize*0.9}pt;`
       style += ` padding:${this.cardFontSize}px;`
-      console.log(style);
+      //console.log(style);
       return style;
     }
   },
@@ -90,7 +101,9 @@ export default {
      deep: true
   	}
   },
-  created() {
+  async created() {
+    const data = await store.datasets()
+    this.meta = data[this.request.data.param]
 		this.fetchData();
 	},
   mounted() {

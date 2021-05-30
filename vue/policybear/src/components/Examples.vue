@@ -1,11 +1,9 @@
 <template>
   <div>
     <b-carousel
-      v-if="meta"
       controls
       indicators
       :interval="0"
-      v-model="slide"
       class="mt-5 text-center"
       img-width="800"
       img-height="300"
@@ -13,7 +11,7 @@
       <b-carousel-slide v-for="card in exampleCards" :key="JSON.stringify(card)" style="width:100%;" class="mb-4">
         <template #img>
           <div style="width:50vw" class="mx-auto card-wrapper">
-            <argument-card  :request="card" :meta="meta[card.data.param]" :light="false"/>
+            <argument-card  :request="card" :light="false"/>
           </div>
         </template>
       </b-carousel-slide>
@@ -25,6 +23,7 @@
 </template>
 
 <script>
+import store from '../store.js'
 import ArgumentCard from './ArgumentCard.vue'
 
 export default {
@@ -32,12 +31,8 @@ export default {
   components: {
     ArgumentCard,
   },
-  props: ['meta'],
   data() {
     return {
-      show: true,
-      key_value: 0,
-      slide: 0,
       exampleCards: [
         {
           data : {
@@ -91,8 +86,6 @@ export default {
       ]
     }
   },
-  mounted() {
-  }
 }
 </script>
 

@@ -1,24 +1,26 @@
 <template>
     <b-form>
       <label for="pick-wording">Change wording</label>
-      <b-form-select id="pick-wording" v-model="d_requestStyling.wording" :options="wordingOptions" class="mb-2" /> <br>
+      <b-form-select id="pick-wording" v-model="requestStyling.wording" :options="wordingOptions" class="mb-2" /> <br>
       <label for="starting-date">Add everyday size to compare to</label>
-      <b-form-select id="starting-date" v-model="d_requestStyling.convertTo" :options="compareToOptions" class="mb-2" :disabled="d_requestStyling.wording == 'absolute'"/> <br>
+      <b-form-select id="starting-date" v-model="requestStyling.compareTo" :options="compareToOptions" class="mb-2" :disabled="requestStyling.wording == 'absolute'"/> <br>
       <label for="end-date">Change theme</label>
-      <b-form-select id="end-date" v-model="d_requestStyling.theme" :options="themeOptions" class="mb-2" />
+      <b-form-select id="end-date" v-model="requestStyling.theme" :options="themeOptions" class="mb-2" />
     </b-form>
 </template>
 
 <script>
+import store from '../store.js'
 
 export default {
   name: 'StylingForm',
   components: {
   },
-  props: ['requestStyling', 'requestData', 'meta'],
   data() {
     return {
-      d_requestStyling : this.requestStyling,
+      requestStyling : store.cardRequest.styling,
+      requestData : store.cardRequest.data,
+      meta: null,
 
       wordingOptions : [
         {value: 'absolute', text: 'Compare absolute values'},
@@ -32,19 +34,11 @@ export default {
       ],
     }
   },
-  watch: {
-    d_requestStyling: {
-     handler(val){
-       this.$emit('update:requestStyling', this.d_requestStyling);
-     },
-     deep: true
-  	}
-  },
   computed: {
     compareToOptions()  {
       var options = [ { value: null, text: 'Select an everyday size', disabled: true }, ];
       if (this.requestData.param != null && this.meta != null) {
-        for (const compare of this.meta[this.requestData.param].convertTo) {
+        for (const compare of this.meta[this.requestData.param].param_specs.param_conversion) {
           options.push({ value: compare, text: this.capitFirstChar(compare) });
         }
       }
@@ -54,6 +48,9 @@ export default {
   methods: {
     
   },
+  async created() {
+    this.meta = await store.datasets();
+  }
 }
 </script>
 

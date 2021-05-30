@@ -1,10 +1,9 @@
 import 'vue-resize/dist/vue-resize.css'
+import 'leaflet/dist/leaflet.css';
 
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
-import 'leaflet/dist/leaflet.css';
 
 import VueResize from 'vue-resize'
 Vue.use(VueResize)
@@ -15,28 +14,16 @@ Vue.use(VueSmoothScroll)
 Vue.config.productionTip = false
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
-// Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
 import VueClipboard from 'vue-clipboard2'
 //VueClipboard.config.autoSetContainer = true // add this line
 Vue.use(VueClipboard)
 
+import store from './store.js';
+
 Vue.mixin({
-  computed: {
-    apiURL() {
-      const url = String(window.location)
-      if (Vue.config.devtools || url.includes('dev')) {
-        //return 'http://192.168.178.22:5000/';//'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/'
-        return 'https://dev-policybear.herokuapp.com/';
-      } else {
-        return 'https://policybear.herokuapp.com/';
-      }
-    },
-  },
   methods: {
     capitFirstChar(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -62,7 +49,7 @@ Vue.mixin({
     },
     withPoints(num) {
       return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-    }
+    },
   }
 })
 
