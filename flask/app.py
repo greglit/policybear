@@ -104,7 +104,8 @@ def datasets():
         # map viewer properties
         meta[param].update({
             'map_opts': {
-                'map_centroid_latlon': (50.0, 8.0)
+                'map_centroid_latlon': (50.0, 8.0),
+                'map_zoom': 5.0
             }
         })
 
