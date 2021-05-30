@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Card from '../views/Card.vue'
 import Editor from '../views/Editor.vue'
+import PrivacyPolicy from '../views/PrivacyPolicy.vue'
+import Contact from '../views/Contact.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +23,16 @@ const routes = [
     path: '/card/:request',
     name: 'Card',
     component: Card
+  },
+  {
+    path: '/privacy',
+    name: 'Privacy Policy',
+    component: PrivacyPolicy
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
   },
 ]
 

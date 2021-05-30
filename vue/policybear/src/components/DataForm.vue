@@ -6,20 +6,17 @@
         <label for="pick-station" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Station</label>
         <b-input-group class="w-100 mb-1" id="pick-station">
           <b-input-group-prepend>
-            <b-button variant="info" v-b-toggle.collapse-map :disabled="!d_requestData.param">
+            <b-button variant="info" :disabled="!d_requestData.param" @click="showMap = !showMap">
               <b-icon-map-fill/>
             </b-button>
           </b-input-group-prepend>
           <b-form-select v-model="d_requestData.station" :options="stationOptions" :disabled="!d_requestData.param"/>
         </b-input-group>
-        <b-collapse id="collapse-map" class="mt-1">
-          <leaflet-map 
-            v-if="meta != null" 
-            :stationCoords="{NOR:[48.137154, 11.576124], OPE:[48.147154, 11.566124],}" 
-            :stationNames="meta.ch4.stations_name" 
-            :selectStation="(key) => {d_requestData.param = 'ch4'; d_requestData.station = key}"
-          />
-        </b-collapse>
+        <leaflet-map 
+          class="my-2 p-0 rounded " style="overflow:hidden"
+          v-if="meta != null && showMap" 
+          :selectStation="(key) => {d_requestData.param = 'ch4'; d_requestData.station = key}"
+        />
       </div>
 
       <b-form-radio-group
@@ -50,6 +47,7 @@
 </template>
 
 <script>
+import store from '../store.js'
 import LeafletMap from './LeafletMap.vue';
 
 export default {
@@ -57,17 +55,22 @@ export default {
   components: {
     LeafletMap,
   },
-  props: ['requestData', 'meta', 'change'],
+  props: {
+    change: Boolean
+  },
   data() {
     return {
-      d_requestData : this.requestData,
-
+      d_requestData : store.cardRequest.data,
+      meta: null,
+      showMap: false,
       dateFormatOptions: [
         { value: 'annual', text: 'Annual values' },
         { value: 'monthly', text: 'Monthly values'},
       ],
 
       months : [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+
+      showMap: false,
     }
   },
   watch: {
@@ -77,8 +80,6 @@ export default {
         this.d_requestData.startDateMonth = null;
         this.d_requestData.endDateMonth = null;
       }
-
-      this.$emit('update:requestData', this.d_requestData);
      },
      deep: true
   	},
@@ -88,7 +89,7 @@ export default {
       var options = [ { value: null, text: 'Select a parameter', disabled: true }, ];
       if (this.meta != null) {
         for (const [key, entry] of Object.entries(this.meta)) {
-          options.push({value: key, text: entry.name})
+          options.push({value: key, text: entry.param_specs.param_name})
         }
       }
       return options;
@@ -96,8 +97,8 @@ export default {
     stationOptions() {
       var options = [ { value: null, text: 'Select an ICOS station', disabled: true }, ];
       if (this.d_requestData.param != null && this.meta != null) {
-        for (const [key, value] of Object.entries(this.meta[this.d_requestData.param].stations)) {
-          options.push({value: value, text: `${this.meta[this.d_requestData.param].stations_name[value]} (${this.meta[this.d_requestData.param].stations_country[value]})`})
+        for (const [key, station] of Object.entries(this.meta[this.d_requestData.param].param_stations)) {
+          options.push({value: key, text: `${station.station_name} (${station.station_country})`})
         }
       }
       
@@ -106,8 +107,8 @@ export default {
     startDateYearOptions() {
       var options = [ { value: null, text: 'Year', disabled: true }, ];
       if (this.d_requestData.param != null && this.d_requestData.station != null && this.meta != null) {
-        var start = this.meta[this.d_requestData.param].timeStart[this.d_requestData.station][0];
-        var end = this.meta[this.d_requestData.param].timeEnd[this.d_requestData.station][0];
+        var start = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[0][0];
+        var end = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[1][0];
         for (var year = start; year <= end; year++) {
           options.push({ value: year, text: String(year)})
         }
@@ -120,12 +121,12 @@ export default {
         var start = 1;
         var end = 12;
         //if selected year is the earliest year in possible timeframe, then set the earliest month to the one defined in meta
-        if (this.d_requestData.startDateYear == this.meta[this.d_requestData.param].timeStart[this.d_requestData.station][0]) {
-          start = this.meta[this.d_requestData.param].timeStart[this.d_requestData.station][1];
+        if (this.d_requestData.startDateYear == this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[0][0]) {
+          start = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[0][1];
         }
         //if selected year is the latest year in possible timeframe, then set the latest month to the one defined in meta
-        if (this.d_requestData.startDateYear == this.meta[this.d_requestData.param].timeEnd[this.d_requestData.station][0]) {
-          end = this.meta[this.d_requestData.param].timeEnd[this.d_requestData.station][1]-1;
+        if (this.d_requestData.startDateYear == this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[1][0]) {
+          end = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[1][1]-1;
         }
         for (var month = start; month <= end; month++) {
           options.push({ value: month, text: this.months[month-1]})
@@ -137,7 +138,7 @@ export default {
       var options = [ { value: null, text: 'Year', disabled: true}, ];
       if (this.d_requestData.param != null && this.d_requestData.station != null && this.meta != null && this.d_requestData.startDateYear != null) {
         var start = this.d_requestData.startDateMonth == 12 ? this.d_requestData.startDateYear+1 : this.d_requestData.startDateYear;
-        var end = this.meta[this.d_requestData.param].timeEnd[this.d_requestData.station][0];
+        var end = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[1][0];
         for (var year = end; year >= start; year--) {
           options.push({ value: year, text: String(year)})
         }
@@ -150,12 +151,12 @@ export default {
         var start = 1;
         var end = 12;
         //if selected year is the earliest year in possible timeframe, then set the earliest month to the one defined in meta
-        if (this.d_requestData.endDateYear == this.meta[this.d_requestData.param].timeStart[this.d_requestData.station][0]) {
-          start = this.meta[this.d_requestData.param].timeStart[this.d_requestData.station][1];
+        if (this.d_requestData.endDateYear == this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[0][0]) {
+          start = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[0][1];
         }
         //if selected year is the latest year in possible timeframe, then set the latest month to the one defined in meta
-        if (this.d_requestData.endDateYear == this.meta[this.d_requestData.param].timeEnd[this.d_requestData.station][0]) {
-          end = this.meta[this.d_requestData.param].timeEnd[this.d_requestData.station][1];
+        if (this.d_requestData.endDateYear == this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[1][0]) {
+          end = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[1][1];
         }
 
         //if selected year is same as starDate selected year then the earliest possible month is the month after the month selected for beginning of timeframe
@@ -169,7 +170,8 @@ export default {
       return options;
     },
   },
-  methods: {
+  async created() {
+    this.meta = await store.datasets();
   },
 }
 </script>

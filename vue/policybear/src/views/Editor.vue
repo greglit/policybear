@@ -1,15 +1,15 @@
 <template>
   <div>
     <section class="bg-nord3 pb-5">
-      <navbar showIcon bgDark sm/>
       <b-container fluid class="full-height">
+        <navbar showIcon bgDark sm class="ml-2"/>
         <b-row class="">
-          <b-col cols="12" lg="5" xl="3" class="mt-2 text-left card-form">
-            <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
+          <b-col cols="12" lg="5" class="mt-2 text-left card-form">
+            <side-bar-card style="min-width:100px;" :requestIsValid="requestIsValid"/>
           </b-col>
-          <b-col cols="12" lg="7" xl="9" class="w-100">
-            <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-auto y-center">
-              <argument-card ref="argument" :request="request" :meta="datasets[request.data.param]" />
+          <b-col cols="12" lg="7" class="w-100">
+            <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-4 mx-lg-2 y-center">
+              <argument-card ref="argument" style="margin-top:-50px;"/>
             </div>
             <h4 v-else class="text-center rubik-medium y-center txt-nord6">Please fill out missing fields to generate a card.</h4>
           </b-col>
@@ -20,7 +20,9 @@
 </template>
 
 <script>
-import ArgumentCard from '../components/ArgumentCard.vue';
+import store from '../store.js'
+
+import ArgumentCard from '../components/ArgumentCard.vue'
 import DataForm from '../components/DataForm.vue';
 import Navbar from '../components/Navbar.vue';
 import SideBarCard from '../components/SideBarCard.vue';
@@ -30,7 +32,7 @@ import LeafletMap from '../components/LeafletMap.vue';
 
 
 export default {
-  name: 'Home',
+  name: 'Editor',
   components: {
     ArgumentCard,
     Navbar,
@@ -41,6 +43,7 @@ export default {
   },
   data() {
     return {
+      d_store: store,
       datasets : null,
       request : {
         data : {
@@ -67,11 +70,13 @@ export default {
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
-        this.datasets = data;
+        store.datasets = data;
       })
       .catch((error) => {
         console.log(error);
-        this.fetchDataSets();
+        setTimeout(()=>{
+          this.fetchDataSets();
+        }, 5000)
       });
     },
     
@@ -99,16 +104,17 @@ export default {
   },
   computed: {
     requestIsValid() {
-      const data = this.request.data;
-      return data.param 
+      const data = store.cardRequest.data;
+      return Boolean(data.param 
           && data.startDateYear 
           && data.endDateYear 
-          && (data.startDateMonth && data.endDateMonth || data.startDateMonth == null && data.endDateMonth == null);
+          && (data.startDateMonth && data.endDateMonth || data.startDateMonth == null && data.endDateMonth == null));
     },
     
   },
-  created() {
-    this.fetchDataSets();
+  async created() {
+    this.datasets = await store.datasets();
+    console.log('created', this.datasets);
   },
 }
 </script>
