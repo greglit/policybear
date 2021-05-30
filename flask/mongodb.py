@@ -6,12 +6,13 @@ Connect to MongoDB server.
 """
 
 import os
+import sys
 import pymongo
 from pymongo import MongoClient
 
 #%%
 # MongoDB access URI
-mongodb_uri = os.environ.get('MONGODB_URI')
+mongodb_uri = os.environ['MONGODB_URI']
 client = MongoClient(mongodb_uri)
 
 db = client.admin
