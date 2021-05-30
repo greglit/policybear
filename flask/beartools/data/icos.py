@@ -116,6 +116,7 @@ class Fetch:
         if all(self.data_swap_status.values()):
             # logger.debug(f'{self.__class__.__name__} : data : '
             #              f'skip fetching, data already swapped.')
+            print('.')
 
         elif not self.data_swap_status['station']:
             data = self.fetch_data()
