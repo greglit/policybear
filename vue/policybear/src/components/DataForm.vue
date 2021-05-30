@@ -68,8 +68,6 @@ export default {
         { value: 'monthly', text: 'Monthly values'},
       ],
 
-      months : [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
-
       showMap: false,
     }
   },
@@ -129,7 +127,7 @@ export default {
           end = this.meta[this.d_requestData.param].param_stations[this.d_requestData.station].station_time_period[1][1]-1;
         }
         for (var month = start; month <= end; month++) {
-          options.push({ value: month, text: this.months[month-1]})
+          options.push({ value: month, text: this.month(month-1)})
         }
       }
       return options;
@@ -164,7 +162,7 @@ export default {
           start = this.d_requestData.startDateMonth + 1;
         }
         for (var month = start; month <= end; month++) {
-          options.push({ value: month, text: this.months[month-1]})
+          options.push({ value: month, text: this.month(month-1)})
         }
       }
       return options;

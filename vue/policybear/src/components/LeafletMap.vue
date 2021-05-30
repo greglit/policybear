@@ -15,7 +15,8 @@
       />
       <l-marker v-for="(station, key) in this.meta[param].param_stations" :lat-lng="[station.station_latlon[0], station.station_latlon[1]]" :key="key" @click="selectStation(key)">
         <l-tooltip :options="{ permanent: false, interactive: false }">
-          {{station.station_name}} ({{station.station_country}})
+          {{station.station_name}} ({{station.station_country}})<br/>
+          {{month(station.station_time_period[0][1])}} {{station.station_time_period[0][0]}} - {{month(station.station_time_period[1][1])}} {{station.station_time_period[1][0]}}
         </l-tooltip>
       </l-marker>
     </l-map>
