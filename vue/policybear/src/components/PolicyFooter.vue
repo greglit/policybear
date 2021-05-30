@@ -3,7 +3,7 @@
     <wave-seperator svgWidth="500%" svgFill="#2e3440" class="mt-n4"/>
     <div class="bg-nord0">
       <a href="https://github.com/greglit/policybear"><b-icon-github class="git mb-2"/></a>
-      <div><router-link :to="'/contact'" class="txt-nord6">Contact/Imprint</router-link></div>
+      <div><router-link :to="'/contact'" class="txt-nord6">Contact / Imprint</router-link></div>
       <div><router-link :to="'/privacy'" class="txt-nord6">Privacy Policy</router-link></div>
       <div class="py-3">
         Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>

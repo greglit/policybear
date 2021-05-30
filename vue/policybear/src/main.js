@@ -1,8 +1,13 @@
+import 'vue-resize/dist/vue-resize.css'
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
 import 'leaflet/dist/leaflet.css';
+
+import VueResize from 'vue-resize'
+Vue.use(VueResize)
 
 import VueSmoothScroll from 'vue2-smooth-scroll'
 Vue.use(VueSmoothScroll)
@@ -25,7 +30,8 @@ Vue.mixin({
     apiURL() {
       const url = String(window.location)
       if (Vue.config.devtools || url.includes('dev')) {
-        return 'http://192.168.178.22:5000/';//'https://dev-policybear.herokuapp.com/'; //'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/'//;
+        //return 'http://192.168.178.22:5000/';//'https://policybear.herokuapp.com/';//'http://192.168.178.25:5000/'
+        return 'https://dev-policybear.herokuapp.com/';
       } else {
         return 'https://policybear.herokuapp.com/';
       }

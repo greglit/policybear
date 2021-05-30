@@ -7,7 +7,7 @@
           <contact-card
             :imageSrc="require('@/assets/img/profileGregor.jpg')"
             :firstName="'Gregor'" :lastName="'Wolf'"
-            :description="'I am a Computer Scientist with a focus on Human-Machine Interaction and some years of experience in full stack web development. I am especially interested in modern data-driven user interfaces that close the gap between advanced tech like Big Data or Artificial Intelligence and people who should benefit from such technical advancements.'"
+            :description="'I am a Computer Scientist with a focus on Human-Machine Interaction and some years of experience in full stack web development. I am especially interested in modern data-driven user interfaces that close the gap between advanced tech like Big Data or Artificial Intelligence and the people who should benefit from such technical advancements.'"
             :github="'https://github.com/greglit'"
             :homepage="'https://gregl.it'"
           />

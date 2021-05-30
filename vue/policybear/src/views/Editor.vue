@@ -8,7 +8,7 @@
             <side-bar-card :request.sync="request" :meta="datasets" style="min-width:100px;" :requestIsValid="requestIsValid"/>
           </b-col>
           <b-col cols="12" lg="7" class="w-100">
-            <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-auto y-center">
+            <div v-if="requestIsValid" id="policy-argument-card" class="my-5 mx-4 mx-lg-2 y-center">
               <argument-card ref="argument" :request="request" :meta="datasets[request.data.param]" />
             </div>
             <h4 v-else class="text-center rubik-medium y-center txt-nord6">Please fill out missing fields to generate a card.</h4>

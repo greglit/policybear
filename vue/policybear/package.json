@@ -16,6 +16,7 @@
     "vue": "^2.6.11",
     "vue-2-img": "0.0.6",
     "vue-clipboard2": "^0.3.1",
+    "vue-resize": "^1.0.1",
     "vue-router": "^3.2.0",
     "vue-scrollto": "^2.20.0",
     "vue2-leaflet": "^2.7.0",
