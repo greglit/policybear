@@ -1,10 +1,10 @@
 <template>
     <b-form>
-      <label for="pick-wording">Change wording</label>
+      <label for="pick-wording">Text content</label>
       <b-form-select id="pick-wording" v-model="requestStyling.wording" :options="wordingOptions" class="mb-2" /> <br>
-      <label for="starting-date">Add everyday size to compare to</label>
+      <label for="starting-date">Compare to everyday size</label>
       <b-form-select id="starting-date" v-model="requestStyling.compareTo" :options="compareToOptions" class="mb-2" :disabled="requestStyling.wording == 'absolute'"/> <br>
-      <label for="end-date">Change theme</label>
+      <label for="end-date">Theme</label>
       <b-form-select id="end-date" v-model="requestStyling.theme" :options="themeOptions" class="mb-2" />
     </b-form>
 </template>

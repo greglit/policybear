@@ -1,9 +1,9 @@
 <template>
     <b-form class="mb-2">
-      <label for="pick-parameter" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Parameter</label>
+      <label for="pick-parameter" class="text-left mb-n1">Parameter</label>
       <b-form-select id="pick-parameter" v-model="d_requestData.param" :options="parameterOptions" class="w-100"/>
       <div class="mb-3">
-        <label for="pick-station" class="text-left mb-n1">{{change ? 'Change' : 'Choose'}} Station</label>
+        <label for="pick-station" class="text-left mb-n1">Station</label>
         <b-input-group class="w-100 mb-1" id="pick-station">
           <b-input-group-prepend>
             <b-button variant="info" :disabled="!d_requestData.param" @click="showMap = !showMap">
@@ -21,22 +21,22 @@
 
       <b-form-radio-group
           v-model="d_requestData.dateFormat" :options="dateFormatOptions" :disabled="!d_requestData.station"
-          button-variant="outline-primary" buttons class="w-100" @click="resetDate()"
+          button-variant="outline-primary" buttons class="w-100 my-2" @click="resetDate()"
       ></b-form-radio-group>
       <transition name="fade" mode="out-in">
         <div v-if="d_requestData.dateFormat=='annual'" :key="d_requestData.dateFormat">
-          <label for="startdate" class="mb-n1">Select first date</label>
+          <label for="startdate" class="mb-n1">First year</label>
           <b-form-select id="startdate" class="w-100" v-model="d_requestData.startDateYear" :options="startDateYearOptions" :disabled="!d_requestData.param || !d_requestData.station" />
-          <label for="enddate" class="mb-n1">Select second date</label>
+          <label for="enddate" class="mb-n1">Second year</label>
           <b-form-select id="enddate" class="w-100" v-model="d_requestData.endDateYear" :options="endDateYearOptions" :disabled="!d_requestData.startDateYear" />
         </div>
         <div v-else-if="d_requestData.dateFormat=='monthly'" :key="d_requestData.dateFormat">
-          <label for="startdate" class="mb-n1">Select first date</label>
+          <label for="startdate" class="mb-n1">First date</label>
           <b-input-group class="w-100" id="startdate">
             <b-form-select v-model="d_requestData.startDateYear" :options="startDateYearOptions" :disabled="!d_requestData.param || !d_requestData.station" />
             <b-form-select v-model="d_requestData.startDateMonth" :options="startDateMonthOptions" :disabled="!d_requestData.startDateYear" />
           </b-input-group>
-          <label for="enddate" class="mb-n1">Select second date</label>
+          <label for="enddate" class="mb-n1">Second date</label>
           <b-input-group class="w-100" id="enddate">
             <b-form-select v-model="d_requestData.endDateYear" :options="endDateYearOptions" :disabled="!d_requestData.startDateYear" />
             <b-form-select v-model="d_requestData.endDateMonth" :options="endDateMonthOptions" :disabled="!d_requestData.endDateYear || !d_requestData.startDateMonth" />

@@ -3,28 +3,28 @@
     <div class="aspect-ratio-box mx-auto">
       <div :class="'aspect-ratio-box-inside card border-0 shadow text-left ' + request.styling.theme" ref="innerCard" :style="cardStyling">
         <resize-observer @notify="handleResize" />
-        <div v-if="responseData != undefined">
-          The {{meta.param_specs.param_name}} concentration at the ICOS station "{{meta.param_stations[responseData.station].station_name}}"
-          <div v-if="request.styling.wording == 'difference'">
-            {{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} {{responseData.unit}}</b> 
-            between {{responseData.begin_period}} and {{responseData.end_period}}.
-          </div>
-          <div v-else-if="request.styling.wording == 'relative'">
-            {{responseData.change > 0 ? 'increased' : 'decreased'}} by 
-            <b>{{Math.abs(responseData.change_pct)}} %</b> 
-            between {{responseData.begin_period}} and {{responseData.end_period}}.
-          </div>
-          <div v-else-if="request.styling.wording == 'absolute'">
-            was <b>{{responseData.start_abs_value}} {{responseData.unit}}</b> in {{responseData.begin_period}} and <b>{{responseData.end_abs_value}} {{responseData.unit}}</b> in {{responseData.end_period}}.
-          </div>
+          <div v-if="responseData != undefined">
+            The {{meta.param_specs.param_name}} concentration at the ICOS station "{{meta.param_stations[responseData.station].station_name}}"
+            <div v-if="request.styling.wording == 'difference'">
+              {{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} {{responseData.unit}}</b> 
+              between {{responseData.begin_period}} and {{responseData.end_period}}.
+            </div>
+            <div v-else-if="request.styling.wording == 'relative'">
+              {{responseData.change > 0 ? 'increased' : 'decreased'}} by 
+              <b>{{Math.abs(responseData.change_pct)}} %</b> 
+              between {{responseData.begin_periodgit}} and {{responseData.end_period}}.
+            </div>
+            <div v-else-if="request.styling.wording == 'absolute'">
+              was <b>{{responseData.start_abs_value}} {{responseData.unit}}</b> in {{responseData.begin_period}} and <b>{{responseData.end_abs_value}} {{responseData.unit}}</b> in {{responseData.end_period}}.
+            </div>
 
-          <div v-if="request.styling.compareTo != '' && responseData.compare_amount != undefined && request.styling.wording != 'absolute'">
-            This is equivalent to the annual emission of <b>{{withPoints(responseData.compare_amount)}}</b> {{request.styling.compareTo}}.
+            <div v-if="request.styling.compareTo != '' && responseData.compare_amount != undefined && request.styling.wording != 'absolute'">
+              This is equivalent to the annual emission of <b>{{withPoints(responseData.compare_amount)}}</b> {{request.styling.compareTo}}.
+            </div>
           </div>
-        </div>
-        <div v-else>
-          <h1>loading...</h1>
-        </div>
+          <div v-else class="d-flex justify-content-center align-items-center" :style="'height:100%;'+  cardStyling">
+            <b-icon icon="columns-gap" animation="fade" font-scale="1" style="display:block"/>
+          </div>
       </div>
     </div>
 		<p :class="[!light ? 'txt-nord6' : '', 'text-footer text-center mt-3']">Created with <img src="../../public/policybear_icon.png" alt="logo" style="width:20px; height:20px; margin-top:-3px" class="mx-1"/> Policy Bear to save the arctic. Raahhhrr!</p>
@@ -60,9 +60,8 @@ export default {
       const styling = this.request.styling
 			const startDate = data.startDateYear + (data.startDateMonth ? '-'+data.startDateMonth : '');
 			const endDate = data.endDateYear + (data.endDateMonth ? '-'+data.endDateMonth : '');
-			const convertTo = styling.compareTo ? `&compareTo=${styling.compareTo}` : '';
-      console.log('styling',JSON.stringify(styling));
-			const query = `${store.apiURL()}datapoints/?param=${data.param}&station=${data.station}&startdate=${startDate}&enddate=${endDate}${convertTo}`;
+			const compareTo = styling.compareTo ? `&compareTo=${styling.compareTo}` : '';
+			const query = `${store.apiURL()}datapoints/?param=${data.param}&station=${data.station}&startdate=${startDate}&enddate=${endDate}${compareTo}`;
 			console.log(query)
       fetch(query, {})
       .then((resp) => resp.json())
@@ -96,6 +95,7 @@ export default {
   watch: {
     request: {
      handler(val){
+       this.responseData = undefined;
        this.fetchData();
      },
      deep: true
