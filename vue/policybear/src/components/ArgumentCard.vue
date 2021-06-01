@@ -18,8 +18,8 @@
             was <b>{{responseData.start_abs_value}} {{responseData.unit}}</b> in {{responseData.begin_period}} and <b>{{responseData.end_abs_value}} {{responseData.unit}}</b> in {{responseData.end_period}}.
           </div>
 
-          <div v-if="request.styling.convertTo != '' && responseData.compare_amount != undefined && request.styling.wording != 'absolute'">
-            This is equivalent to the annual emission of <b>{{withPoints(responseData.compare_amount)}}</b> {{request.styling.convertTo}}.
+          <div v-if="request.styling.compareTo != '' && responseData.compare_amount != undefined && request.styling.wording != 'absolute'">
+            This is equivalent to the annual emission of <b>{{withPoints(responseData.compare_amount)}}</b> {{request.styling.compareTo}}.
           </div>
         </div>
         <div v-else>
