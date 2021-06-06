@@ -1,203 +1,203 @@
 {
   "SE-Sto": {
+    "lon": 19.04521,
+    "name": "Abisko-Stordalen Palsa Bog",
+    "lat": 68.35594,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Abisko-Stordalen Palsa Bog",
-    "lat": 68.35594,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_SE-Sto"
     ],
-    "lon": 19.04521,
+    "country": "SE",
     "dataVars": [
       "Ecosystem fluxes time series (ICOS Sweden)",
       "Ecosystem eco time series (ICOS Sweden)"
     ]
   },
   "ES-Abr": {
+    "lon": -6.785881,
+    "name": "Albuera",
+    "lat": 38.701839,
     "project": [
       "FLUXNET"
     ],
-    "country": "ES",
-    "name": "Albuera",
-    "lat": 38.701839,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_ES-Abr"
     ],
-    "lon": -6.785881,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "CH-Aws": {
+    "lon": 9.790417,
+    "name": "Alp Weissenstein",
+    "lat": 46.583306,
     "project": [
       "FLUXNET"
     ],
-    "country": "CH",
-    "name": "Alp Weissenstein",
-    "lat": 46.583306,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_CH-Aws"
     ],
-    "lon": 9.790417,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "DE-Akm": {
+    "lon": 13.68342,
+    "name": "Anklam",
+    "lat": 53.86617,
     "project": [
       "FLUXNET"
     ],
-    "country": "DE",
-    "name": "Anklam",
-    "lat": 53.86617,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_DE-Akm"
     ],
-    "lon": 13.68342,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "IT-Noe": {
+    "lon": 8.15117,
+    "name": "Arca di Noe - Le Prigionette",
+    "lat": 40.60617,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Arca di Noe - Le Prigionette",
-    "lat": 40.60617,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-Noe"
     ],
-    "lon": 8.15117,
+    "country": "IT",
     "dataVars": [
       "n"
     ]
   },
   "ARIK": {
+    "lon": -102.4471,
+    "name": "Arikaree River",
+    "lat": 39.75825,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Arikaree River",
-    "lat": 39.75825,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_ARIK"
     ],
-    "lon": -102.4471,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "UK-AMo": {
+    "lon": -3.24315,
+    "name": "Auchencorth Moss",
+    "lat": 55.79232,
     "project": [
       "ICOS"
     ],
-    "country": "GB",
-    "name": "Auchencorth Moss",
-    "lat": 55.79232,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_UK-AMo"
     ],
-    "lon": -3.24315,
+    "country": "GB",
     "dataVars": [
       "n"
     ]
   },
   "FR-Aur": {
+    "lon": 1.106103,
+    "name": "Aurade",
+    "lat": 43.54965,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Aurade",
-    "lat": 43.54965,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Aur"
     ],
-    "lon": 1.106103,
+    "country": "FR",
     "dataVars": [
       "ICOS ETC Archive Product",
       "ICOS ETC Fluxdata Preview Selection"
     ]
   },
   "1199": {
+    "lon": 2.993217,
+    "name": "BE-FOS-Thornton Buoy",
+    "lat": 51.57989,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "BE-FOS-Thornton Buoy",
-    "lat": 51.57989,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_1199"
     ],
-    "lon": 2.993217,
+    "country": "BE",
     "dataVars": [
       "ICOS OTC FOS Release"
     ]
   },
   "11BE": {
+    "lon": null,
+    "name": "BE-SOOP-Belgica",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "BE-SOOP-Belgica",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_11BE"
     ],
-    "lon": null,
+    "country": "BE",
     "dataVars": [
       "OTC Historical"
     ]
   },
   "11SS": {
+    "lon": null,
+    "name": "BE-SOOP-Simon-Stevin",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "BE-SOOP-Simon-Stevin",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_11SS"
     ],
-    "lon": null,
+    "country": "BE",
     "dataVars": [
       "OTC Historical",
       "ICOS OTC SOOP NRT Product"
     ]
   },
   "BRM": {
+    "lon": 8.1755,
+    "name": "Beromunster",
+    "lat": 47.1896,
     "project": [
       "other"
     ],
-    "country": "CH",
-    "name": "Beromunster",
-    "lat": 47.1896,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_BRM"
     ],
-    "lon": 8.1755,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "BIK": {
+    "lon": 23.0128,
+    "name": "Bialystok",
+    "lat": 53.2294,
     "project": [
       "INGOS",
       "other"
     ],
-    "country": "PL",
-    "name": "Bialystok",
-    "lat": 53.2294,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_BIK",
       "http://meta.icos-cp.eu/resources/stations/ATMO_BIK"
     ],
-    "lon": 23.0128,
+    "country": "PL",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -205,16 +205,16 @@
     ]
   },
   "FR-Bil": {
+    "lon": -0.956082,
+    "name": "Bilos",
+    "lat": 44.49367,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Bilos",
-    "lat": 44.49367,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Bil"
     ],
-    "lon": -0.956082,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -223,49 +223,49 @@
     ]
   },
   "BSD": {
+    "lon": -1.15,
+    "name": "Bilsdale",
+    "lat": 54.359,
     "project": [
       "other"
     ],
-    "country": "UK",
-    "name": "Bilsdale",
-    "lat": 54.359,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_BSD"
     ],
-    "lon": -1.15,
+    "country": "UK",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "CZ-BK1": {
+    "lon": 18.53688,
+    "name": "Bily Kriz forest",
+    "lat": 49.50208,
     "project": [
       "ICOS"
     ],
-    "country": "CZ",
-    "name": "Bily Kriz forest",
-    "lat": 49.50208,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_CZ-BK1"
     ],
-    "lon": 18.53688,
+    "country": "CZ",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "BIR": {
+    "lon": 8.2519,
+    "name": "Birkenes",
+    "lat": 58.3886,
     "project": [
       "ICOS",
       "other"
     ],
-    "country": "NO",
-    "name": "Birkenes",
-    "lat": 58.3886,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_BIR",
       "http://meta.icos-cp.eu/resources/stations/ATMO_BIR"
     ],
-    "lon": 8.2519,
+    "country": "NO",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC NRT Meteo growing time series",
@@ -275,321 +275,321 @@
     ]
   },
   "BIS": {
+    "lon": -1.2311,
+    "name": "Biscarrosse",
+    "lat": 44.3781,
     "project": [
       "other"
     ],
-    "country": "FR",
-    "name": "Biscarrosse",
-    "lat": 44.3781,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_BIS"
     ],
-    "lon": -1.2311,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "BLDE": {
+    "lon": -110.58715,
+    "name": "Blacktail Deer Creek",
+    "lat": 44.95011,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Blacktail Deer Creek",
-    "lat": 44.95011,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_BLDE"
     ],
-    "lon": -110.58715,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "IT-BCi": {
+    "lon": 14.95744,
+    "name": "Borgo Cioffi",
+    "lat": 40.52375,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Borgo Cioffi",
-    "lat": 40.52375,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-BCi"
     ],
-    "lon": 14.95744,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "IT-BFt": {
+    "lon": 10.74197,
+    "name": "Bosco Fontana",
+    "lat": 45.19775,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Bosco Fontana",
-    "lat": 45.19775,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-BFt"
     ],
-    "lon": 10.74197,
+    "country": "IT",
     "dataVars": [
       "n"
     ]
   },
   "BE-Bra": {
+    "lon": 4.51984,
+    "name": "Brasschaat",
+    "lat": 51.30761,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "Brasschaat",
-    "lat": 51.30761,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_BE-Bra"
     ],
-    "lon": 4.51984,
+    "country": "BE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "DE-Brs": {
+    "lon": null,
+    "name": "Braunschweig",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Braunschweig",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Brs"
     ],
-    "lon": null,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "CES": {
+    "lon": 4.926161,
+    "name": "Cabauw",
+    "lat": 51.970258,
     "project": [
       "INGOS"
     ],
-    "country": "NL",
-    "name": "Cabauw",
-    "lat": 51.970258,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_CES"
     ],
-    "lon": 4.926161,
+    "country": "NL",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release"
     ]
   },
   "CBW": {
+    "lon": 4.927,
+    "name": "Cabauw",
+    "lat": 51.971,
     "project": [
       "other"
     ],
-    "country": "NL",
-    "name": "Cabauw",
-    "lat": 51.971,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_CBW"
     ],
-    "lon": 4.927,
+    "country": "NL",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "CARI": {
+    "lon": -147.50246,
+    "name": "Caribou Creek, Caribou-Poker Creeks Research Watershed",
+    "lat": 65.15306,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Caribou Creek, Caribou-Poker Creeks Research Watershed",
-    "lat": 65.15306,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_CARI"
     ],
-    "lon": -147.50246,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "BONA": {
+    "lon": -147.50258,
+    "name": "Caribou-Poker Creeks Research Watershed",
+    "lat": 65.15401,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Caribou-Poker Creeks Research Watershed",
-    "lat": 65.15401,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_BONA"
     ],
-    "lon": -147.50258,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "CRP": {
+    "lon": -6.37,
+    "name": "Carnsore Point",
+    "lat": 52.18,
     "project": [
       "other"
     ],
-    "country": "IE",
-    "name": "Carnsore Point",
-    "lat": 52.18,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_CRP"
     ],
-    "lon": -6.37,
+    "country": "IE",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "IT-Cp2": {
+    "lon": 12.35729,
+    "name": "Castelporziano2",
+    "lat": 41.70427,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Castelporziano2",
-    "lat": 41.70427,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-Cp2"
     ],
-    "lon": 12.35729,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "CPER": {
+    "lon": -104.7456,
+    "name": "Central Plains Experimental Range",
+    "lat": 40.81553,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Central Plains Experimental Range",
-    "lat": 40.81553,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_CPER"
     ],
-    "lon": -104.7456,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "CH-Cha": {
+    "lon": 8.41044,
+    "name": "Chamau grassland",
+    "lat": 47.21022,
     "project": [
       "FLUXNET"
     ],
-    "country": "CH",
-    "name": "Chamau grassland",
-    "lat": 47.21022,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_CH-Cha"
     ],
-    "lon": 8.41044,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "FR-CLt": {
+    "lon": null,
+    "name": "Col du Lautaret",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Col du Lautaret",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-CLt"
     ],
-    "lon": null,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "COMO": {
+    "lon": -105.54487,
+    "name": "Como Creek",
+    "lat": 40.03496,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Como Creek",
-    "lat": 40.03496,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_COMO"
     ],
-    "lon": -105.54487,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "CRAM": {
+    "lon": -89.47825,
+    "name": "Crampton Lake",
+    "lat": 46.21111,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Crampton Lake",
-    "lat": 46.21111,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_CRAM"
     ],
-    "lon": -89.47825,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "74WX": {
+    "lon": null,
+    "name": "DE-SOOP-Atlantic Sail",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "DE-SOOP-Atlantic Sail",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_NA-VOS"
     ],
-    "lon": null,
+    "country": "DE",
     "dataVars": [
       "OTC Historical"
     ]
   },
   "34FM": {
+    "lon": null,
+    "name": "DE-SOOP-Finnmaid ",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "DE-SOOP-Finnmaid ",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_BALTIC-VOS"
     ],
-    "lon": null,
+    "country": "DE",
     "dataVars": [
       "OTC Historical"
     ]
   },
   "06AQ": {
+    "lon": null,
+    "name": "DE-SOOP-Polarstern",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "DE-SOOP-Polarstern",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_PS-VOS"
     ],
-    "lon": null,
+    "country": "DE",
     "dataVars": [
       "OTC Historical"
     ]
   },
   "CH-Dav": {
+    "lon": 9.85591,
+    "name": "Davos",
+    "lat": 46.81533,
     "project": [
       "ICOS"
     ],
-    "country": "CH",
-    "name": "Davos",
-    "lat": 46.81533,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_CH-Dav"
     ],
-    "lon": 9.85591,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -598,16 +598,16 @@
     ]
   },
   "SE-Deg": {
+    "lon": 19.55654,
+    "name": "Degero",
+    "lat": 64.18203,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Degero",
-    "lat": 64.18203,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_SE-Deg"
     ],
-    "lon": 19.55654,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -619,91 +619,91 @@
     ]
   },
   "DEC": {
+    "lon": 0.7867,
+    "name": "Delta de l'Ebre",
+    "lat": 40.7439,
     "project": [
       "other"
     ],
-    "country": "ES",
-    "name": "Delta de l'Ebre",
-    "lat": 40.7439,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_DEC"
     ],
-    "lon": 0.7867,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "GL-Dsk": {
+    "lon": -53.51413,
+    "name": "Disko",
+    "lat": 69.25349,
     "project": [
       "ICOS"
     ],
-    "country": "GL",
-    "name": "Disko",
-    "lat": 69.25349,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_GL-Dsk"
     ],
-    "lon": -53.51413,
+    "country": "GL",
     "dataVars": [
       "n"
     ]
   },
   "BE-Dor": {
+    "lon": 4.968011,
+    "name": "Dorinne",
+    "lat": 50.31193,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "Dorinne",
-    "lat": 50.31193,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_BE-Dor"
     ],
-    "lon": 4.968011,
+    "country": "BE",
     "dataVars": [
       "n"
     ]
   },
   "EEC": {
+    "lon": -5.664,
+    "name": "El Estrecho",
+    "lat": 36.0586,
     "project": [
       "other"
     ],
-    "country": "ES",
-    "name": "El Estrecho",
-    "lat": 36.0586,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_EEC"
     ],
-    "lon": -5.664,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "ERS": {
+    "lon": 9.3801,
+    "name": "Ersa",
+    "lat": 42.9692,
     "project": [
       "other"
     ],
-    "country": "FR",
-    "name": "Ersa",
-    "lat": 42.9692,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_ERS"
     ],
-    "lon": 9.3801,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "FR-EM2": {
+    "lon": 3.02065,
+    "name": "Estrees-Mons A28",
+    "lat": 49.87211,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Estrees-Mons A28",
-    "lat": 49.87211,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-EM2"
     ],
-    "lon": 3.02065,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -712,141 +712,141 @@
     ]
   },
   "65DK": {
+    "lon": null,
+    "name": "FR-SOOP-France-Brazil ",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "FR-SOOP-France-Brazil ",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_VOS%20France-Brazil"
     ],
-    "lon": null,
+    "country": "FR",
     "dataVars": [
       "OTC Historical",
       "ICOS OTC SOOP Release"
     ]
   },
   "DE-Fen": {
+    "lon": 11.06056,
+    "name": "Fendt",
+    "lat": 47.83292,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Fendt",
-    "lat": 47.83292,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Fen"
     ],
-    "lon": 11.06056,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "FKL": {
+    "lon": 25.6694,
+    "name": "Finokalia",
+    "lat": 35.3378,
     "project": [
       "other"
     ],
-    "country": "GR",
-    "name": "Finokalia",
-    "lat": 35.3378,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_FKL"
     ],
-    "lon": 25.6694,
+    "country": "GR",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "FR-FBn": {
+    "lon": 5.67865,
+    "name": "Font-Blanche",
+    "lat": 43.24079,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Font-Blanche",
-    "lat": 43.24079,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-FBn"
     ],
-    "lon": 5.67865,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "FR-Fon": {
+    "lon": 2.780096,
+    "name": "Fontainebleau-Barbeau",
+    "lat": 48.47636,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Fontainebleau-Barbeau",
-    "lat": 48.47636,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Fon"
     ],
-    "lon": 2.780096,
+    "country": "FR",
     "dataVars": [
       "ICOS ETC Archive Product",
       "ICOS ETC Fluxdata Preview Selection"
     ]
   },
   "CH-Fru": {
+    "lon": 8.53778,
+    "name": "Fruebuel grassland",
+    "lat": 47.11583,
     "project": [
       "FLUXNET"
     ],
-    "country": "CH",
-    "name": "Fruebuel grassland",
-    "lat": 47.11583,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_CH-Fru"
     ],
-    "lon": 8.53778,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "RU-Fyo": {
+    "lon": 32.9220833,
+    "name": "Fyodorovskoye",
+    "lat": 56.4615278,
     "project": [
       "FLUXNET"
     ],
-    "country": "RU",
-    "name": "Fyodorovskoye",
-    "lat": 56.4615278,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_RU-Fyo"
     ],
-    "lon": 32.9220833,
+    "country": "RU",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "RU-Fy2": {
+    "lon": 32.901878,
+    "name": "Fyodorovskoye dry spruce stand",
+    "lat": 56.447603,
     "project": [
       "FLUXNET"
     ],
-    "country": "RU",
-    "name": "Fyodorovskoye dry spruce stand",
-    "lat": 56.447603,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_RU-Fy2"
     ],
-    "lon": 32.901878,
+    "country": "RU",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "GAT": {
+    "lon": 11.4429,
+    "name": "Gartow",
+    "lat": 53.0657,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Gartow",
-    "lat": 53.0657,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_GAT"
     ],
-    "lon": 11.4429,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC Meteo Release",
@@ -862,93 +862,93 @@
     ]
   },
   "DE-Geb": {
+    "lon": 10.91463,
+    "name": "Gebesee",
+    "lat": 51.09973,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Gebesee",
-    "lat": 51.09973,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Geb"
     ],
-    "lon": 10.91463,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "GIF": {
+    "lon": 2.1475,
+    "name": "Gif sur Yvette",
+    "lat": 48.71,
     "project": [
       "INGOS"
     ],
-    "country": "FR",
-    "name": "Gif sur Yvette",
-    "lat": 48.71,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_GIF"
     ],
-    "lon": 2.1475,
+    "country": "FR",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release"
     ]
   },
   "DK-Gds": {
+    "lon": 9.3341,
+    "name": "Gludsted Plantage",
+    "lat": 56.0737,
     "project": [
       "ICOS"
     ],
-    "country": "DK",
-    "name": "Gludsted Plantage",
-    "lat": 56.0737,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DK-Gds"
     ],
-    "lon": 9.3341,
+    "country": "DK",
     "dataVars": [
       "n"
     ]
   },
   "DE-Gwg": {
+    "lon": 11.03261,
+    "name": "Graswang",
+    "lat": 47.57083,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Graswang",
-    "lat": 47.57083,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Gwg"
     ],
-    "lon": 11.03261,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "FR-Gri": {
+    "lon": 1.95191,
+    "name": "Grignon",
+    "lat": 48.84422,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Grignon",
-    "lat": 48.84422,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Gri"
     ],
-    "lon": 1.95191,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "DE-Gri": {
+    "lon": 13.51259,
+    "name": "Grillenburg",
+    "lat": 50.95004,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Grillenburg",
-    "lat": 50.95004,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Gri"
     ],
-    "lon": 13.51259,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -957,62 +957,62 @@
     ]
   },
   "DE-GsB": {
+    "lon": 11.10478,
+    "name": "Grosses Bruch",
+    "lat": 52.02965,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Grosses Bruch",
-    "lat": 52.02965,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-GsB"
     ],
-    "lon": 11.10478,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "GUAN": {
+    "lon": -66.8687,
+    "name": "Guanica Forest",
+    "lat": 17.96955,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Guanica Forest",
-    "lat": 17.96955,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_GUAN"
     ],
-    "lon": -66.8687,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "GF-Guy": {
+    "lon": -52.9248,
+    "name": "Guyaflux",
+    "lat": 5.2787,
     "project": [
       "ICOS"
     ],
-    "country": "GF",
-    "name": "Guyaflux",
-    "lat": 5.2787,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_GF-Guy"
     ],
-    "lon": -52.9248,
+    "country": "GF",
     "dataVars": [
       "ICOS ETC Archive Product",
       "ICOS ETC Fluxdata Preview Selection"
     ]
   },
   "DE-Hai": {
+    "lon": 10.45209,
+    "name": "Hainich",
+    "lat": 51.07941,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Hainich",
-    "lat": 51.07941,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Hai"
     ],
-    "lon": 10.45209,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -1021,48 +1021,48 @@
     ]
   },
   "DE-Har": {
+    "lon": 7.59814,
+    "name": "Hartheim",
+    "lat": 47.93391,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Hartheim",
-    "lat": 47.93391,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Har"
     ],
-    "lon": 7.59814,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "HARV": {
+    "lon": -72.17266,
+    "name": "Harvard Forest",
+    "lat": 42.5369,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Harvard Forest",
-    "lat": 42.5369,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_HARV"
     ],
-    "lon": -72.17266,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "HUN": {
+    "lon": 16.6522,
+    "name": "Hegyhatsal",
+    "lat": 46.9558,
     "project": [
       "INGOS",
       "other"
     ],
-    "country": "HU",
-    "name": "Hegyhatsal",
-    "lat": 46.9558,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_HUN",
       "http://meta.icos-cp.eu/resources/stations/ATMO_HUN"
     ],
-    "lon": 16.6522,
+    "country": "HU",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -1070,18 +1070,18 @@
     ]
   },
   "HEI": {
+    "lon": 8.675,
+    "name": "Heidelberg",
+    "lat": 49.4172,
     "project": [
       "INGOS",
       "other"
     ],
-    "country": "DE",
-    "name": "Heidelberg",
-    "lat": 49.4172,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_HEI",
       "http://meta.icos-cp.eu/resources/stations/ATMO_HEI"
     ],
-    "lon": 8.675,
+    "country": "DE",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -1089,16 +1089,16 @@
     ]
   },
   "HEL": {
+    "lon": 7.8833,
+    "name": "Helgoland",
+    "lat": 54.1804,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Helgoland",
-    "lat": 54.1804,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_HEL"
     ],
-    "lon": 7.8833,
+    "country": "DE",
     "dataVars": [
       "ICOS ATC NRT Meteo growing time series",
       "ICOS ATC NRT CH4 growing time series",
@@ -1113,48 +1113,48 @@
     ]
   },
   "FR-Hes": {
+    "lon": 7.06465,
+    "name": "Hesse",
+    "lat": 48.6741,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Hesse",
-    "lat": 48.6741,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Hes"
     ],
-    "lon": 7.06465,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "DE-Hzd": {
+    "lon": 13.48978,
+    "name": "Hetzdorf",
+    "lat": 50.96381,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Hetzdorf",
-    "lat": 50.96381,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Hzd"
     ],
-    "lon": 13.48978,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "HPB": {
+    "lon": 11.0246,
+    "name": "Hohenpeissenberg",
+    "lat": 47.8011,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Hohenpeissenberg",
-    "lat": 47.8011,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_HPB"
     ],
-    "lon": 11.0246,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC 14C Release",
@@ -1171,16 +1171,16 @@
     ]
   },
   "DE-HoH": {
+    "lon": 11.22235,
+    "name": "Hohes Holz",
+    "lat": 52.08656,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Hohes Holz",
-    "lat": 52.08656,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-HoH"
     ],
-    "lon": 11.22235,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -1189,47 +1189,47 @@
     ]
   },
   "DE-Hte": {
+    "lon": 12.176111,
+    "name": "Huetelmoor",
+    "lat": 54.210278,
     "project": [
       "FLUXNET"
     ],
-    "country": "DE",
-    "name": "Huetelmoor",
-    "lat": 54.210278,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_DE-Hte"
     ],
-    "lon": 12.176111,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "NO-Hur": {
+    "lon": 11.07814,
+    "name": "Hurdal",
+    "lat": 60.37239,
     "project": [
       "ICOS"
     ],
-    "country": "NO",
-    "name": "Hurdal",
-    "lat": 60.37239,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_NO-Hur"
     ],
-    "lon": 11.07814,
+    "country": "NO",
     "dataVars": [
       "n"
     ]
   },
   "HTM": {
+    "lon": 13.4189,
+    "name": "Hyltemossa",
+    "lat": 56.0976,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Hyltemossa",
-    "lat": 56.0976,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_HTM"
     ],
-    "lon": 13.4189,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC 14C Release",
@@ -1244,16 +1244,16 @@
     ]
   },
   "SE-Htm": {
+    "lon": 13.41897,
+    "name": "Hyltemossa",
+    "lat": 56.09763,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Hyltemossa",
-    "lat": 56.09763,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_SE-Htm"
     ],
-    "lon": 13.41897,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -1267,16 +1267,16 @@
     ]
   },
   "FI-Hyy": {
+    "lon": 24.29477,
+    "name": "Hyytiala",
+    "lat": 61.84741,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Hyytiala",
-    "lat": 61.84741,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
     ],
-    "lon": 24.29477,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -1285,16 +1285,16 @@
     ]
   },
   "SMR": {
+    "lon": 24.2947,
+    "name": "Hyyti\u00e4l\u00e4",
+    "lat": 61.8474,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Hyyti\u00e4l\u00e4",
-    "lat": 61.8474,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_SMR"
     ],
-    "lon": 24.2947,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC Meteo Release",
@@ -1308,31 +1308,31 @@
     ]
   },
   "48MB": {
+    "lon": 13.5658,
+    "name": "IT-FOS-PALOMA",
+    "lat": 45.6204,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "IT-FOS-PALOMA",
-    "lat": 45.6204,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_PALOMA"
     ],
-    "lon": 13.5658,
+    "country": "IT",
     "dataVars": [
       "ICOS OTC FOS Release"
     ]
   },
   "IPR": {
+    "lon": 8.636,
+    "name": "Ispra",
+    "lat": 45.8147,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Ispra",
-    "lat": 45.8147,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_IPR"
     ],
-    "lon": 8.636,
+    "country": "IT",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -1348,31 +1348,31 @@
     ]
   },
   "IZO": {
+    "lon": -16.499,
+    "name": "Izana, Tenerife, Canary Islands",
+    "lat": 28.309,
     "project": [
       "other"
     ],
-    "country": "ES",
-    "name": "Izana, Tenerife, Canary Islands",
-    "lat": 28.309,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_IZO"
     ],
-    "lon": -16.499,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "JFJ": {
+    "lon": 7.9851,
+    "name": "Jungfraujoch",
+    "lat": 46.5475,
     "project": [
       "ICOS"
     ],
-    "country": "CH",
-    "name": "Jungfraujoch",
-    "lat": 46.5475,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_JFJ"
     ],
-    "lon": 7.9851,
+    "country": "CH",
     "dataVars": [
       "InGOS CH4 Release",
       "ICOS ATC NRT radon data csv time series",
@@ -1389,16 +1389,16 @@
     ]
   },
   "KIT": {
+    "lon": 8.4249,
+    "name": "Karlsruhe",
+    "lat": 49.0915,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Karlsruhe",
-    "lat": 49.0915,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_KIT"
     ],
-    "lon": 8.4249,
+    "country": "DE",
     "dataVars": [
       "ICOS ATC 14C Release",
       "ICOS ATC Meteo Release",
@@ -1414,79 +1414,79 @@
     ]
   },
   "KAS": {
+    "lon": 19.9833,
+    "name": "Kasprowy Wierch",
+    "lat": 49.2333,
     "project": [
       "INGOS",
       "other"
     ],
-    "country": "PL",
-    "name": "Kasprowy Wierch",
-    "lat": 49.2333,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_KAS",
       "http://meta.icos-cp.eu/resources/stations/ATMO_KAS"
     ],
-    "lon": 19.9833,
+    "country": "PL",
     "dataVars": [
       "InGOS CH4 Release",
       "Drought 2018 Atmospheric Product"
     ]
   },
   "FI-Ken": {
+    "lon": 24.24301,
+    "name": "Kenttarova",
+    "lat": 67.98721,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Kenttarova",
-    "lat": 67.98721,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Ken"
     ],
-    "lon": 24.24301,
+    "country": "FI",
     "dataVars": [
       "n"
     ]
   },
   "DE-Kie": {
+    "lon": null,
+    "name": "Kienhorst",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Kienhorst",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Kie"
     ],
-    "lon": null,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "KING": {
+    "lon": -96.60336,
+    "name": "Kings Creek",
+    "lat": 39.10506,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Kings Creek",
-    "lat": 39.10506,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_KING"
     ],
-    "lon": -96.60336,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "DE-Kli": {
+    "lon": 13.52238,
+    "name": "Klingenberg",
+    "lat": 50.89306,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Klingenberg",
-    "lat": 50.89306,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Kli"
     ],
-    "lon": 13.52238,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -1495,76 +1495,76 @@
     ]
   },
   "GL-Kbf": {
+    "lon": -51.3784,
+    "name": "Kobbefjord",
+    "lat": 64.1382,
     "project": [
       "ICOS"
     ],
-    "country": "GL",
-    "name": "Kobbefjord",
-    "lat": 64.1382,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_GL-Kbf"
     ],
-    "lon": -51.3784,
+    "country": "GL",
     "dataVars": [
       "n"
     ]
   },
   "KONZ": {
+    "lon": -96.56309,
+    "name": "Konza Prairie Biological Station",
+    "lat": 39.10077,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Konza Prairie Biological Station",
-    "lat": 39.10077,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_KONZ"
     ],
-    "lon": -96.56309,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "FI-Kvr": {
+    "lon": 24.2804,
+    "name": "Kuivajarvi",
+    "lat": 61.84662,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Kuivajarvi",
-    "lat": 61.84662,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Kvr"
     ],
-    "lon": 24.2804,
+    "country": "FI",
     "dataVars": [
       "ICOS ETC Archive Product"
     ]
   },
   "FI-Kmp": {
+    "lon": 24.9611,
+    "name": "Kumpula",
+    "lat": 60.20289,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Kumpula",
-    "lat": 60.20289,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Kmp"
     ],
-    "lon": 24.9611,
+    "country": "FI",
     "dataVars": [
       "ICOS ETC Archive Product"
     ]
   },
   "KRE": {
+    "lon": 15.08,
+    "name": "K\u0159e\u0161\u00edn u Pacova",
+    "lat": 49.572,
     "project": [
       "ICOS"
     ],
-    "country": "CZ",
-    "name": "K\u0159e\u0161\u00edn u Pacova",
-    "lat": 49.572,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_KRE"
     ],
-    "lon": 15.08,
+    "country": "CZ",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC 14C Release",
@@ -1581,62 +1581,62 @@
     ]
   },
   "CLBJ": {
+    "lon": -97.57,
+    "name": "LBJ National Grassland ",
+    "lat": 33.40123,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "LBJ National Grassland ",
-    "lat": 33.40123,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_CLBJ"
     ],
-    "lon": -97.57,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "FR-LGt": {
+    "lon": 2.284102,
+    "name": "La Guette",
+    "lat": 47.32292,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "La Guette",
-    "lat": 47.32292,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-LGt"
     ],
-    "lon": 2.284102,
+    "country": "FR",
     "dataVars": [
       "ICOS ETC Archive Product",
       "ICOS ETC Fluxdata Preview Selection"
     ]
   },
   "LMU": {
+    "lon": -1.1003,
+    "name": "La Muela",
+    "lat": 41.5941,
     "project": [
       "other"
     ],
-    "country": "ES",
-    "name": "La Muela",
-    "lat": 41.5941,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_LMU"
     ],
-    "lon": -1.1003,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "RUN": {
+    "lon": 55.3841,
+    "name": "La R\u00e9union",
+    "lat": -21.0796,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "La R\u00e9union",
-    "lat": -21.0796,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_RUN"
     ],
-    "lon": 55.3841,
+    "country": "FR",
     "dataVars": [
       "ICOS ATC Meteo Release",
       "ICOS ATC CH4 Release",
@@ -1649,62 +1649,62 @@
     ]
   },
   "CH-Lae": {
+    "lon": 8.365,
+    "name": "Laegern",
+    "lat": 47.47808,
     "project": [
       "FLUXNET"
     ],
-    "country": "CH",
-    "name": "Laegern",
-    "lat": 47.47808,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_CH-Lae"
     ],
-    "lon": 8.365,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "LHW": {
+    "lon": 8.3973,
+    "name": "Laegern-Hochwacht",
+    "lat": 47.4822,
     "project": [
       "other"
     ],
-    "country": "CH",
-    "name": "Laegern-Hochwacht",
-    "lat": 47.4822,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_LHW"
     ],
-    "lon": 8.3973,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "FR-Lam": {
+    "lon": 1.237878,
+    "name": "Lamasquere",
+    "lat": 43.49644,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Lamasquere",
-    "lat": 43.49644,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Lam"
     ],
-    "lon": 1.237878,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "LMP": {
+    "lon": 12.6322,
+    "name": "Lampedusa",
+    "lat": 35.5181,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Lampedusa",
-    "lat": 35.5181,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_LMP"
     ],
-    "lon": 12.6322,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC Meteo Release",
@@ -1718,16 +1718,16 @@
     ]
   },
   "SE-Lnn": {
+    "lon": 13.10177,
+    "name": "Lanna",
+    "lat": 58.34063,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Lanna",
-    "lat": 58.34063,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_SE-Lnn"
     ],
-    "lon": 13.10177,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Ecosystem meteo time series (ICOS Sweden)",
@@ -1737,47 +1737,47 @@
     ]
   },
   "CZ-Lnz": {
+    "lon": 16.94633,
+    "name": "Lanzhot",
+    "lat": 48.68155,
     "project": [
       "ICOS"
     ],
-    "country": "CZ",
-    "name": "Lanzhot",
-    "lat": 48.68155,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_CZ-Lnz"
     ],
-    "lon": 16.94633,
+    "country": "CZ",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "FR-Lqu": {
+    "lon": 2.7349,
+    "name": "Laqueuille",
+    "lat": 45.6444,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Laqueuille",
-    "lat": 45.6444,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Lqu"
     ],
-    "lon": 2.7349,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "FI-Let": {
+    "lon": 23.95952,
+    "name": "Lettosuo",
+    "lat": 60.64183,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Lettosuo",
-    "lat": 60.64183,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Let"
     ],
-    "lon": 23.95952,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -1786,16 +1786,16 @@
     ]
   },
   "LIN": {
+    "lon": 14.1226,
+    "name": "Lindenberg",
+    "lat": 52.1663,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Lindenberg",
-    "lat": 52.1663,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_LIN"
     ],
-    "lon": 14.1226,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC 14C Release",
@@ -1812,16 +1812,16 @@
     ]
   },
   "IT-Lsn": {
+    "lon": 12.7503,
+    "name": "Lison",
+    "lat": 45.74048,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Lison",
-    "lat": 45.74048,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-Lsn"
     ],
-    "lon": 12.7503,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -1830,47 +1830,47 @@
     ]
   },
   "BE-Lcr": {
+    "lon": 3.85043,
+    "name": "Lochristi",
+    "lat": 51.11218,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "Lochristi",
-    "lat": 51.11218,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_BE-Lcr"
     ],
-    "lon": 3.85043,
+    "country": "BE",
     "dataVars": [
       "ICOS ETC Fluxdata Preview Selection",
       "ICOS ETC Archive Product"
     ]
   },
   "FI-Lom": {
+    "lon": 24.20918,
+    "name": "Lompolojankka",
+    "lat": 67.99724,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Lompolojankka",
-    "lat": 67.99724,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Lom"
     ],
-    "lon": 24.20918,
+    "country": "FI",
     "dataVars": [
       "n"
     ]
   },
   "BE-Lon": {
+    "lon": 4.746234,
+    "name": "Lonzee",
+    "lat": 50.55162,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "Lonzee",
-    "lat": 50.55162,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_BE-Lon"
     ],
-    "lon": 4.746234,
+    "country": "BE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection",
@@ -1879,62 +1879,62 @@
     ]
   },
   "NL-Loo": {
+    "lon": 5.743556,
+    "name": "Loobos",
+    "lat": 52.16658,
     "project": [
       "ICOS"
     ],
-    "country": "NL",
-    "name": "Loobos",
-    "lat": 52.16658,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_NL-Loo"
     ],
-    "lon": 5.743556,
+    "country": "NL",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "HOPB": {
+    "lon": -72.32963,
+    "name": "Lower Hop Brook",
+    "lat": 42.47179,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Lower Hop Brook",
-    "lat": 42.47179,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_HOPB"
     ],
-    "lon": -72.32963,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "FR-Lus": {
+    "lon": 0.1206518,
+    "name": "Lusignan",
+    "lat": 46.41425,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Lusignan",
-    "lat": 46.41425,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Lus"
     ],
-    "lon": 0.1206518,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "LUT": {
+    "lon": 6.3528,
+    "name": "Lutjewad",
+    "lat": 53.4036,
     "project": [
       "ICOS"
     ],
-    "country": "NL",
-    "name": "Lutjewad",
-    "lat": 53.4036,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_LUT"
     ],
-    "lon": 6.3528,
+    "country": "NL",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -1950,34 +1950,34 @@
     ]
   },
   "BE-Maa": {
+    "lon": 5.631851,
+    "name": "Maasmechelen",
+    "lat": 50.97987,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "Maasmechelen",
-    "lat": 50.97987,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_BE-Maa"
     ],
-    "lon": 5.631851,
+    "country": "BE",
     "dataVars": [
       "ICOS ETC Archive Product",
       "ICOS ETC Fluxdata Preview Selection"
     ]
   },
   "MHD": {
+    "lon": -9.9036,
+    "name": "Mace Head",
+    "lat": 53.3261,
     "project": [
       "INGOS",
       "other"
     ],
-    "country": "IE",
-    "name": "Mace Head",
-    "lat": 53.3261,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_MHD",
       "http://meta.icos-cp.eu/resources/stations/ATMO_MHD"
     ],
-    "lon": -9.9036,
+    "country": "IE",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -1985,124 +1985,124 @@
     ]
   },
   "ES-LM1": {
+    "lon": -5.778683,
+    "name": "Majadas del Tietar North",
+    "lat": 39.94269,
     "project": [
       "FLUXNET"
     ],
-    "country": "ES",
-    "name": "Majadas del Tietar North",
-    "lat": 39.94269,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_ES-LM1"
     ],
-    "lon": -5.778683,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "ES-LM2": {
+    "lon": -5.775881,
+    "name": "Majadas del Tietar South",
+    "lat": 39.934592,
     "project": [
       "FLUXNET"
     ],
-    "country": "ES",
-    "name": "Majadas del Tietar South",
-    "lat": 39.934592,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_ES-LM2"
     ],
-    "lon": -5.775881,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "MLH": {
+    "lon": -7.333,
+    "name": "Malin Head",
+    "lat": 55.355,
     "project": [
       "other"
     ],
-    "country": "IE",
-    "name": "Malin Head",
-    "lat": 55.355,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_MLH"
     ],
-    "lon": -7.333,
+    "country": "IE",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "MART": {
+    "lon": -121.93196,
+    "name": "Martha Creek",
+    "lat": 45.79125,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Martha Creek",
-    "lat": 45.79125,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_MART"
     ],
-    "lon": -121.93196,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "MAYF": {
+    "lon": -87.40813,
+    "name": "Mayfield Creek",
+    "lat": 32.95966,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Mayfield Creek",
-    "lat": 32.95966,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_MAYF"
     ],
-    "lon": -87.40813,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "FR-Mej": {
+    "lon": -1.79635,
+    "name": "Mejusseaume",
+    "lat": 48.1184,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Mejusseaume",
-    "lat": 48.1184,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Mej"
     ],
-    "lon": -1.79635,
+    "country": "FR",
     "dataVars": [
       "ICOS ETC Archive Product",
       "ICOS ETC Fluxdata Preview Selection"
     ]
   },
   "IT-MBo": {
+    "lon": 11.04583,
+    "name": "Monte Bondone",
+    "lat": 46.01468,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Monte Bondone",
-    "lat": 46.01468,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-MBo"
     ],
-    "lon": 11.04583,
+    "country": "IT",
     "dataVars": [
       "n"
     ]
   },
   "CMN": {
+    "lon": 10.6999,
+    "name": "Monte Cimone",
+    "lat": 44.1936,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Monte Cimone",
-    "lat": 44.1936,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_CMN"
     ],
-    "lon": 10.6999,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC Meteo Release",
@@ -2116,61 +2116,61 @@
     ]
   },
   "FR-MsS": {
+    "lon": 5.31187,
+    "name": "Montiers sur Saulx",
+    "lat": 48.53816,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Montiers sur Saulx",
-    "lat": 48.53816,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-MsS"
     ],
-    "lon": 5.31187,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "DE-Msr": {
+    "lon": 11.45617,
+    "name": "Mooseurach",
+    "lat": 47.80911,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Mooseurach",
-    "lat": 47.80911,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Msr"
     ],
-    "lon": 11.45617,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "SE-Myc": {
+    "lon": null,
+    "name": "Mycklemossen",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Mycklemossen",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_SE-Myc"
     ],
-    "lon": null,
+    "country": "SE",
     "dataVars": [
       "n"
     ]
   },
   "58G2": {
+    "lon": null,
+    "name": "NO-SOOP-G.O.Sars",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "NO",
-    "name": "NO-SOOP-G.O.Sars",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_GOSars"
     ],
-    "lon": null,
+    "country": "NO",
     "dataVars": [
       "OTC Historical",
       "ICOS OTC NRT Product v1",
@@ -2179,31 +2179,31 @@
     ]
   },
   "58US": {
+    "lon": null,
+    "name": "NO-SOOP-Kronprins Haakon",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "NO",
-    "name": "NO-SOOP-Kronprins Haakon",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_58US"
     ],
-    "lon": null,
+    "country": "NO",
     "dataVars": [
       "ICOS OTC SOOP Release"
     ]
   },
   "26NA": {
+    "lon": null,
+    "name": "NO-SOOP-Nuka Arctica",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "NO",
-    "name": "NO-SOOP-Nuka Arctica",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_26NA"
     ],
-    "lon": null,
+    "country": "NO",
     "dataVars": [
       "OTC Historical",
       "ICOS OTC SOOP NRT Product",
@@ -2211,76 +2211,76 @@
     ]
   },
   "BHNQ": {
+    "lon": null,
+    "name": "NO-SOOP-Trans Carrier",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "NO",
-    "name": "NO-SOOP-Trans Carrier",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_TCarrier"
     ],
-    "lon": null,
+    "country": "NO",
     "dataVars": [
       "OTC Historical"
     ]
   },
   "26RA": {
+    "lon": null,
+    "name": "NO-SOOP-Tukuma Arctica",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "NO",
-    "name": "NO-SOOP-Tukuma Arctica",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_26RA"
     ],
-    "lon": null,
+    "country": "NO",
     "dataVars": [
       "n"
     ]
   },
   "IT-Niv": {
+    "lon": null,
+    "name": "Nivolet",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Nivolet",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-Niv"
     ],
-    "lon": null,
+    "country": "IT",
     "dataVars": [
       "n"
     ]
   },
   "NIWO": {
+    "lon": -105.58237,
+    "name": "Niwot Ridge Mountain Research Station",
+    "lat": 40.05425,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Niwot Ridge Mountain Research Station",
-    "lat": 40.05425,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_NIWO"
     ],
-    "lon": -105.58237,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "NOR": {
+    "lon": 17.4794,
+    "name": "Norunda",
+    "lat": 60.0864,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Norunda",
-    "lat": 60.0864,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_NOR"
     ],
-    "lon": 17.4794,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC 14C Release",
@@ -2295,16 +2295,16 @@
     ]
   },
   "SE-Nor": {
+    "lon": 17.4795,
+    "name": "Norunda",
+    "lat": 60.0865,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Norunda",
-    "lat": 60.0865,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_SE-Nor"
     ],
-    "lon": 17.4795,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -2316,107 +2316,107 @@
     ]
   },
   "GF-Nrg": {
+    "lon": -52.08623,
+    "name": "Nouragues",
+    "lat": 4.087768,
     "project": [
       "ICOS"
     ],
-    "country": "GF",
-    "name": "Nouragues",
-    "lat": 4.087768,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_GF-Nrg"
     ],
-    "lon": -52.08623,
+    "country": "GF",
     "dataVars": [
       "n"
     ]
   },
   "GL-NuF": {
+    "lon": -51.38611,
+    "name": "Nuuk Fen",
+    "lat": 64.13083,
     "project": [
       "ICOS"
     ],
-    "country": "GL",
-    "name": "Nuuk Fen",
-    "lat": 64.13083,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_GL-NuF"
     ],
-    "lon": -51.38611,
+    "country": "GL",
     "dataVars": [
       "n"
     ]
   },
   "ORNL": {
+    "lon": -84.2826,
+    "name": "Oak Ridge",
+    "lat": 35.96412,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Oak Ridge",
-    "lat": 35.96412,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_ORNL"
     ],
-    "lon": -84.2826,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "DE-Obe": {
+    "lon": 13.72129,
+    "name": "Oberb\u00e4renburg",
+    "lat": 50.78666,
     "project": [
       "FLUXNET"
     ],
-    "country": "DE",
-    "name": "Oberb\u00e4renburg",
-    "lat": 50.78666,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_DE-Obe"
     ],
-    "lon": 13.72129,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "DE-Okd": {
+    "lon": 9.092467,
+    "name": "Oberklenkendorf",
+    "lat": 53.4126,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Oberklenkendorf",
-    "lat": 53.4126,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Okd"
     ],
-    "lon": 9.092467,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "OHP": {
+    "lon": 5.712,
+    "name": "Observatoire de Haute Provence",
+    "lat": 43.931,
     "project": [
       "other"
     ],
-    "country": "FR",
-    "name": "Observatoire de Haute Provence",
-    "lat": 43.931,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_OHP"
     ],
-    "lon": 5.712,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "OPE": {
+    "lon": 5.5036,
+    "name": "Observatoire p\u00e9renne de l'environnement",
+    "lat": 48.5619,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Observatoire p\u00e9renne de l'environnement",
-    "lat": 48.5619,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_OPE"
     ],
-    "lon": 5.5036,
+    "country": "FR",
     "dataVars": [
       "ICOS ATC NRT radon data csv time series",
       "Drought 2018 Atmospheric Product",
@@ -2434,16 +2434,16 @@
     ]
   },
   "OXK": {
+    "lon": 11.8083,
+    "name": "Ochsenkopf",
+    "lat": 50.03,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Ochsenkopf",
-    "lat": 50.03,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_OXK"
     ],
-    "lon": 11.8083,
+    "country": "DE",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -2460,107 +2460,107 @@
     ]
   },
   "CH-Oe2": {
+    "lon": 7.73433,
+    "name": "Oensingen crop",
+    "lat": 47.28631,
     "project": [
       "FLUXNET"
     ],
-    "country": "CH",
-    "name": "Oensingen crop",
-    "lat": 47.28631,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_CH-Oe2"
     ],
-    "lon": 7.73433,
+    "country": "CH",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "OKSR": {
+    "lon": -149.14302,
+    "name": "Oksrukuyik Creek",
+    "lat": 68.66975,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Oksrukuyik Creek",
-    "lat": 68.66975,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_OKSR"
     ],
-    "lon": -149.14302,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "ONAQ": {
+    "lon": -112.45244,
+    "name": "Onaqui",
+    "lat": 40.17759,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Onaqui",
-    "lat": 40.17759,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_ONAQ"
     ],
-    "lon": -112.45244,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "OSBS": {
+    "lon": -81.99343,
+    "name": "Ordway-Swisher Biological Station",
+    "lat": 29.68927,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Ordway-Swisher Biological Station",
-    "lat": 29.68927,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_OSBS"
     ],
-    "lon": -81.99343,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "BARC": {
+    "lon": -82.00909,
+    "name": "Ordway-Swisher Biological Station - Barco Lake",
+    "lat": 29.67647,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Ordway-Swisher Biological Station - Barco Lake",
-    "lat": 29.67647,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_BARC"
     ],
-    "lon": -82.00909,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "SUGG": {
+    "lon": -82.01617,
+    "name": "Ordway-Swisher Biological Station - Suggs Lake",
+    "lat": 29.68705,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Ordway-Swisher Biological Station - Suggs Lake",
-    "lat": 29.68705,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_SUGG"
     ],
-    "lon": -82.01617,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "PAL": {
+    "lon": 24.1157,
+    "name": "Pallas",
+    "lat": 67.9733,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Pallas",
-    "lat": 67.9733,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_PAL"
     ],
-    "lon": 24.1157,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC 14C Release",
@@ -2575,48 +2575,48 @@
     ]
   },
   "IT-PCm": {
+    "lon": 14.2504,
+    "name": "Parco Urbano di Capodimonte",
+    "lat": 40.8741,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Parco Urbano di Capodimonte",
-    "lat": 40.8741,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-PCm"
     ],
-    "lon": 14.2504,
+    "country": "IT",
     "dataVars": [
       "n"
     ]
   },
   "PDM": {
+    "lon": 0.1411,
+    "name": "Pic du Midi",
+    "lat": 42.9372,
     "project": [
       "other"
     ],
-    "country": "FR",
-    "name": "Pic du Midi",
-    "lat": 42.9372,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_PDM"
     ],
-    "lon": 0.1411,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "PRS": {
+    "lon": 7.7,
+    "name": "Plateau Rosa",
+    "lat": 45.93,
     "project": [
       "ICOS",
       "other"
     ],
-    "country": "IT",
-    "name": "Plateau Rosa",
-    "lat": 45.93,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_PRS",
       "http://meta.icos-cp.eu/resources/stations/ATMO_PRS"
     ],
-    "lon": 7.7,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC NRT Meteo growing time series",
@@ -2625,93 +2625,93 @@
     ]
   },
   "POSE": {
+    "lon": -78.14678,
+    "name": "Posey Creek",
+    "lat": 38.89332,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Posey Creek",
-    "lat": 38.89332,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_POSE"
     ],
-    "lon": -78.14678,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "PRPO": {
+    "lon": -99.25055,
+    "name": "Prairie Pothole ",
+    "lat": 47.12999,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Prairie Pothole ",
-    "lat": 47.12999,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_PRPO"
     ],
-    "lon": -99.25055,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "PRIN": {
+    "lon": -97.78226,
+    "name": "Pringle Creek",
+    "lat": 33.37859,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Pringle Creek",
-    "lat": 33.37859,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_PRIN"
     ],
-    "lon": -97.78226,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "PUUM": {
+    "lon": -155.31731,
+    "name": "Pu'u Maka'ala Natural Area Reserve",
+    "lat": 19.55309,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Pu'u Maka'ala Natural Area Reserve",
-    "lat": 19.55309,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_PUUM"
     ],
-    "lon": -155.31731,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "FR-Pue": {
+    "lon": 3.5957,
+    "name": "Puechabon",
+    "lat": 43.7413,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Puechabon",
-    "lat": 43.7413,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Pue"
     ],
-    "lon": 3.5957,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "PUI": {
+    "lon": 27.6549,
+    "name": "Puijo",
+    "lat": 62.9096,
     "project": [
       "ICOS",
       "other"
     ],
-    "country": "FI",
-    "name": "Puijo",
-    "lat": 62.9096,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_PUI",
       "http://meta.icos-cp.eu/resources/stations/ATMO_PUI"
     ],
-    "lon": 27.6549,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC NRT Meteo growing time series",
@@ -2720,16 +2720,16 @@
     ]
   },
   "PUY": {
+    "lon": 2.9658,
+    "name": "Puy de D\u00f4me",
+    "lat": 45.7719,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Puy de D\u00f4me",
-    "lat": 45.7719,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_PUY"
     ],
-    "lon": 2.9658,
+    "country": "FR",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -2747,139 +2747,139 @@
     ]
   },
   "CZ-RAJ": {
+    "lon": 16.6965125,
+    "name": "Rajec",
+    "lat": 49.4437236,
     "project": [
       "FLUXNET"
     ],
-    "country": "CZ",
-    "name": "Rajec",
-    "lat": 49.4437236,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_CZ-RAJ"
     ],
-    "lon": 16.6965125,
+    "country": "CZ",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "REDB": {
+    "lon": -111.79765,
+    "name": "Red Butte Creek",
+    "lat": 40.78374,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Red Butte Creek",
-    "lat": 40.78374,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_REDB"
     ],
-    "lon": -111.79765,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "IT-Ren": {
+    "lon": 11.43369,
+    "name": "Renon",
+    "lat": 46.58686,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Renon",
-    "lat": 46.58686,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-Ren"
     ],
-    "lon": 11.43369,
+    "country": "IT",
     "dataVars": [
       "n"
     ]
   },
   "RGL": {
+    "lon": -2.54,
+    "name": "Ridge Hill",
+    "lat": 51.9976,
     "project": [
       "other"
     ],
-    "country": "UK",
-    "name": "Ridge Hill",
-    "lat": 51.9976,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_RGL"
     ],
-    "lon": -2.54,
+    "country": "UK",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "CUPE": {
+    "lon": -66.98676,
+    "name": "Rio Cupeyes",
+    "lat": 18.11352,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Rio Cupeyes",
-    "lat": 18.11352,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_CUPE"
     ],
-    "lon": -66.98676,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "DK-RCW": {
+    "lon": 12.1014,
+    "name": "Risoe",
+    "lat": 55.68068,
     "project": [
       "ICOS"
     ],
-    "country": "DK",
-    "name": "Risoe",
-    "lat": 55.68068,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DK-RCW"
     ],
-    "lon": 12.1014,
+    "country": "DK",
     "dataVars": [
       "n"
     ]
   },
   "DE-RuR": {
+    "lon": 6.304126,
+    "name": "Rollesbroich",
+    "lat": 50.62191,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Rollesbroich",
-    "lat": 50.62191,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-RuR"
     ],
-    "lon": 6.304126,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "SE-Ros": {
+    "lon": 19.738,
+    "name": "Rosinedal-3",
+    "lat": 64.1725,
     "project": [
       "FLUXNET"
     ],
-    "country": "SE",
-    "name": "Rosinedal-3",
-    "lat": 64.1725,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_SE-Ros"
     ],
-    "lon": 19.738,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "SAC": {
+    "lon": 2.142,
+    "name": "Saclay",
+    "lat": 48.7227,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Saclay",
-    "lat": 48.7227,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_SAC"
     ],
-    "lon": 2.142,
+    "country": "FR",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC NRT radon data csv time series",
@@ -2897,62 +2897,62 @@
     ]
   },
   "SD1030": {
+    "lon": null,
+    "name": "SailDrone 1030",
+    "lat": null,
     "project": [
       "other"
     ],
-    "country": "US",
-    "name": "SailDrone 1030",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/SAILDRONE_SD1030"
     ],
-    "lon": null,
+    "country": "US",
     "dataVars": [
       "ICOS OTC SOOP NRT Product",
       "ICOS OTC SOOP Release"
     ]
   },
   "SD1053": {
+    "lon": null,
+    "name": "SailDrone 1053",
+    "lat": null,
     "project": [
       "other"
     ],
-    "country": "US",
-    "name": "SailDrone 1053",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/SAILDRONE_SD1053"
     ],
-    "lon": null,
+    "country": "US",
     "dataVars": [
       "ICOS OTC SOOP NRT Product"
     ]
   },
   "SJER": {
+    "lon": -119.73228,
+    "name": "San Joaquin Experimental Range",
+    "lat": 37.10878,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "San Joaquin Experimental Range",
-    "lat": 37.10878,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_SJER"
     ],
-    "lon": -119.73228,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "IT-SR2": {
+    "lon": 10.29091,
+    "name": "San Rossore 2",
+    "lat": 43.73202,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "San Rossore 2",
-    "lat": 43.73202,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-SR2"
     ],
-    "lon": 10.29091,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -2961,77 +2961,77 @@
     ]
   },
   "SRER": {
+    "lon": -110.83549,
+    "name": "Santa Rita Experimental Range",
+    "lat": 31.91068,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Santa Rita Experimental Range",
-    "lat": 31.91068,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_SRER"
     ],
-    "lon": -110.83549,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "SCH": {
+    "lon": 7.9166,
+    "name": "Schauinsland",
+    "lat": 47.9167,
     "project": [
       "INGOS"
     ],
-    "country": "DE",
-    "name": "Schauinsland",
-    "lat": 47.9167,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_SCH"
     ],
-    "lon": 7.9166,
+    "country": "DE",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release"
     ]
   },
   "SSL": {
+    "lon": 7.92,
+    "name": "Schauinsland, Baden-Wuerttemberg",
+    "lat": 47.92,
     "project": [
       "other"
     ],
-    "country": "DE",
-    "name": "Schauinsland, Baden-Wuerttemberg",
-    "lat": 47.92,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_SSL"
     ],
-    "lon": 7.92,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "DE-SfN": {
+    "lon": 11.3275,
+    "name": "Schechenfilz Nord",
+    "lat": 47.80639,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Schechenfilz Nord",
-    "lat": 47.80639,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-SfN"
     ],
-    "lon": 11.3275,
+    "country": "DE",
     "dataVars": [
       "n"
     ]
   },
   "DE-RuS": {
+    "lon": 6.447145,
+    "name": "Selhausen Juelich",
+    "lat": 50.86591,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Selhausen Juelich",
-    "lat": 50.86591,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-RuS"
     ],
-    "lon": 6.447145,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection",
@@ -3040,31 +3040,31 @@
     ]
   },
   "GIC": {
+    "lon": -5.1755,
+    "name": "Sierra de Gredos",
+    "lat": 40.3457,
     "project": [
       "other"
     ],
-    "country": "ES",
-    "name": "Sierra de Gredos",
-    "lat": 40.3457,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_GIC"
     ],
-    "lon": -5.1755,
+    "country": "ES",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "FI-Sii": {
+    "lon": 24.19285,
+    "name": "Siikaneva",
+    "lat": 61.83265,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Siikaneva",
-    "lat": 61.83265,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Sii"
     ],
-    "lon": 24.19285,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -3073,77 +3073,77 @@
     ]
   },
   "DK-Skj": {
+    "lon": 8.40481,
+    "name": "Skjern",
+    "lat": 55.91273,
     "project": [
       "ICOS"
     ],
-    "country": "DK",
-    "name": "Skjern",
-    "lat": 55.91273,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DK-Skj"
     ],
-    "lon": 8.40481,
+    "country": "DK",
     "dataVars": [
       "n"
     ]
   },
   "SCBI": {
+    "lon": -78.1395,
+    "name": "Smithsonian Conservation Biology Institute",
+    "lat": 38.89292,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Smithsonian Conservation Biology Institute",
-    "lat": 38.89292,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_SCBI"
     ],
-    "lon": -78.1395,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "FI-Sod": {
+    "lon": 26.63859,
+    "name": "Sodankyla",
+    "lat": 67.36239,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Sodankyla",
-    "lat": 67.36239,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Sod"
     ],
-    "lon": 26.63859,
+    "country": "FI",
     "dataVars": [
       "n"
     ]
   },
   "DK-Sor": {
+    "lon": 11.64464,
+    "name": "Soroe",
+    "lat": 55.48587,
     "project": [
       "ICOS"
     ],
-    "country": "DK",
-    "name": "Soroe",
-    "lat": 55.48587,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DK-Sor"
     ],
-    "lon": 11.64464,
+    "country": "DK",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "STE": {
+    "lon": 8.4588,
+    "name": "Steinkimmen",
+    "lat": 53.0431,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Steinkimmen",
-    "lat": 53.0431,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_STE"
     ],
-    "lon": 8.4588,
+    "country": "DE",
     "dataVars": [
       "ICOS ATC 14C Release",
       "ICOS ATC Meteo Release",
@@ -3159,32 +3159,32 @@
     ]
   },
   "CZ-Stn": {
+    "lon": 17.9699,
+    "name": "Stitna",
+    "lat": 49.035975,
     "project": [
       "FLUXNET"
     ],
-    "country": "CZ",
-    "name": "Stitna",
-    "lat": 49.035975,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/FLUXNET_CZ-Stn"
     ],
-    "lon": 17.9699,
+    "country": "CZ",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "SVB": {
+    "lon": 19.775,
+    "name": "Svartberget",
+    "lat": 64.256,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Svartberget",
-    "lat": 64.256,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_SVB"
     ],
-    "lon": 19.775,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC 14C Release",
@@ -3199,16 +3199,16 @@
     ]
   },
   "SE-Svb": {
+    "lon": 19.7745,
+    "name": "Svartberget",
+    "lat": 64.25611,
     "project": [
       "ICOS"
     ],
-    "country": "SE",
-    "name": "Svartberget",
-    "lat": 64.25611,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_SE-Svb"
     ],
-    "lon": 19.7745,
+    "country": "SE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -3222,107 +3222,107 @@
     ]
   },
   "SYCA": {
+    "lon": -111.5069,
+    "name": "Sycamore Creek",
+    "lat": 33.74906,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Sycamore Creek",
-    "lat": 33.74906,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_SYCA"
     ],
-    "lon": -111.5069,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "TAC": {
+    "lon": 1.1386,
+    "name": "Tacolneston",
+    "lat": 52.5177,
     "project": [
       "other"
     ],
-    "country": "UK",
-    "name": "Tacolneston",
-    "lat": 52.5177,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ATMO_TAC"
     ],
-    "lon": 1.1386,
+    "country": "UK",
     "dataVars": [
       "Drought 2018 Atmospheric Product"
     ]
   },
   "TALL": {
+    "lon": -87.39327,
+    "name": "Talladega National Forest",
+    "lat": 32.95046,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Talladega National Forest",
-    "lat": 32.95046,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_TALL"
     ],
-    "lon": -87.39327,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "TECR": {
+    "lon": -119.02699,
+    "name": "Teakettle 2 Creek",
+    "lat": 36.95528,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Teakettle 2 Creek",
-    "lat": 36.95528,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_TECR"
     ],
-    "lon": -119.02699,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "DE-Tha": {
+    "lon": 13.56515,
+    "name": "Tharandt",
+    "lat": 50.96256,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Tharandt",
-    "lat": 50.96256,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-Tha"
     ],
-    "lon": 13.56515,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "TOOL": {
+    "lon": -149.37047,
+    "name": "Toolik",
+    "lat": 68.66109,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Toolik",
-    "lat": 68.66109,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_TOOL"
     ],
-    "lon": -149.37047,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "TOH": {
+    "lon": 10.535,
+    "name": "Torfhaus",
+    "lat": 51.8088,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Torfhaus",
-    "lat": 51.8088,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_TOH"
     ],
-    "lon": 10.535,
+    "country": "DE",
     "dataVars": [
       "ICOS ATC Meteo Release",
       "ICOS ATC CH4 Release",
@@ -3337,16 +3337,16 @@
     ]
   },
   "IT-Tor": {
+    "lon": 7.578055,
+    "name": "Torgnon",
+    "lat": 45.84444,
     "project": [
       "ICOS"
     ],
-    "country": "IT",
-    "name": "Torgnon",
-    "lat": 45.84444,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_IT-Tor"
     ],
-    "lon": 7.578055,
+    "country": "IT",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -3355,31 +3355,31 @@
     ]
   },
   "FR-Tou": {
+    "lon": 1.37474,
+    "name": "Toulouse",
+    "lat": 43.57286,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Toulouse",
-    "lat": 43.57286,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FR-Tou"
     ],
-    "lon": 1.37474,
+    "country": "FR",
     "dataVars": [
       "n"
     ]
   },
   "TRN": {
+    "lon": 2.1125,
+    "name": "Trainou",
+    "lat": 47.9647,
     "project": [
       "ICOS"
     ],
-    "country": "FR",
-    "name": "Trainou",
-    "lat": 47.9647,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_TRN"
     ],
-    "lon": 2.1125,
+    "country": "FR",
     "dataVars": [
       "InGOS CH4 Release",
       "InGOS N2O Release",
@@ -3398,62 +3398,62 @@
     ]
   },
   "CZ-wet": {
+    "lon": 14.77035,
+    "name": "Trebon",
+    "lat": 49.02465,
     "project": [
       "ICOS"
     ],
-    "country": "CZ",
-    "name": "Trebon",
-    "lat": 49.02465,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_CZ-Wet"
     ],
-    "lon": 14.77035,
+    "country": "CZ",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "642B": {
+    "lon": null,
+    "name": "UK-SOOP-UK-Caribbean",
+    "lat": null,
     "project": [
       "ICOS"
     ],
-    "country": "GB",
-    "name": "UK-SOOP-UK-Caribbean",
-    "lat": null,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/OS_UK-Caribbean"
     ],
-    "lon": null,
+    "country": "GB",
     "dataVars": [
       "OTC Historical"
     ]
   },
   "UNDE": {
+    "lon": -89.53725,
+    "name": "UNDERC",
+    "lat": 46.23388,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "UNDERC",
-    "lat": 46.23388,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_UNDE"
     ],
-    "lon": -89.53725,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "UTO": {
+    "lon": 21.3672,
+    "name": "Ut\u00f6 - Baltic sea",
+    "lat": 59.7839,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Ut\u00f6 - Baltic sea",
-    "lat": 59.7839,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_UTO"
     ],
-    "lon": 21.3672,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Atmospheric Product",
       "ICOS ATC Meteo Release",
@@ -3467,16 +3467,16 @@
     ]
   },
   "FI-Var": {
+    "lon": 29.61,
+    "name": "Varrio",
+    "lat": 67.7549,
     "project": [
       "ICOS"
     ],
-    "country": "FI",
-    "name": "Varrio",
-    "lat": 67.7549,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_FI-Var"
     ],
-    "lon": 29.61,
+    "country": "FI",
     "dataVars": [
       "Drought 2018 Archive Product",
       "ICOS ETC Archive Product",
@@ -3485,201 +3485,201 @@
     ]
   },
   "BE-Vie": {
+    "lon": 5.998099,
+    "name": "Vielsalm",
+    "lat": 50.30496,
     "project": [
       "ICOS"
     ],
-    "country": "BE",
-    "name": "Vielsalm",
-    "lat": 50.30496,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_BE-Vie"
     ],
-    "lon": 5.998099,
+    "country": "BE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "VKV": {
+    "lon": 30.7,
+    "name": "Voevikov",
+    "lat": 59.95,
     "project": [
       "INGOS"
     ],
-    "country": "RU",
-    "name": "Voevikov",
-    "lat": 59.95,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_VKV"
     ],
-    "lon": 30.7,
+    "country": "RU",
     "dataVars": [
       "InGOS CH4 Release"
     ]
   },
   "DK-Vng": {
+    "lon": 9.160709,
+    "name": "Voulundgaard",
+    "lat": 56.03748,
     "project": [
       "ICOS"
     ],
-    "country": "DK",
-    "name": "Voulundgaard",
-    "lat": 56.03748,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DK-Vng"
     ],
-    "lon": 9.160709,
+    "country": "DK",
     "dataVars": [
       "n"
     ]
   },
   "WALK": {
+    "lon": -84.28041,
+    "name": "Walker Branch",
+    "lat": 35.95947,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Walker Branch",
-    "lat": 35.95947,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_WALK"
     ],
-    "lon": -84.28041,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "WAO": {
+    "lon": 1.12,
+    "name": "Weybourne Atmospheric Observatory",
+    "lat": 52.95,
     "project": [
       "INGOS",
       "other"
     ],
-    "country": "GB",
-    "name": "Weybourne Atmospheric Observatory",
-    "lat": 52.95,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/INGOS_WAO",
       "http://meta.icos-cp.eu/resources/stations/ATMO_WAO"
     ],
-    "lon": 1.12,
+    "country": "GB",
     "dataVars": [
       "InGOS CH4 Release",
       "Drought 2018 Atmospheric Product"
     ]
   },
   "WREF": {
+    "lon": -121.95191,
+    "name": "Wind River Experimental Forest",
+    "lat": 45.82049,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Wind River Experimental Forest",
-    "lat": 45.82049,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_WREF"
     ],
-    "lon": -121.95191,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "WOOD": {
+    "lon": -99.24136,
+    "name": "Woodworth",
+    "lat": 47.12823,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Woodworth",
-    "lat": 47.12823,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_WOOD"
     ],
-    "lon": -99.24136,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "DE-RuW": {
+    "lon": 6.330963,
+    "name": "Wustebach",
+    "lat": 50.50493,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Wustebach",
-    "lat": 50.50493,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_DE-RuW"
     ],
-    "lon": 6.330963,
+    "country": "DE",
     "dataVars": [
       "Drought 2018 Archive Product",
       "Drought 2018 Fluxdata Preview Selection"
     ]
   },
   "CD-Ygb": {
+    "lon": 24.50253,
+    "name": "Yangambi",
+    "lat": 0.814473,
     "project": [
       "ICOS"
     ],
-    "country": "CD",
-    "name": "Yangambi",
-    "lat": 0.814473,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_CD-Ygb"
     ],
-    "lon": 24.50253,
+    "country": "CD",
     "dataVars": [
       "n"
     ]
   },
   "YELL": {
+    "lon": -110.53914,
+    "name": "Yellowstone Northern Range (Frog Rock)",
+    "lat": 44.95348,
     "project": [
       "NEON"
     ],
-    "country": "US",
-    "name": "Yellowstone Northern Range (Frog Rock)",
-    "lat": 44.95348,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/NEON_YELL"
     ],
-    "lon": -110.53914,
+    "country": "US",
     "dataVars": [
       "n"
     ]
   },
   "GL-ZaF": {
+    "lon": -20.55452,
+    "name": "Zackenberg Fen",
+    "lat": 74.48143,
     "project": [
       "ICOS"
     ],
-    "country": "GL",
-    "name": "Zackenberg Fen",
-    "lat": 74.48143,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_GL-ZaF"
     ],
-    "lon": -20.55452,
+    "country": "GL",
     "dataVars": [
       "n"
     ]
   },
   "GL-ZaH": {
+    "lon": -20.5503,
+    "name": "Zackenberg Gras",
+    "lat": 74.47328,
     "project": [
       "ICOS"
     ],
-    "country": "GL",
-    "name": "Zackenberg Gras",
-    "lat": 74.47328,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/ES_GL-ZaH"
     ],
-    "lon": -20.5503,
+    "country": "GL",
     "dataVars": [
       "n"
     ]
   },
   "ZEP": {
+    "lon": 11.8867,
+    "name": "Zeppelin",
+    "lat": 78.9072,
     "project": [
       "ICOS"
     ],
-    "country": "NO",
-    "name": "Zeppelin",
-    "lat": 78.9072,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_ZEP"
     ],
-    "lon": 11.8867,
+    "country": "NO",
     "dataVars": [
       "InGOS CH4 Release",
       "Drought 2018 Atmospheric Product",
@@ -3694,16 +3694,16 @@
     ]
   },
   "ZSF": {
+    "lon": 10.9796,
+    "name": "Zugspitze",
+    "lat": 47.4165,
     "project": [
       "ICOS"
     ],
-    "country": "DE",
-    "name": "Zugspitze",
-    "lat": 47.4165,
     "uri": [
       "http://meta.icos-cp.eu/resources/stations/AS_ZSF"
     ],
-    "lon": 10.9796,
+    "country": "DE",
     "dataVars": [
       "ICOS ATC NRT CO growing time series",
       "ICOS ATC NRT N2O growing time series",
