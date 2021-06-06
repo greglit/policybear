@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Card from '../views/Card.vue'
+import Share from '../views/Share.vue'
 import Editor from '../views/Editor.vue'
 import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 import Contact from '../views/Contact.vue'
@@ -20,9 +20,14 @@ const routes = [
     component: Editor
   },
   {
-    path: '/card/:request',
-    name: 'Card',
-    component: Card
+    path: '/share/:request',
+    name: 'ShareRequest',
+    component: Share
+  },
+  {
+    path: '/share/',
+    name: 'Share',
+    component: Share
   },
   {
     path: '/privacy',

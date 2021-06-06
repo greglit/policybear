@@ -52,7 +52,6 @@ export default {
   },
   data() {
     return {
-      meta: null,
       param: store.cardRequest.data.param,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
@@ -63,6 +62,11 @@ export default {
       },
       showMap: true,
     };
+  },
+  computed: {
+    meta() {
+      return store.datasets;
+    }
   },
   methods: {
     zoomUpdate(zoom) {
@@ -78,9 +82,5 @@ export default {
       console.log(`clicked station: ${this.stationNames[key]}`)
     },
   },
-  async created() {
-    this.meta = await store.datasets();
-    console.log(this.meta[this.param]);
-  }
 };
 </script>

@@ -2,8 +2,8 @@
 	<div ref="argument" style="width:100%">
     <div class="aspect-ratio-box mx-auto">
       <div :class="'aspect-ratio-box-inside card border-0 shadow text-left ' + request.styling.theme" ref="innerCard" :style="cardStyling">
-        <resize-observer @notify="handleResize" />
-          <div v-if="responseData != undefined">
+          <resize-observer @notify="handleResize" />
+          <div v-if="responseData != undefined" ref="cardContent">
             The {{meta.param_specs.param_name}} concentration at the ICOS station "{{meta.param_stations[responseData.station].station_name}}"
             <div v-if="request.styling.wording == 'difference'">
               {{responseData.change > 0 ? 'increased' : 'decreased'}} by <b>{{responseData.change}} {{responseData.unit}}</b> 
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import store from '../store.js'
+import store, { apiURL } from '../store.js'
 
 export default {
   name: 'ArgumentCard',
@@ -49,25 +49,25 @@ export default {
     }},
   data() {
     return {
-      meta: null,
 			responseData: undefined,
       cardFontSize: 12,
     }
   },
   methods: {
 		fetchData() {
+      console.log('start')
       const data = this.request.data
       const styling = this.request.styling
 			const startDate = data.startDateYear + (data.startDateMonth ? '-'+data.startDateMonth : '');
 			const endDate = data.endDateYear + (data.endDateMonth ? '-'+data.endDateMonth : '');
 			const compareTo = styling.compareTo ? `&compareTo=${styling.compareTo}` : '';
-			const query = `${store.apiURL()}datapoints/?param=${data.param}&station=${data.station}&startdate=${startDate}&enddate=${endDate}${compareTo}`;
+			const query = `${apiURL()}datapoints/?param=${data.param}&station=${data.station}&startdate=${startDate}&enddate=${endDate}${compareTo}`;
 			console.log(query)
       fetch(query, {})
       .then((resp) => resp.json())
       .then((data) => {
 				console.log(data)
-        this.responseData =  data;
+        this.responseData = data;
       })
       .catch(function(error) {
         console.log('Error: ' + error);
@@ -84,9 +84,12 @@ export default {
     
   },
   computed: {
+    meta() {
+      return store.datasets[this.request.data.param]
+    },
     cardStyling() {
       let style = '';
-      style = this.request.styling.theme != 'drastic' ? `font-size:${this.cardFontSize}pt;` : `font-size:${this.cardFontSize*0.9}pt;`
+      style = this.request.styling.theme != 'drastic' ? `font-size:${this.cardFontSize}pt;` : `font-size:${this.cardFontSize*0.85}pt;`
       style += ` padding:${this.cardFontSize}px;`
       //console.log(style);
       return style;
@@ -101,12 +104,8 @@ export default {
      deep: true
   	}
   },
-  async created() {
-    const data = await store.datasets()
-    this.meta = data[this.request.data.param]
-		this.fetchData();
-	},
   mounted() {
+    this.fetchData();
     setTimeout(()=> {
       this.handleResize();
     }, 10);

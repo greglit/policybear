@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import store from './store.js'
 
 import Navbar from './components/Navbar.vue';
 import PolicyFooter from './components/PolicyFooter.vue';
@@ -18,6 +19,9 @@ export default {
     WaveSeperator,
     PolicyFooter,
 
+  },
+  async created () {
+    store.init();
   },
 }
 </script>
@@ -73,6 +77,16 @@ export default {
   &:hover {
     color: $nord3;
     background-color: $nord6;
+  }
+}
+
+.nord-btn-dark {
+  color: $nord6;
+  background-color: transparent;
+
+  &:hover {
+    color: $nord6;
+    background-color: $nord1;
   }
 }
 

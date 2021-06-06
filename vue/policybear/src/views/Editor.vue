@@ -43,8 +43,6 @@ export default {
   },
   data() {
     return {
-      d_store: store,
-      datasets : null,
       request : {
         data : {
           param : null,
@@ -64,22 +62,6 @@ export default {
     }
   },
   methods: {
-    fetchDataSets() {
-      console.log(`${this.apiURL}datasets/`);
-      fetch(`${this.apiURL}datasets/`, {})
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        store.datasets = data;
-      })
-      .catch((error) => {
-        console.log(error);
-        setTimeout(()=>{
-          this.fetchDataSets();
-        }, 5000)
-      });
-    },
-    
     downloadImage() {
       this.$bvModal.hide('modal-share')
       console.log(document.querySelector('#policy-argument-card'))
@@ -103,6 +85,9 @@ export default {
     },
   },
   computed: {
+    datasets() {
+      return store.datasets;
+    },
     requestIsValid() {
       const data = store.cardRequest.data;
       return Boolean(data.param 
@@ -113,8 +98,6 @@ export default {
     
   },
   async created() {
-    this.datasets = await store.datasets();
-    console.log('created', this.datasets);
   },
 }
 </script>
