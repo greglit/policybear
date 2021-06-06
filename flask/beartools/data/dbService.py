@@ -15,10 +15,9 @@ import pathlib
 from pathlib import Path
 import pandas as pd
 
-from . import mongodb
 
 from beartools.metadata.specs import ParamSpecs, param_specs
-from beartools.data import icos
+from beartools.data import icos, mongodb
 from beartools.metadata import collect
 
 # just for local testing
@@ -53,12 +52,16 @@ client = MongoClient(mongodb_uri)
 db_data = client['data']            # database
 db_icos = db_data['icos']           # database collection
 
+### db_icos.drop()          # !!! ATTENTION !!! this will delete ALL collection objects
+
 for station, params in meta.items():
     data = {}
     for param in params:
         PS = ParamSpecs(param, param_specs)
         ICOS = icos.Fetch(station, PS, data)
         ICOS.fetch_and_swap_data(data)
+
+    data[station].reset_index(inplace=True)
 
     test = {
         'objectID': f'ts_icos_{station}',

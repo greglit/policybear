@@ -82,6 +82,7 @@ def mongodb_to_df(collection,station,param):
     data_fromDB = collection.find_one(filter=filter)
     print('fetching data from MongoDB server')
     df = pd.read_json(data_fromDB['data'])
+    df.set_index("TIMESTAMP", inplace=True)
     return df[[param]]
 
 #%%
