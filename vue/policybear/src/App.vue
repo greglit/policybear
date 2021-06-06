@@ -1,21 +1,15 @@
 <template>
   <div id="app">
     <router-view/>
-    <footer>
-      <wave-seperator svgWidth="500%" svgFill="#2e3440" class="mt-n4"/>
-      <div class="bg-nord0">
-        <div><a href="#/about" class="txt-nord6">About</a></div>
-        <div><a href="#/privacy" class="txt-nord6">Privacy Agreement</a></div>
-        <div class="py-3">
-          Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-        </div>
-      </div>
-    </footer>
+    <policy-footer/>
   </div>
 </template>
 
 <script>
+import store from './store.js'
+
 import Navbar from './components/Navbar.vue';
+import PolicyFooter from './components/PolicyFooter.vue';
 import WaveSeperator from './components/WaveSeperator.vue';
 
 export default {
@@ -23,6 +17,11 @@ export default {
   components: {
     Navbar,
     WaveSeperator,
+    PolicyFooter,
+
+  },
+  async created () {
+    store.init();
   },
 }
 </script>
@@ -32,6 +31,7 @@ export default {
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import '../node_modules/bootstrap-vue/src/index.scss';
 @import "../node_modules/nord/src/sass/nord.scss";
+
 
 @font-face {
   font-family: "Rubik";
@@ -80,6 +80,26 @@ export default {
   }
 }
 
+.nord-btn-dark {
+  color: $nord6;
+  background-color: transparent;
+
+  &:hover {
+    color: $nord6;
+    background-color: $nord1;
+  }
+}
+
+.nord-btn-primary {
+  color: $nord6;
+  background-color: $nord10;
+
+  &:hover {
+    color: $nord6;
+    background-color: $nord9;
+  }
+}
+
 .bg-nord3 {
   background-color: $nord3;
 }
@@ -88,8 +108,16 @@ export default {
   background-color: $nord0;
 }
 
+.bg-nord6 {
+  background-color: $nord6 !important;
+}
+
 .txt-nord6 {
-  color: $nord6;
+  color: $nord6 !important;
+}
+
+.txt-nord3 {
+  color: $nord3 !important;
 }
 
 .y-center {

@@ -1,5 +1,7 @@
 {
   "ch4": {
+    "long_name": "Methane",
+    "description": "Methane (CH4) concentration",
     "dataset": [
       "ICOS ATC CH4 Release",
       "ICOS ATC NRT CH4 growing time series"
@@ -16,6 +18,8 @@
     "round_decimals": 2
   },
   "co2": {
+    "long_name": "Carbon Dioxide",
+    "description": "Carbon Dioxide (CO2) concentration",
     "dataset": [
       "ICOS ATC CO2 Release",
       "ICOS ATC NRT CO2 growing time series"
@@ -32,6 +36,8 @@
     "round_decimals": 2
   },
   "sic": {
+    "long_name": "Sea Ice Cover",
+    "description": "Sea Ice Cover Concentration",
     "dataset": "ssmi-ssmis-hydrological-products",
     "label": "mw-hydro_v01_2.5-deg_ice_early",
     "variable": "sea_ice_cover",

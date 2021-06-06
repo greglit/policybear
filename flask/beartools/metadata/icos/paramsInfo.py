@@ -11,7 +11,8 @@ import pathlib
 from pathlib import Path
 import numpy as np
 
-from .collect import Collect
+# from .collect import Collect
+from beartools.metadata.icos.collect import Collect
 
 #%%
 data_path = Path() / 'data/'

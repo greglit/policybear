@@ -5,7 +5,7 @@ Created Mar 12, 2021
 App main file
 """
 
-from flask import Flask, request, jsonify, redirect
+from flask import Flask, request, jsonify, redirect, send_file
 from flask_cors import CORS
 
 import os
@@ -22,9 +22,20 @@ import dateutil
 from dateutil.relativedelta import relativedelta
 import json
 
+import pymongo
+from pymongo import MongoClient
+#####################################################
+# just for local testing:
+try:
+    import cfgMongoDB
+    cfgMongoDB.mongodb_env()
+except:
+    pass
+
 #####################################################
 # METHODS
 from beartools.data import icos
+from beartools.data import swap
 from beartools.cli import computations as cmp
 from beartools.cli.compare import CompareTo
 from beartools.metadata.specs import ParamSpecs
@@ -45,16 +56,35 @@ with open(data_path / 'paramsInfo.json') as f:
 with open(data_path / 'stationsInfo.json') as f:
     stationsInfo = json.load(f)
 
-metadata = pd.read_csv('data/metadata.csv',sep=';').set_index('index')
+metadata = pd.read_csv('data/metadata.csv', sep=';').set_index('index')
 data_vars = list(metadata.index)            # ['co2','ch4']
 
-data = {}
+# create empty dct to temporarily store data, in order to not fetch
+# data when station and parameter already called earlier
+# OBSOLET
+data_swap = {}
+data_swapped_info = {}
 
-def dct_size(dct):
-    size = np.sum([sys.getsizeof(v)/1024**2 for v in dct.values()])
-    print('Size of Dictionary below {} MB ({})'.format(math.ceil(size), round(size,2)))
+#%% MongoDB settings
 
-dct_size(data)
+# MongoDB access
+mongodb_uri = os.environ['MONGODB_URI']
+client = MongoClient(mongodb_uri)
+
+# MongoDB data storage
+db_data = client['data']            # database
+db_icos = db_data['icos']           # database collection
+
+# just temporarily defined function to fetch data from mongoDB
+def mongodb_to_df(collection,station,param):
+    objectID = f'ts_icos_{station}'
+    filter = {'objectID': objectID}
+    data_fromDB = collection.find_one(filter=filter)
+    print('fetching data from MongoDB server')
+    df = pd.read_json(data_fromDB['data'])
+    df.set_index("TIMESTAMP", inplace=True)
+    return df[[param]]
+
 #%%
 
 app = Flask(__name__)
@@ -63,22 +93,51 @@ CORS(app)
 @app.route('/datasets/')
 def datasets():
     meta = {}
-    for param in data_vars:
+    for param in ['co2', 'ch4']:
+        PS = ParamSpecs(param, param_specs)
         C = collect.Collect(paramsInfo[param])
-        meta[param] = {
-            'name': metadata.loc[param, 'name'],
-            'description': metadata.loc[param, 'description'],
-            'convertTo': ['cows', 'cars'],
-            'stations': C.stations(),
-            'stations_name': {station: stationsInfo[station]['name']
-                              for station in C.stations()},
-            'stations_country': {station: stationsInfo[station]['country']
-                                 for station in C.stations()}
-        }
-        meta[param]['timeStart'] = {st: C.time(st)[0] for st in C.stations()}
-        meta[param]['timeEnd'] = {st: C.time(st)[1] for st in C.stations()}
 
+        # initialize empty meta dct
+        meta[param] = {}
+        # basic parameter specifications
+        meta[param].update({
+            'param_specs': {
+                'param_name': PS.name,
+                'param_category': PS.category,
+                'param_conversion': ['cars', 'cows'],
+                'param_description': PS.descrp
+            }
+        })
+
+        # map viewer properties
+        meta[param].update({
+            'map_opts': {
+                'map_centroid_latlon': (50.0, 8.0),
+                'map_zoom': 5.0
+            }
+        })
+
+        # station specific infos
+        meta[param].update({
+            'param_stations': {
+                station: {
+                    'station_name': stationsInfo[station]['name'],
+                    'station_country': stationsInfo[station]['country'],
+                    'station_latlon':
+                        (stationsInfo[station]['lat'], stationsInfo[station]['lon']),
+                    'station_time_period':
+                        (C.time(station)[0], C.time(station)[1])
+                }
+                for station in C.stations()
+            }
+        })
     return jsonify(meta)
+
+# NOT YET IMPLEMENTED: DATA PREVIEW
+# @app.route('/data_preview/')
+# def data_preview():
+#     file = data_path / 'plot_preview/empty_img.png'
+#     return send_file(file, mimetype='image/png')
 
 #%%
 
@@ -91,14 +150,18 @@ def datapoints():
     compare_to   = request.args.get('compareTo')
 
     print(param,obsStation,start,end,compare_to)
+    #######################################################
+    # obsolet due to mongoDB fetching
     PS = ParamSpecs(param,param_specs)
+    #
+    # ICOS = icos.Fetch(obsStation, PS, data_swap)
+    # # writing data fetch into data swap dct
+    # ICOS.fetch_and_swap_data(data_swap)
+    #
+    # x = data_swap[obsStation][[param]]
+    #######################################################
 
-    # ICOS = icos.fetch('ZEP', 'ch4', 'ICOS ATC NRT CH4 growing...')
-    ICOS = icos.Fetch(obsStation, PS) # rename params
-    ICOS.collect_data(data)    # empty dictionary called data
-    dct_size(data)
-
-    x = data[obsStation][[param]]
+    x = mongodb_to_df(db_icos, obsStation, param)
 
     P = cmp.Period(x, start, end)
     da_period = P.select_period()
