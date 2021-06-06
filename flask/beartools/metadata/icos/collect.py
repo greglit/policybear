@@ -11,7 +11,8 @@ import pathlib
 from pathlib import Path
 import numpy as np
 
-from ..metadata.specs import ParamSpecs
+# from ..metadata.specs import ParamSpecs
+from beartools.metadata.specs import ParamSpecs
 
 #%%
 # data_path = Path() / 'data/'
