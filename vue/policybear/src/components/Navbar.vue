@@ -1,6 +1,6 @@
 <template>
-    <b-navbar type="primary" class="rubik-medium">
-      <b-container>
+    <b-navbar type="primary" class="rubik-medium pl-0 py-3">
+      <b-container fluid>
         <b-navbar-brand class="brand d-flex align-items-center" to="/">
           <img v-if="showIcon != undefined" src="../../public/policybear_icon.png" class="d-inline-flex logo mr-3" alt="rudiboard">
           <component :is="sm != undefined ? 'h3':'h1'" 

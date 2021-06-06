@@ -1,21 +1,14 @@
 <template>
   <div id="app">
     <router-view/>
-    <footer>
-      <wave-seperator svgWidth="500%" svgFill="#2e3440" class="mt-n4"/>
-      <div class="bg-nord0">
-        <div><a href="#/about" class="txt-nord6">About</a></div>
-        <div><a href="#/privacy" class="txt-nord6">Privacy Agreement</a></div>
-        <div class="py-3">
-          Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-        </div>
-      </div>
-    </footer>
+    <policy-footer/>
   </div>
 </template>
 
 <script>
+
 import Navbar from './components/Navbar.vue';
+import PolicyFooter from './components/PolicyFooter.vue';
 import WaveSeperator from './components/WaveSeperator.vue';
 
 export default {
@@ -23,6 +16,8 @@ export default {
   components: {
     Navbar,
     WaveSeperator,
+    PolicyFooter,
+
   },
 }
 </script>

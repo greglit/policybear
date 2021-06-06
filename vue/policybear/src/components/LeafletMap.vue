@@ -1,11 +1,11 @@
  <template>
-  <div style="height: 500px; width: 100%">
+  <div style="height: 500px; width: 100%;">
     <l-map
-      v-if="showMap"
-      :zoom="zoom"
-      :center="center"
+      v-if="meta && param"
+      :zoom="meta[param].map_opts.map_zoom"
+      :center="[meta[param].map_opts.map_centroid_latlon[0], meta[param].map_opts.map_centroid_latlon[1]]"
       :options="mapOptions"
-      style="height: 80%"
+      style="height: 100%"
       @update:center="centerUpdate"
       @update:zoom="zoomUpdate"
     >
@@ -13,9 +13,10 @@
         :url="url"
         :attribution="attribution"
       />
-      <l-marker v-for="(coords, key) in stationCoords" :lat-lng="latLong(coords[0], coords[1])" :key="key" @click="selectStation(key)">
+      <l-marker v-for="(station, key) in this.meta[param].param_stations" :lat-lng="[station.station_latlon[0], station.station_latlon[1]]" :key="key" @click="selectStation(key)">
         <l-tooltip :options="{ permanent: false, interactive: false }">
-          {{stationNames[key]}}
+          {{station.station_name}} ({{station.station_country}})<br/>
+          {{month(station.station_time_period[0][1])}} {{station.station_time_period[0][0]}} - {{month(station.station_time_period[1][1])}} {{station.station_time_period[1][0]}}
         </l-tooltip>
       </l-marker>
     </l-map>
@@ -23,7 +24,8 @@
 </template>
 
 <script>
-import { latLng } from "leaflet";
+import store from '../store.js'
+
 import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
 
 import { Icon } from 'leaflet';
@@ -37,7 +39,7 @@ Icon.Default.mergeOptions({
 
 
 export default {
-  name: "Example",
+  name: "LeafletMap",
   components: {
     LMap,
     LTileLayer,
@@ -45,11 +47,13 @@ export default {
     LPopup,
     LTooltip
   },
-  props: ['stationCoords', 'stationNames', 'selectStation'],
+  props: {
+    selectStation : Function,
+  },
   data() {
     return {
-      zoom: 13,
-      center: latLng(48.137154, 11.576124),
+      meta: null,
+      param: store.cardRequest.data.param,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -70,12 +74,13 @@ export default {
     innerClick() {
       alert("Click!");
     },
-    latLong(lat, long) {
-      return latLng(lat,long);
-    },
     clickedMarker(key) {
       console.log(`clicked station: ${this.stationNames[key]}`)
-    }
+    },
+  },
+  async created() {
+    this.meta = await store.datasets();
+    console.log(this.meta[this.param]);
   }
 };
 </script>
