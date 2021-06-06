@@ -23,6 +23,14 @@ from dateutil.relativedelta import relativedelta
 import json
 
 import pymongo
+from pymongo import MongoClient
+#####################################################
+# just for local testing:
+try:
+    import cfgMongoDB
+    cfgMongoDB.mongodb_env()
+except:
+    pass
 
 #####################################################
 # METHODS
@@ -53,37 +61,36 @@ data_vars = list(metadata.index)            # ['co2','ch4']
 
 # create empty dct to temporarily store data, in order to not fetch
 # data when station and parameter already called earlier
+# OBSOLET
 data_swap = {}
 data_swapped_info = {}
+
+#%% MongoDB settings
+
+# MongoDB access
+mongodb_uri = os.environ['MONGODB_URI']
+client = MongoClient(mongodb_uri)
+
+# MongoDB data storage
+db_data = client['data']            # database
+db_icos = db_data['icos']           # database collection
+
+# just temporarily defined function to fetch data from mongoDB
+def mongodb_to_df(collection,station,param):
+    objectID = f'ts_icos_{station}'
+    filter = {'objectID': objectID}
+    data_fromDB = collection.find_one(filter=filter)
+    print('fetching data from MongoDB server')
+    df = pd.read_json(data_fromDB['data'])
+    return df[[param]]
 
 #%%
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/mongo/')
-def mongo():
-    print(os.environ.get('MONGODB_URI'))
-
-
 @app.route('/datasets/')
 def datasets():
-    # meta = {}
-    # for param in data_vars:
-    #     C = collect.Collect(paramsInfo[param])
-    #     meta[param] = {
-    #         'name': metadata.loc[param, 'name'],
-    #         'description': metadata.loc[param, 'description'],
-    #         'convertTo': ['cows', 'cars'],
-    #         'stations': C.stations(),
-    #         'stations_name': {station: stationsInfo[station]['name']
-    #                           for station in C.stations()},
-    #         'stations_country': {station: stationsInfo[station]['country']
-    #                              for station in C.stations()}
-    #     }
-    #     meta[param]['timeStart'] = {st: C.time(st)[0] for st in C.stations()}
-    #     meta[param]['timeEnd'] = {st: C.time(st)[1] for st in C.stations()}
-
     meta = {}
     for param in ['co2', 'ch4']:
         PS = ParamSpecs(param, param_specs)
@@ -125,28 +132,12 @@ def datasets():
         })
     return jsonify(meta)
 
-@app.route('/data_preview/')
-def data_preview():
-    file = data_path / 'plot_preview/empty_img.png'
-    return send_file(file, mimetype='image/png')
+# NOT YET IMPLEMENTED: DATA PREVIEW
+# @app.route('/data_preview/')
+# def data_preview():
+#     file = data_path / 'plot_preview/empty_img.png'
+#     return send_file(file, mimetype='image/png')
 
-# from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-# from matplotlib.figure import Figure
-#
-# @app.route('/plot.png')
-# def plot_png():
-#     fig = create_figure()
-#     output = io.BytesIO()
-#     FigureCanvas(fig).print_png(output)
-#     return Response(output.getvalue(), mimetype='image/png')
-#
-# def create_figure():
-#     fig = Figure()
-#     axis = fig.add_subplot(1, 1, 1)
-#     xs = range(100)
-#     ys = [random.randint(1, 50) for x in xs]
-#     axis.plot(xs, ys)
-#     return fig
 #%%
 
 @app.route('/datapoints/')
@@ -158,13 +149,18 @@ def datapoints():
     compare_to   = request.args.get('compareTo')
 
     print(param,obsStation,start,end,compare_to)
+    #######################################################
+    # obsolet due to mongoDB fetching
     PS = ParamSpecs(param,param_specs)
+    #
+    # ICOS = icos.Fetch(obsStation, PS, data_swap)
+    # # writing data fetch into data swap dct
+    # ICOS.fetch_and_swap_data(data_swap)
+    #
+    # x = data_swap[obsStation][[param]]
+    #######################################################
 
-    ICOS = icos.Fetch(obsStation, PS, data_swap)
-    # writing data fetch into data swap dct
-    ICOS.fetch_and_swap_data(data_swap)
-
-    x = data_swap[obsStation][[param]]
+    x = mongodb_to_df(db_icos, obsStation, param)
 
     P = cmp.Period(x, start, end)
     da_period = P.select_period()
