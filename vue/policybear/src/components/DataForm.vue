@@ -61,7 +61,6 @@ export default {
   data() {
     return {
       d_requestData : store.cardRequest.data,
-      meta: null,
       showMap: false,
       dateFormatOptions: [
         { value: 'annual', text: 'Annual values' },
@@ -83,6 +82,9 @@ export default {
   	},
   },
   computed: {
+    meta() {
+      return store.datasets;
+    },
     parameterOptions() {
       var options = [ { value: null, text: 'Select a parameter', disabled: true }, ];
       if (this.meta != null) {
@@ -167,9 +169,6 @@ export default {
       }
       return options;
     },
-  },
-  async created() {
-    this.meta = await store.datasets();
   },
 }
 </script>

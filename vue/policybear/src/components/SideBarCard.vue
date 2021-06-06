@@ -2,7 +2,7 @@
   <div class="shadow m-2 border-0 rounded-lg bg-white p-lg-3 p-2" ref="container">
     <div style="width:33%;" class="d-inline-block px-1"><b-button v-b-modal.modal-edit class="toggle-form nord-btn w-100" variant="border-0" @click="changeData = true"><b-icon-bar-chart-line-fill class="mr-2"/></b-button></div>
     <div style="width:33%;" class="d-inline-block px-1"><b-button v-b-modal.modal-edit class="toggle-form nord-btn w-100" variant="border-0" @click="changeData = false"><b-icon-brush-fill class="mr-2"/></b-button></div>
-    <div style="width:33%;" class="d-inline-block px-1"><b-button :to="`share`" variant="border-0" class="nord-btn w-100" :disabled="!requestIsValid"><b-icon-share-fill/></b-button></div>
+    <div style="width:33%;" class="d-inline-block px-1"><b-button :to="`/share/`" variant="border-0" class="nord-btn w-100" :disabled="!requestIsValid"><b-icon-share-fill/></b-button></div>
     <b-modal id="modal-edit" class="modal-form" hide-footer>
       <template #modal-header="{ close }">
         <div class="d-flex flex-row justify-content-between w-100">

@@ -15,7 +15,7 @@
             :imageSrc="require('@/assets/img/profileFiete.jpg')"
             :firstName="'Friedrich'" :lastName="'Röseler'"
             :description="'I am a Physical Geographer with expertise in remote sensing based data analysis and Geographic Information Systems (GIS). The topics I find most attractive include soils in particular and land cover dynamics coupled with interaction processes between pedosphere, plants and the atmosphere on a global scale.'"
-            :github="'https://github.com/greglit'"
+            :github="'https://github.com/geograFie'"
           />
         </div>
         <h1>Contact Information</h1>

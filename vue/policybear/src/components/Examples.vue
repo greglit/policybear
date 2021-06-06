@@ -1,10 +1,15 @@
 <template>
   <div>
+    <div class="mx-auto  rounded mt-5 py-2 d-flex flex-wrap justify-content-center" style="max-width:200px">
+      <div class="mx-1"><b-button @click="shareCard()" variant="border-0" class="nord-btn-dark w-100"><b-icon-share-fill class="mr-1"/>Share</b-button></div>
+      <div class=""><b-button @click="editCard()" variant="border-0" class="nord-btn-dark w-100"><b-icon-pencil-square class="mr-1"/>Edit</b-button></div>
+    </div>
     <b-carousel
+      v-model="slideIndex"
       controls
       indicators
       :interval="0"
-      class="mt-5 text-center"
+      class="mt-2 text-center"
       img-width="800"
       img-height="300"
     >
@@ -33,6 +38,7 @@ export default {
   },
   data() {
     return {
+      slideIndex: 0,
       exampleCards: [
         {
           data : {
@@ -85,6 +91,16 @@ export default {
         
       ]
     }
+  },
+  methods: {
+    shareCard() {
+      store.cardRequest = this.exampleCards[this.slideIndex]
+      this.$router.push('/share/')
+    },
+    editCard() {
+      store.cardRequest = this.exampleCards[this.slideIndex]
+      this.$router.push('/editor/')
+    },
   },
 }
 </script>

@@ -20,8 +20,6 @@ export default {
     return {
       requestStyling : store.cardRequest.styling,
       requestData : store.cardRequest.data,
-      meta: null,
-
       wordingOptions : [
         {value: 'absolute', text: 'Compare absolute values'},
         {value: 'difference', text: 'Show absolute difference'},
@@ -35,6 +33,9 @@ export default {
     }
   },
   computed: {
+    meta() {
+      return store.datasets;
+    },
     compareToOptions()  {
       var options = [ { value: null, text: 'Select an everyday size', disabled: true }, ];
       if (this.requestData.param != null && this.meta != null) {
@@ -45,12 +46,6 @@ export default {
       return options;
     },
   },
-  methods: {
-    
-  },
-  async created() {
-    this.meta = await store.datasets();
-  }
 }
 </script>
 
