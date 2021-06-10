@@ -12,7 +12,7 @@
             <div v-else-if="request.styling.wording == 'relative'">
               {{responseData.change > 0 ? 'increased' : 'decreased'}} by 
               <b>{{Math.abs(responseData.change_pct)}} %</b> 
-              between {{responseData.begin_periodgit}} and {{responseData.end_period}}.
+              between {{responseData.begin_period}} and {{responseData.end_period}}.
             </div>
             <div v-else-if="request.styling.wording == 'absolute'">
               was <b>{{responseData.start_abs_value}} {{responseData.unit}}</b> in {{responseData.begin_period}} and <b>{{responseData.end_abs_value}} {{responseData.unit}}</b> in {{responseData.end_period}}.

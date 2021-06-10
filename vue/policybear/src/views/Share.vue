@@ -85,7 +85,10 @@ export default {
     if (this.$route.params.request) {
       this.request = JSON.parse(this.$route.params.request)
     }
-  }
+  },
+  mounted() {
+    window.scrollTo(0, 0)
+  },
 }
 </script>
 
